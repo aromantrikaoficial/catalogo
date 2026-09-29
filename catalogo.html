@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | Aromantrika Productos Capilares</title>
+    <style>
+      :root {
+        --color-primario: #15803d;
+        --color-oscuro: #1c1917;
+        --color-fondo: #fafaf9;
+        --color-gris-claro: #f5f5f4;
+        --color-borde: #e7e5e4;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--color-fondo);
+        color: var(--color-oscuro);
+      }
+
+      /* Barra de Navegación */
+      header {
+        background: #ffffff;
+        padding: 14px 40px;
+        border-bottom: 1px solid var(--color-borde);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .logo-text {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--color-primario);
+        letter-spacing: -0.5px;
+      }
+
+      nav {
+        display: flex;
+        gap: 24px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #44403c;
+        font-size: 15px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      nav a:hover, nav a.active {
+        color: var(--color-primario);
+      }
+
+      /* Contenedor Principal del Catálogo */
+      .catalogo-container {
+        padding: 40px 20px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .badge-sub {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--color-primario);
+        background: #dcfce7;
+        padding: 4px 12px;
+        border-radius: 20px;
+      }
+
+      .section-title {
+        font-size: 28px;
+        color: var(--color-oscuro);
+        margin-top: 10px;
+        margin-bottom: 8px;
+      }
+
+      .section-subtitle {
+        color: #78716c;
+        font-size: 15px;
+      }
+
+      /* Filtros de Categorías */
+      .categories-filter {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .cat-btn {
+        background: #ffffff;
+        border: 1px solid #d6d3d1;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        color: #44403c;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .cat-btn.active, .cat-btn:hover {
+        background-color: var(--color-primario);
+        color: #ffffff;
+        border-color: var(--color-primario);
+      }
+
+      /* Grid de Productos */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .product-card {
+        background: #ffffff;
+        border: 1px solid var(--color-borde);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: box-shadow 0.2s ease;
+      }
+
+      .product-card:hover {
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      }
+
+      .product-image-container {
+        position: relative;
+        height: 220px;
+        background-color: var(--color-gris-claro);
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover .product-image {
+        transform: scale(1.08);
+      }
+
+      .product-badge {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        background: rgba(28, 25, 23, 0.85);
+        color: #ffffff;
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+
+      /* Modal para ver imagen grande */
+      .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.85);
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .image-modal.active {
+        display: flex;
+      }
+      .image-modal img {
+        max-width: 90%;
+        max-height: 85vh;
+        border-radius: 8px;
+        object-fit: contain;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+      .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 36px;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      /* Carrito Lateral y Botón Flotante */
+      .cart-modal {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 380px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+        z-index: 1000;
+        transition: right 0.3s ease;
+      }
+
+      .cart-modal.active {
+        right: 0;
+      }
+
+      .cart-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .cart-header {
+        padding: 16px 20px;
+        background: var(--color-primario);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .close-cart-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .cart-items-body {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 20px;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--color-gris-claro);
+      }
+
+      .cart-item-info h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: var(--color-oscuro);
+      }
+
+      .cart-item-info p {
+        font-size: 12px;
+        color: #78716c;
+      }
+
+      .qty-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .qty-btn {
+        background: var(--color-borde);
+        border: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .cart-footer {
+        padding: 20px;
+        border-top: 1px solid var(--color-borde);
+        background: var(--color-fondo);
+      }
+
+      .cart-total-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+        margin-bottom: 16px;
+      }
+
+      .btn-checkout-wa {
+        width: 100%;
+        background-color: #25d366;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .cart-floating-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: var(--color-primario);
+        color: white;
+        border: none;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        cursor: pointer;
+        font-size: 20px;
+        z-index: 999;
+      }
+
+      #cart-count {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        background: #dc2626;
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body>
+
+  <!-- Barra Superior -->
+  <!-- Barra Superior y Logo en PNG de Aromantrika -->
+  <header>
+    <a href="catalogo.html" class="logo-container" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <!-- Reemplaza 'tu-logo.png' con el nombre exacto de tu archivo de imagen -->
+      <img src="logo.png" alt="Aromantrika" style="height: 50px; width: auto; object-fit: contain;">
+    </a>
+    <nav style="display: flex; gap: 24px;">
+         
+	  <a href="index.html">Inicio</a>
+      <a href="catalogo.html" class="active">Catálogo</a>
+      <a href="nosotros.html">Nosotros</a>
+    </nav>
+  </header>
+
+  <!-- Contenido del Catálogo -->
+  <div class="catalogo-container">
+    <div class="section-header">
+      <span class="badge-sub">Línea Capilar Natural</span>
+      <h2 class="section-title">Catálogo de Productos</h2>
+      <p class="section-subtitle">Selecciona tus productos favoritos y arma tu pedido directamente por WhatsApp.</p>
+    </div>
+
+    <!-- Filtros de Categorías -->
+    <div class="categories-filter">
+      <button onclick="filterCategory('todos', this)" class="cat-btn active">Todos</button>
+      <button onclick="filterCategory('shampoo', this)" class="cat-btn">Shampoos</button>
+      <button onclick="filterCategory('tratamiento', this)" class="cat-btn">Tratamiento & Acondicionador</button>
+      <button onclick="filterCategory('tonico', this)" class="cat-btn">Tónico Capilar</button>
+      <button onclick="filterCategory('kits', this)" class="cat-btn">Kits Especiales</button>
+    </div>
+
+    <!-- Cuadrícula de Productos -->
+    <div id="product-grid" class="product-grid"></div>
+  </div>
+
+ 
+
+  <!-- Carrito Lateral -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>Tu Pedido Capilar 🌿</h3>
+        <button onclick="toggleCart(false)" class="close-cart-btn">&times;</button>
+      </div>
+      <div id="cart-items" class="cart-items-body"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Subtotal productos:</span>
+          <strong id="cart-total">$0 COP</strong>
+        </div>
+        <p style="font-size: 11px; color: #78716c; margin-bottom: 14px; text-align: center; line-height: 1.4;">
+          * El costo del envío y el tiempo de entrega (Medellín, Área metropolitanao Nacional) se calculan y confirman al coordinar por WhatsApp.
+        </p>
+        <button onclick="checkoutWhatsApp()" class="btn-checkout-wa">
+          Enviar pedido a WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón Flotante Carrito -->
+  <button id="cart-floating-btn" onclick="toggleCart(true)" class="cart-floating-btn">
+    🛒 <span id="cart-count">0</span>
+  </button>
+
+  <script>
+    const products = [
+      {
+        id: 1,
+        title: "Shampoo Romero Fortalecedor Botánico",
+        category: "shampoo",
+        price: 33000,
+        presentacion: "Frasco x 500 ml",
+        extractos: "Romero, Quina, Ortiga, Guasimo, Hoja de Laurel, Cola de caballo, Aloe Vera, Linaza, Guayabo, Clavo de Olor, Decyl glucoside, Betaina de coco, Glicerina, cafeina",
+        ingredients: "Extracto puro de Romero, Ortiga y Guásimo",
+        image: "Romero-.jpg",
+        desc: "Fórmula magistral diseñada para limpiar suavemente la fibra capilar, estimular la irrigación del cuero cabelludo y fortalecer la hebra desde la raíz, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.",
+        beneficios: "• Estimula el crecimiento de nuevos folículos capilares.\n• Fortalece la hebra capilar reduciendo la ruptura.\n• Regula la producción de grasa en el cuero cabelludo.",
+        modo_uso: "Aplicar únicamente sobre el cuero cabelludo húmedo (el largo se lava con la espuma que se genera, aplicar shampoo puede resecar y desperdiciar producto), masajear suavemente el cuero cabelludo de 3 a 5 minutos y enjuagar con abundante agua fría."
+      },
+      {
+        id: 2,
+        title: "Shampoo Manzanilla Aclarante Natural",
+        category: "shampoo",
+        price: 33000,
+        presentacion: "Frasco x 500 ml",
+        extractos: "Extractos de Manzanilla, Ortiga, Guásimo, Hoja de laurel, Cola de cabello, Aloe vera, Linaza, Guayabo, Clavo de olor, Decyl glucoside, Betaina de coco, Glicerina, Cafeina.",
+        ingredients: "Manzanilla, Guásimo & Sábila",
+        image: "Manzanilla-.jpg",
+        desc: "Limpia delicadamente mientras resalta y cuida los reflejos dorados naturales del cabello, aportando brillo, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.",
+        beneficios: "• Realza los reflejos dorados de forma natural.\n• Ayuda a detener la caída, elimina la caspa y activa el crecimiento.\n• Cuida y nutre el cuero cabelludo.",
+        modo_uso: "Aplicar únicamente sobre el cuero cabelludo húmedo (el largo se lava con la espuma que se genera, aplicar shampoo puede resecar y desperdiciar producto), masajear suavemente el cuero cabelludo de 3 a 5 minutos y enjuagar con abundante agua fría."
+      },
+      {
+        id: 3,
+        title: "Acondicionador Nutritivo Herbal",
+        category: "tratamiento",
+        price: 33000,
+        presentacion: "Frasco x 500 ml",
+        extractos: "Manteca de karité, Leches de arroz y avena, Aceite de coco y argán, Aloe vera y Linaza",
+        ingredients: "Pantenol (Provitamina B5), Aloe vera y Linaza",
+        image: "Acondicionador-.jpg",
+        desc: "Desenreda de manera natural, aporta una suavidad profunda y sella la cutícula para restaurar el brillo de la fibra capilar.",
+        beneficios: "• Desenreda sin esfuerzo y sin generar grasa.\n• Sella la cutícula y previene puntas abiertas.\n• Aporta hidratación.",
+        modo_uso: "Aplicar de medios a puntas siempre después del shampoo, con el cabello ligeramente húmedo, no chorreando agua, dejar actuar por 3 a 5 minutos y enjuagar con abundante agua fría."
+      },
+      {
+        id: 4,
+        title: "Tratamiento Biorepolarizador Herbal",
+        category: "tratamiento",
+        price: 35000,
+        presentacion: "Frasco x 500 ml",
+        extractos: "Aceite de Argán y Aguacate, Pantenol, Aloe vera y Linaza",
+        ingredients: "Linaza, Guasimo, Manteca de karité, Zanahoria, Leches de arroz y avena.",
+        image: "Tratamiento-.jpg",
+        desc: "Mascarilla de nutrición intensiva para reparar la fibra capilar maltratada, porosa o reseca, devolviéndole su vitalidad.",
+        beneficios: "• Repara la hebra capilar altamente maltratada.\n• Devuelve la elasticidad, hidratación y brillo.\n• Sella la porosidad del cabello.",
+        modo_uso: "Aplicar de medios a puntas sobre el cabello limpio y húmedo. Usar entre 1 a 2 veces por semana según el daño del cabello. Dejar actuar de 15 a 20 minutos y enjuagar. Orden de lavado del día que uses el Tratamiento: shampoo y enjuagar, tratamiento, dejar actuar y enjuagar y terminar con Acondicionador y enjuagar"
+      },
+      {
+        id: 5,
+        title: "Tónico Capilar Bioactivador anticaída y crecimiento",
+        category: "tonico",
+        price: 28000,
+        presentacion: "Atomizador x 250 ml",
+        extractos: "Extractos herbales Romero, Guasimo, Canela, Ortiga, Manzanilla, Eucalipto, Calendula, Hoja de Laurel, guayabo, Quina, Cola de caballo, Clavo de olor.",
+        ingredients: "Cafeina, Pantenol (Provitamina B5)",
+        image: "tonico-.jpg",
+        desc: "Tónico concentrado sin enjuague para aplicar únicamente en el cuero cabelludo, ayuda a detener la caída, elimina la caspa y promueve el crecimiento del cabello.",
+        beneficios: "• Bioactiva la irrigación sanguínea del folículo.\n• Detiene la caída excesiva y combate la caspa.\n• Estimula un crecimiento fuerte y sano.",
+        modo_uso: "Aplicar todos los días (mañana o noche) únicamente en el cuero cabelludo limpio (seco o húmedo) dando suaves masajes circulares. No se enjuaga."
+      },
+      {
+        id: 6,
+        title: "Kit Rutina Capilar Completa de Romero",
+        category: "kits",
+        price: 88000,
+        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml + Tónico 250ml)",
+        extractos: "Sistema botánico integral capilar",
+        image: "4 romero-.jpg",
+        desc: "El tratamiento combinado perfecto para realizar una rutina completa de limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
+        beneficios: "• Rutina integral 3 en 1 para potenciar resultados.\n• Limpieza, hidratación y bioactivación capilar combinadas.",
+        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo, y el tónico diariamente en el cuero cabelludo así ese día no laves tu cabello."
+      },
+      {
+        id: 7,
+        title: "Kit Rutina Capilar Completa de Manzanilla",
+        category: "kits",
+        price: 88000,
+        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml + Tónico 250ml)",
+        extractos: "Sistema botánico integral capilar",
+        image: "combo 4 manzanilla-.jpg",
+        desc: "El tratamiento combinado perfecto para realizar una rutina completa de limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
+        beneficios: "• Cuida y aclara manteniendo la salud capilar.\n• Sistema completo de hidratación y crecimiento.",
+        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo, y el tónico diariamente en el cuero cabelludo así ese día no laves tu cabello."
+      },
+      {
+        id: 8,
+        title: "Kit crecimiento e hidratación de Romero",
+        category: "kits",
+        price: 60000,
+        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml)",
+        extractos: "Sistema botánico integral capilar",
+        image: "combo 3 romero-.jpg",
+        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
+        beneficios: "• Dúo ideal para limpieza diaria e hidratación.\n• Fortalece la raíz y suaviza las puntas.",
+        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo."
+      },
+      {
+        id: 9,
+        title: "Kit crecimiento e hidratación de Manzanilla",
+        category: "kits",
+        price: 60000,
+        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml)",
+        extractos: "Sistema botánico integral capilar",
+        image: "combo 3 manzanilla-.jpg",
+        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
+        beneficios: "• Mantiene los reflejos dorados limpios y suaves.\n• Hidratación equilibrada para toda la familia.",
+        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo."
+      },
+      {
+        id: 10,
+        title: "Kit crecimiento, nutrición y Reparación de Romero",
+        category: "kits",
+        price: 63000,
+        presentacion: "Kit (Shampoo 500ml + Biorepolarizador 500ml)",
+        extractos: "Sistema botánico integral capilar",
+        image: "combo 5 romero-.jpg",
+        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
+        beneficios: "• Estimulación de raíz combinada con reparación profunda de puntas.\n• Ideal para cabellos resecos y con caída.",
+        modo_uso: "Lavar con shampoo (2 -3 veces por semana) y usar el biorepolarizador como mascarilla nutritiva de 1 a 2 veces por semana. El Tratamiento no reemplaza el Acondicionador"
+      },
+      {
+        id: 11,
+        title: "Kit crecimiento, nutrición y Reparación de Manzanilla",
+        category: "kits",
+        price: 63000,
+        presentacion: "Kit (Shampoo 500ml + Biorepolarizador 500ml)",
+        extractos: "Sistema botánico integral capilar",
+        image: "combo 5 manzanilla-.jpg",
+        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
+        beneficios: "• Limpieza del cuero cabelludo, Nutrición intensiva para cabellos claros o rubios maltratados.",
+        modo_uso: "Lavar con shampoo (2 -3 veces por semana) y usar el biorepolarizador como mascarilla nutritiva de 1 a 2 veces por semana. El Tratamiento no reemplaza el Acondicionador"
+      }
+    ];
+
+    let cart = [];
+
+    function renderProducts(filter = 'todos') {
+      const grid = document.getElementById('product-grid');
+      if (!grid) return;
+
+      grid.innerHTML = '';
+      const filtered = filter === 'todos' ? products : products.filter(p => p.category === filter);
+
+      filtered.forEach(p => {
+        let precioFormateado = "$" + p.price.toLocaleString('es-CO') + " COP";
+
+        grid.innerHTML += `
+          <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column;">
+            
+            <!-- Contenedor de la Imagen -->
+            <div onclick="openProductModal(${p.id})" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
+              <img src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
+            </div>
+
+            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+              <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal(${p.id})">${p.title}</h3>
+              <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">${p.desc}</p>
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                <span style="font-size: 16px; font-weight: bold; color: #9C624E;">${precioFormateado}</span>
+                <button onclick="addToCart(${p.id})" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
+              </div>
+            </div>
+
+          </div>
+        `;
+      });
+    }
+
+    function filterCategory(cat, element) {
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+      if (element) element.classList.add('active');
+      renderProducts(cat);
+    }
+
+    function addToCart(id) {
+      const item = cart.find(p => p.id === id);
+      if (item) {
+        item.qty++;
+      } else {
+        const prod = products.find(p => p.id === id);
+        if (prod) cart.push({ ...prod, qty: 1 });
+      }
+      updateCartUI();
+      toggleCart(true);
+    }
+
+    function updateCartUI() {
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+
+      const totalCount = cart.reduce((acc, p) => acc + p.qty, 0);
+      const totalPrice = cart.reduce((acc, p) => acc + (p.price * p.qty), 0);
+
+      if (cartCount) cartCount.innerText = totalCount;
+      if (cartTotal) cartTotal.innerText = `$${totalPrice.toLocaleString('es-CO')} COP`;
+
+      if (cartItems) {
+        if (cart.length === 0) {
+          cartItems.innerHTML = '<p style="text-align: center; color: #a8a29e; padding: 32px 0;">Tu carrito está vacío</p>';
+        } else {
+          cartItems.innerHTML = cart.map(p => `
+            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
+              <div class="cart-item-info">
+                <h4 style="font-size: 14px; margin: 0; color: #1c1917;">${p.title}</h4>
+                <p style="font-size: 12px; color: #78716c; margin: 2px 0 0 0;">$${p.price.toLocaleString('es-CO')}</p>
+              </div>
+              <div class="qty-controls" style="display: flex; align-items: center; gap: 8px;">
+                <button onclick="changeQty(${p.id}, -1)" class="qty-btn" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">-</button>
+                <span style="font-size: 13px; font-weight: bold;">${p.qty}</span>
+                <button onclick="changeQty(${p.id}, 1)" class="qty-btn" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">+</button>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(p => p.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) cart = cart.filter(p => p.id !== id);
+      }
+      updateCartUI();
+    }
+
+    function toggleCart(forceOpen = false) {
+      const modal = document.getElementById('cart-modal');
+      if (!modal) return;
+      if (forceOpen) modal.classList.add('active');
+      else modal.classList.toggle('active');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert("Agrega al menos un producto al carrito para continuar.");
+        return;
+      }
+
+      const phone = "573002869632";
+      let message = "🌿 *NUEVO PEDIDO - AROMANTRIKA*\n\nHola, me gustaría solicitar los siguientes productos:\n\n";
+
+      cart.forEach(p => {
+        message += `• *${p.title}* (${p.presentacion}) x${p.qty} - $${(p.price * p.qty).toLocaleString('es-CO')}\n`;
+      });
+
+      const totalProductos = cart.reduce((acc, p) => acc + (p.price * p.qty), 0);
+      
+      message += `\n*Subtotal productos:* $${totalProductos.toLocaleString('es-CO')} COP\n`;
+      message += `📦 *Envío:* Se calcula según ciudad y peso (Medellín/Área metropolitana o Nacional).\n`;
+      message += `\nQuedo atento para confirmar el valor total del envío, la dirección de destino y coordinar el pago. ¡Muchas gracias!`;
+
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function openProductModal(id) {
+      const p = products.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('modalTitle').innerText = p.title;
+      document.getElementById('modalImg').src = p.image;
+      document.getElementById('modalPrice').innerText = "$" + p.price.toLocaleString('es-CO') + " COP";
+      document.getElementById('modalDesc').innerText = p.desc || "";
+      document.getElementById('modalPresentation').innerText = p.presentacion;
+      document.getElementById('modalBeneficios').innerText = p.beneficios || "• Nutre y fortalece profundamente la hebra capilar.\n• Ingredientes de origen natural.";
+      document.getElementById('modalModoUso').innerText = p.modo_uso || "Aplicar sobre el cabello húmedo, masajear suavemente y enjuagar con abundante agua.";
+      document.getElementById('modalExtractos').innerText = p.extractos || p.ingredients || "Extractos botánicos naturales.";
+
+      document.getElementById('modalAddBtn').setAttribute('onclick', `addToCart(${p.id}); closeProductModal();`);
+      
+      const modal = document.getElementById('productModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('productModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+    });
+  </script>
+
+  <!-- PIE DE PÁGINA (FOOTER) PROFESIONAL -->
+  <footer style="background-color: #1c1917; color: #f5f5f4; padding: 50px 20px 24px 20px; margin-top: 60px; border-top: 3px solid #15803d; width: 100%; box-sizing: border-box;">
+    <div style="max-width: 1100px; margin: 0 auto; width: 100%;">
+      <div style="width: 100%; max-width: 600px; margin: 0 auto; margin-bottom: 35px;">
+        
+        <div style="width: 100%; margin-bottom: 30px;">
+          <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 12px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>🌿</span> Aromantrika Productos Capilares
+          </h3>
+          <p style="font-size: 13px; color: #a8a29e; line-height: 1.6; text-align: center; margin: 0 auto; max-width: 480px;">
+            Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.
+          </p>
+        </div>
+
+        <div style="width: 100%;">
+          <h4 style="color: #ffffff; font-size: 15px; margin-bottom: 14px; font-weight: 600; text-align: center;">Conéctate con Nosotros</h4>
+          <p style="font-size: 13px; color: #a8a29e; margin-bottom: 16px; line-height: 1.5; text-align: center;">Síguenos en nuestras redes sociales y descubre tips de cuidado capilar:</p>
+          
+          <div style="text-align: center; width: 100%;">
+            <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="tiktok.png" alt="TikTok" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
+            <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="instagram.png" alt="Instagram" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
+            <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="facebook.png" alt="Facebook" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
+            <a href="https://wa.me/573002869632" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="whatsApp.png" alt="WhatsApp" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid #292524; padding-top: 20px; text-align: center; font-size: 12px; color: #78716c; width: 100%;">
+      © 2026 Aromantrika Productos Capilares. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- MODAL ÚNICO DE DETALLE DE PRODUCTO -->
+  <div id="productModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: #ffffff; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; border-radius: 16px; padding: 25px; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.3); color: #1c1917; text-align: left;">
+      
+      <!-- Botón de Cerrar (X) -->
+      <button onclick="closeProductModal()" style="position: absolute; top: 15px; right: 15px; background: #e7e5e4; color: #1c1917; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center;">&times;</button>
+      
+      <!-- Imagen del Modal -->
+      <div style="width: 100%; height: 260px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; background: #fafaf9; display: flex; align-items: center; justify-content: center;">
+        <img id="modalImg" src="" alt="Producto Aromantrika" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+      </div>
+
+      <!-- Título y Presentación -->
+      <h2 id="modalTitle" style="font-size: 18px; font-weight: bold; color: #1a382b; margin-bottom: 4px;"></h2>
+      <p id="modalPresentation" style="font-size: 13px; color: #78716c; margin-bottom: 14px;"></p>
+
+      <!-- Precio y Botón de Añadir al Carrito -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fafaf9; padding: 12px 16px; border-radius: 8px; border: 1px solid #e7e5e4;">
+        <span id="modalPrice" style="font-size: 20px; font-weight: bold; color: #9C624E;"></span>
+        <button id="modalAddBtn" style="background-color: #1a382b; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;">Añadir al Carrito</button>
+      </div>
+
+      <!-- Descripción corta -->
+      <p id="modalDesc" style="font-size: 13.5px; color: #57534e; margin-bottom: 20px; line-height: 1.5;"></p>
+      
+      <!-- Sección Beneficios -->
+      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px; margin-bottom: 15px;">
+        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">🌿 Beneficios</div>
+        <div id="modalBeneficios" style="font-size: 13px; color: #57534e; white-space: pre-line; line-height: 1.5;"></div>
+      </div>
+
+      <!-- Sección Modo de Uso -->
+      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px; margin-bottom: 15px;">
+        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">⏱️ Modo de Uso</div>
+        <div id="modalModoUso" style="font-size: 13px; color: #57534e; line-height: 1.5;"></div>
+      </div>
+
+      <!-- Sección Ingredientes Activos -->
+      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px;">
+        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">🌱 Ingredientes Activos</div>
+        <div id="modalExtractos" style="font-size: 13px; color: #57534e; line-height: 1.5;"></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
