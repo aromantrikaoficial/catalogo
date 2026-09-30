@@ -405,12 +405,6 @@
     <div id="product-grid" class="product-grid"></div>
   </div>
 
- <!-- Campos de Destino Obligatorios -->
-        <div style="margin-bottom: 12px;">
-          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 5px;">🏙️ Ciudad / Municipio <span style="color: #9C624E;">*</span>:</label>
-          <input type="text" id="shippingCity" required placeholder="Ej: Medellín, Envigado, Caldas..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
-        </div>
-
         <div style="margin-bottom: 12px;">
           <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 5px;">📍 Barrio, Vereda o Sector <span style="color: #9C624E;">*</span>:</label>
           <input type="text" id="shippingNeighborhood" required placeholder="Ej: Aranjuez, San Antonio de Prado..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
@@ -418,27 +412,42 @@
         </div>
 
   <!-- Carrito Lateral -->
-  <div id="cart-modal" class="cart-modal">
-    <div class="cart-content">
-      <div class="cart-header">
-        <h3>Tu Pedido Capilar 🌿</h3>
-        <button onclick="toggleCart(false)" class="close-cart-btn">&times;</button>
-      </div>
-      <div id="cart-items" class="cart-items-body"></div>
-      <div class="cart-footer">
-        <div class="cart-total-row">
-          <span>Subtotal productos:</span>
-          <strong id="cart-total">$0 COP</strong>
+      <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+          <div class="cart-header">
+            <h3>Tu Pedido Capilar 🌿</h3>
+            <button onclick="toggleCart(false)" class="close-cart-btn">&times;</button>
+          </div>
+          <div id="cart-items" class="cart-items-body"></div>
+          
+          <div class="cart-footer">
+            
+            <!-- CAMPOS DE DESTINO OBLIGATORIOS -->
+            <div style="margin-bottom: 10px;">
+              <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">🏙️ Ciudad / Municipio <span style="color: #9C624E;">*</span>:</label>
+              <input type="text" id="shippingCity" required placeholder="Ej: Medellín, Envigado..." style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 10px;">
+              <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">📍 Barrio o Sector <span style="color: #9C624E;">*</span>:</label>
+              <input type="text" id="shippingNeighborhood" required placeholder="Ej: Aranjuez, Poblado..." style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
+              <small style="font-size: 10px; color: #78716c; display: block; margin-top: 3px;">* El envío se calcula según la zona.</small>
+            </div>
+            <!-- FIN DE LOS CAMPOS -->
+
+            <div class="cart-total-row">
+              <span>Subtotal productos:</span>
+              <strong id="cart-total">$0 COP</strong>
+            </div>
+            <p style="font-size: 11px; color: #78716c; margin-bottom: 14px; text-align: center;">
+              * El costo del envío y el tiempo de entrega (Medellín, Área metropolitana o Nacional) se confirman al enviar tu pedido.
+            </p>
+            <button onclick="checkoutWhatsApp()" class="btn-checkout-wa">
+              Enviar pedido a WhatsApp
+            </button>
+          </div>
         </div>
-        <p style="font-size: 11px; color: #78716c; margin-bottom: 14px; text-align: center; line-height: 1.4;">
-          * El costo del envío y el tiempo de entrega (Medellín, Área metropolitanao Nacional) se calculan y confirman al coordinar por WhatsApp.
-        </p>
-        <button onclick="checkoutWhatsApp()" class="btn-checkout-wa">
-          Enviar pedido a WhatsApp
-        </button>
       </div>
-    </div>
-  </div>
 
   <!-- Botón Flotante Carrito -->
   <button id="cart-floating-btn" onclick="toggleCart(true)" class="cart-floating-btn">
@@ -689,23 +698,23 @@
     }
 
    function checkoutWhatsApp() {
-        if (cart.length === 0) {
-          alert('Tu carrito está vacío.');
-          return;
-        }
-
-        // 1. Obtener y limpiar los valores de los inputs
+        // 1. Obtener los campos de ciudad y barrio
         const cityInput = document.getElementById('shippingCity');
         const neighborhoodInput = document.getElementById('shippingNeighborhood');
         
         const city = cityInput ? cityInput.value.trim() : '';
         const neighborhood = neighborhoodInput ? neighborhoodInput.value.trim() : '';
 
-        // 2. Validar que no estén vacíos (por si intentan saltárselo)
+        // 2. Validar que sean obligatorios
         if (!city || !neighborhood) {
           alert('Por favor completa tu Ciudad y Barrio/Sector para calcular el envío.');
           if (!city && cityInput) cityInput.focus();
           else if (!neighborhood && neighborhoodInput) neighborhoodInput.focus();
+          return;
+        }
+
+        if (cart.length === 0) {
+          alert('Tu carrito está vacío.');
           return;
         }
 
@@ -715,7 +724,7 @@
         localStorage.setItem('aromantrika_order_seq', orderNumber);
         let formattedOrderNum = String(orderNumber).padStart(3, '0');
 
-        // 4. Armar el mensaje para WhatsApp con los datos validados
+        // 4. Armar el mensaje para WhatsApp
         let message = `¡Hola! 👋 Me gustaría hacer un nuevo pedido en Aromantrika:\n\n`;
         message += `*Pedido #${formattedOrderNum}*\n\n`;
         
