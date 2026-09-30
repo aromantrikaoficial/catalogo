@@ -27,19 +27,29 @@
         line-height: 1.6;
       }
 
-      /* Barra de Navegación con Logo Oficial */
       header {
-        background: #ffffff;
-        padding: 14px 40px;
-        border-bottom: 1px solid var(--color-borde);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      background: #ffffff;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--color-borde);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      flex-wrap: wrap; /* Permite que los elementos bajen si no caben en una sola línea */
+      gap: 12px;       /* Espacio ordenado cuando se acomodan en celular */
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column; /* En celulares, coloca el logo arriba y el menú abajo */
+        justify-content: center;
+        text-align: center;
+        padding: 12px 15px;
       }
+    }
 
       .logo-container {
         display: flex;
@@ -221,44 +231,37 @@
 
   </div>
 
-  <!-- PIE DE PÁGINA (FOOTER) PROFESIONAL CON TUS ICONOS -->
-  <footer style="background-color: #1c1917; color: #f5f5f4; padding: 50px 20px 24px 20px; margin-top: 60px; border-top: 3px solid #15803d;">
-    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 35px; text-align: left;">
-      
-      <!-- Columna 1: Marca e Información -->
-      <div style="flex: 1; min-width: 260px;">
-        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-          <span>🌿</span> Aromantrika Productos Capilares
-        </h3>
-        <p style="font-size: 13px; color: #a8a29e; line-height: 1.6;">
-          Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.
-        </p>
-      </div>
-
-          <!-- Columna 3: Redes Sociales con tus Imágenes -->
-      <div style="flex: 1; min-width: 260px;">
-        <h4 style="color: #ffffff; font-size: 15px; margin-bottom: 14px; font-weight: 600;">Conéctate con Nosotros</h4>
-        <p style="font-size: 13px; color: #a8a29e; margin-bottom: 16px; line-height: 1.5;">Síguenos en nuestras redes sociales y descubre tips de cuidado capilar:</p>
+  <!-- PIE DE PÁGINA (FOOTER) PROFESIONAL -->
+  <footer style="background-color: #1c1917; color: #f5f5f4; padding: 50px 20px 24px 20px; margin-top: 60px; border-top: 3px solid #15803d; width: 100%; box-sizing: border-box;">
+    <div style="max-width: 1100px; margin: 0 auto; width: 100%;">
+      <div style="width: 100%; max-width: 600px; margin: 0 auto; margin-bottom: 35px;">
         
-        <!-- Contenedor de tus iconos en imagen -->
-        <div style="display: flex; gap: 16px; align-items: center;">
-          <!-- Instagram -->
-          <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" style="text-decoration: none;">
-            <img src="tiktok.png" alt="TikTok" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
-          <!-- TikTok -->
-          <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" style="text-decoration: none;">
-            <img src="instagram.png" alt="TikTok" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
-          <!-- WhatsApp -->
-          <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" style="text-decoration: none;">
-            <img src="facebook.png" alt="WhatsApp" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
-		  </a>
-          <!-- WhatsApp -->
-          <a href="https://wa.me/573002869632" target="_blank" style="text-decoration: none;">
-            <img src="whatsapp.png" alt="WhatsApp" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
+        <div style="width: 100%; margin-bottom: 30px;">
+          <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 12px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>🌿</span> Aromantrika Productos Capilares
+          </h3>
+          <p style="font-size: 13px; color: #a8a29e; line-height: 1.6; text-align: center; margin: 0 auto; max-width: 480px;">
+            Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.
+          </p>
+        </div>
+
+        <div style="width: 100%;">
+          <h4 style="color: #ffffff; font-size: 15px; margin-bottom: 14px; font-weight: 600; text-align: center;">Conéctate con Nosotros</h4>
+          <p style="font-size: 13px; color: #a8a29e; margin-bottom: 16px; line-height: 1.5; text-align: center;">Síguenos en nuestras redes sociales y descubre tips de cuidado capilar:</p>
+          
+          <div style="text-align: center; width: 100%;">
+            <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="tiktok.png" alt="TikTok" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
+            <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="instagram.png" alt="Instagram" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
+            <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="facebook.png" alt="Facebook" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
+            <a href="https://wa.me/573002869632" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
+              <img src="whatsApp.png" alt="WhatsApp" style="width: 36px; height: 36px; object-fit: contain;">
+            </a>
         </div>
       </div>
 
