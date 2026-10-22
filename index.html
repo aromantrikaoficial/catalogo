@@ -248,13 +248,15 @@
   .cart-floating-btn { position: fixed; bottom: 24px; right: 24px; background: #15803d; color: white; border: none; width: 56px; height: 56px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; font-size: 20px; z-index: 999; }</style>
 
 <h1 style="display: none;">Aromantrika | Productos Capilares Naturales</h1>
-  
-  <meta name="description" content="Descubre productos capilares naturales y artesanales para toda la familia. Cuidado botánico para tu cabello.">
+
+<meta name="description" content="Descubre productos capilares naturales y artesanales para toda la familia. Cuidado botánico para tu cabello.">
 <meta name="keywords" content="champús naturales, shampoo natural, acondicionador, tratamiento para el cabello, mascarilla capilar, biorepolarizador, tonico capilar, perfume capilar, 
 productos capilares, cosmética artesanal, cuidado capilar natural, caida del cabello, productos naturales medellin, 
 shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acondicionador natural, acondicionador sin parabenos, tónico capilar, tónico anticaída, tónico crecimiento, mascarilla hidratante, mascarilla nutritiva, biorepolarizador capilar, perfume capilar natural, aromantrika medellin, productos capilares colombia, cuidado capilar botánico, productos capilares artesanales, shampoo para niños, shampoo para mujeres, shampoo para hombres, cuidado del cuero cabelludo, fortalecimiento del cabello, crecimiento del cabello, productos capilares sin químicos, cosmética natural para el cabello, cuidado capilar sostenible, productos capilares ecológicos, shampoo orgánico, acondicionador orgánico, tónico orgánico, mascarilla orgánica, biorepolarizador orgánico, perfume orgánico, aromantrika productos naturales">
 <title>Aromantrika | Productos Capilares Naturales</title>
-  <meta name="google-site-verification" content="sRR8gJRd6e7it9Uvr-SI9SPCDEi31UCpGUuhxMwAyK8" />
+<meta name="google-site-verification" content="sRR8gJRd6e7it9Uvr-SI9SPCDEi31UCpGUuhxMwAyK8" />
+
+
 </head>
 <body>
 
@@ -277,12 +279,12 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
     </nav>
   </header>
 
-  <!-- BANNER PRINCIPAL AROMANTRIKA -->
+  <!-- BANNER PRINCIPAL -->
   <section class="banner-hero">
     <div class="banner-content">
       <span class="badge-botanico">COSMÉTICA NATURAL & SALUD CAPILAR</span>
-      <h1>Nutrición real para tu cabello<br><span>con el poder de la naturaleza</span> <h1>
-      <p>Formulaciones artesanales con extractos puros de origen natural , libres de sulfatos agresivos y parabenos. Creados para la salud capilar de toda la familia a partir de los 3 años.</p>
+      <h1>Nutrición real para tu cabello<br><span>con el poder de la naturaleza</span></h1>
+      <p>Formulaciones artesanales con extractos puros de origen natural, libres de sulfatos agresivos y parabenos. Creados para la salud capilar de toda la familia a partir de los 3 años.</p>
       
       <div class="banner-buttons">
         <a href="catalogo.html" class="btn-primary">Ver Catálogo</a>
@@ -457,7 +459,6 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
     <script>
       let currentModalProduct = '';
       let currentModalPrice = 0;
-      let cart = [];
 
       function openProductModal(title, imgSrc, presentation, priceStr, desc, benefits, usage, ingredients) {
         // Guardamos el nombre del producto actual
@@ -608,53 +609,112 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
         message += `\n*Subtotal productos:* $${total.toLocaleString()} COP`;
         message += `\n*Ciudad:* ${city}`;
         message += `\n*Barrio / Sector:* ${neighborhood}`;
-        message += '\n\n*(Te responderemos en un momento con el valor exacto del envío y los medios de pago disponibles para finalizar).*';
+        message += '\n\n*.*';
         
         const url = `https://wa.me/573002869632?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
       }
     </script>
+<!-- ... Aquí termina el catálogo o la sección anterior de tu página ... -->
+  </section>
 
-  <!-- PIE DE PÁGINA (FOOTER) PROFESIONAL -->
-  <footer style="background-color: #1a382b; color: white; padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-      
-      <!-- Logo o Título -->
-      <h3 style="font-size: 18px; margin-bottom: 10px; letter-spacing: 1px;">🌿 AROMANTRIKA PRODUCTOS CAPILARES</h3>
-      
-      <!-- Descripción -->
-      <p style="font-size: 13px; color: #d1c7bd; max-width: 500px; margin-bottom: 25px; line-height: 1.5;">
-        Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.
-      </p>
+  <!-- PEGA AQUÍ EL BLOQUE HTML DE LAS RESEÑAS -->
+  <section class="reviews-section" style="background-color: #ffffff; padding: 40px 20px; margin-top: 20px;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #1a382b; background-color: rgba(26,56,43,0.1); padding: 6px 14px; border-radius: 20px;">Testimonios Reales</span>
+      <h2 style="font-size: 28px; color: #1a382b; margin-top: 12px; margin-bottom: 10px; font-family: 'Trajan Pro Bold', serif;">LO QUE DICEN NUESTRA COMUNIDAD</h2>
+      <p style="color: #78716c; font-size: 14px; margin-bottom: 20px;">Conoce las experiencias de quienes ya transformaron su rutina capilar o déjanos tu opinión.</p>
 
-      <!-- Columna 2: Redes Sociales con tus Imágenes -->
-      <!-- Redes sociales -->
-      <h4 style="font-size: 14px; margin-bottom: 15px;">Conéctate con Nosotros</h4>
-      <p style="font-size: 12px; color: #d1c7bd; margin-bottom: 15px;">Síguenos en nuestras redes sociales y descubre tips de cuidado capilar:</p>
-        
-        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-          <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" style="text-decoration: none;">
-            <img src="tiktok.png" alt="TikTok" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
-          <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" style="text-decoration: none;">
-            <img src="instagram.png" alt="Instagram" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
-          <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" style="text-decoration: none;">
-            <img src="facebook.png" alt="Facebook" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
-          <a href="https://wa.me/573002869632" target="_blank" style="text-decoration: none;">
-            <img src="whatsApp.png" alt="WhatsApp" style="width: 36px; height: 36px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          </a>
-        </div>
+      <!-- CARRUSEL DESLIZANTE DE RESEÑAS EN PAREJA -->
+      <div style="position: relative; display: flex; align-items: center; justify-content: center; margin: 20px 0 10px 0;">
+        <button id="prevSlideBtn" class="slider-btn" onclick="moveSlide(-1)" style="background: #1a382b; color: white; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; margin-right: 12px; z-index: 10; flex-shrink: 0;">‹</button>
+        <div id="reviewsList" style="width: 100%;"></div>
+        <button id="nextSlideBtn" class="slider-btn" onclick="moveSlide(1)" style="background: #1a382b; color: white; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; margin-left: 12px; z-index: 10; flex-shrink: 0;">›</button>
       </div>
 
+      <!-- PUNTOS DEL CARRUSEL -->
+      <div id="dotsContainer" style="display: flex; justify-content: center; gap: 8px; margin-bottom: 30px;"></div>
+
+     <!-- FORMULARIO PARA AGREGAR RESEÑA -->
+      <div style="background: #fdfbf7; border: 1px solid #d4d0c8; border-radius: 16px; padding: 24px; max-width: 550px; margin: 0 auto; text-align: left;">
+        <h3 style="font-size: 16px; color: #1a382b; margin-top: 0; margin-bottom: 12px; font-family: 'Trajan Pro Bold', serif;">💬 Deja tu propia reseña</h3>
+        <form id="reviewForm" onsubmit="submitReview(event)">
+          
+          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">Tu Nombre:</label>
+          <input type="text" id="reviewerName" required placeholder="Ej: Marcela Gómez" style="width: 100%; padding: 10px; margin-bottom: 14px; border-radius: 8px; border: 1px solid #d7d3d0; box-sizing: border-box; font-family: inherit;">
+
+          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 6px;">Productos que probaste (puedes marcar varios):</label>
+          <div style="position: relative;">
+            <div onclick="toggleProductDropdown(event)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d7d3d0; background: white; font-size: 13px; color: #57534e; cursor: pointer; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box;">
+              <span id="dropdownSelectedText">Selecciona los productos...</span>
+              <span>▼</span>
+            </div>
+            <div id="productDropdownList" onclick="event.stopPropagation()" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; border: 1px solid #d7d3d0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 50; padding: 10px; box-sizing: border-box; max-height: 200px; overflow-y: auto;">
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Shampoo Romero" onchange="updateDropdownText()"> Shampoo Romero</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Shampoo Manzanilla" onchange="updateDropdownText()"> Shampoo Manzanilla</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Acondicionador" onchange="updateDropdownText()"> Acondicionador</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Tratamiento" onchange="updateDropdownText()"> Tratamiento</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Tónico Capilar" onchange="updateDropdownText()"> Tónico Capilar</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Acondicionador" onchange="updateDropdownText()"> Kit Shampoo + Acondicionador</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Tratamiento" onchange="updateDropdownText()"> Kit Shampoo + Tratamiento</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Tónico Capilar" onchange="updateDropdownText()"> Kit Shampoo + Tónico Capilar</label>
+              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Acondicionador + Tónico Capilar" onchange="updateDropdownText()"> Kit Shampoo + Acondicionador + Tónico Capilar</label>
+            </div>
+          </div>
+
+          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-top: 14px; margin-bottom: 4px;">Calificación:</label>
+          <div id="starPicker" style="display: flex; gap: 6px; font-size: 26px; cursor: pointer; color: #f59e0b; margin-bottom: 14px;">
+            <span onclick="setRating(1)">★</span>
+            <span onclick="setRating(2)">★</span>
+            <span onclick="setRating(3)">★</span>
+            <span onclick="setRating(4)">★</span>
+            <span onclick="setRating(5)">★</span>
+          </div>
+
+          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">Tu Opinión:</label>
+          <textarea id="reviewText" rows="3" required placeholder="Escribe aquí tu experiencia..." style="width: 100%; padding: 10px; margin-bottom: 16px; border-radius: 8px; border: 1px solid #d7d3d0; box-sizing: border-box; font-family: inherit;"></textarea>
+
+          <button type="submit" style="background-color: #1a382b; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Publicar Reseña</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA (FOOTER) COMPACTO -->
+  <footer style="background-color: #1a382b; color: white; padding: 25px 20px 15px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <!-- Título de Marca -->
+    <h3 style="font-size: 16px; margin: 0 0 8px 0; letter-spacing: 1px; font-family: 'Trajan Pro Bold', serif;">🌿 AROMANTRIKA PRODUCTOS CAPILARES</h3>
+    
+    <!-- Descripción breve -->
+    <p style="font-size: 12px; color: #d1c7bd; max-width: 480px; margin: 0 0 16px 0; line-height: 1.4;">
+      Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.
+    </p>
+
+    <!-- Redes Sociales -->
+    <p style="font-size: 11px; color: #d1c7bd; margin: 0 0 10px 0;">Síguenos en nuestras redes sociales:</p>
+    <div style="display: flex; gap: 14px; align-items: center; justify-content: center; margin-bottom: 20px;">
+      <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" style="text-decoration: none;">
+        <img src="tiktok.png" alt="TikTok" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+      <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" style="text-decoration: none;">
+        <img src="instagram.png" alt="Instagram" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+      <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" style="text-decoration: none;">
+        <img src="facebook.png" alt="Facebook" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+      <a href="https://wa.me/573002869632" target="_blank" style="text-decoration: none;">
+        <img src="whatsApp.png" alt="WhatsApp" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
     </div>
 
-    <div style="border-top: 1px solid #292524; padding-top: 30px; text-align: center; font-size: 12px; color: #78716c;">
+    <!-- Copyright -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 600px; padding-top: 12px; font-size: 11px; color: #a8a29e;">
       © 2026 Aromantrika Productos Capilares. Todos los derechos reservados.
     </div>
   </footer>
 
-  <!-- CARRITO DE COMPRAS FLOTANTE -->
+ <!-- CARRITO DE COMPRAS FLOTANTE -->
   <div id="cart-modal" class="cart-modal">
     <div class="cart-content">
       <div class="cart-header">
@@ -681,20 +741,13 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
     🛒 <span id="cart-count-float">0</span>
   </button>
 
+  <!-- ÚNICO BLOQUE DE JAVASCRIPT UNIFICADO PARA CARRITO Y RESEÑAS -->
   <script>
     let cart = [];
+    let currentSelectedRating = 5;
+    let currentSlideIndex = 0;
 
-    function addToCartDirect(title, price, presentacion) {
-      const item = cart.find(p => p.title === title);
-      if (item) { 
-        item.qty++; 
-      } else { 
-        cart.push({ title, price, presentacion, qty: 1 }); 
-      }
-      updateCartUI();
-      toggleCart(true);
-    }
-
+    // --- CARRITO ---
     function updateCartUI() {
       const cartItems = document.getElementById('cart-items');
       const cartCount = document.getElementById('cart-count');
@@ -731,36 +784,219 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
 
     function changeQty(index, delta) {
       cart[index].qty += delta;
-      if (cart[index].qty <= 0) { 
-        cart.splice(index, 1); 
-      }
+      if (cart[index].qty <= 0) { cart.splice(index, 1); }
       updateCartUI();
     }
 
-    function toggleCart(forceOpen = false) {
-      const modal = document.getElementById('cart-modal');
-      if (!modal) return;
-      if (forceOpen) { 
-        modal.classList.add('active'); 
-      } else { 
-        modal.classList.toggle('active'); 
+   function toggleCart(forceState) {
+      // Busca cualquiera de las dos estructuras de carrito en el HTML
+      const cartEl = document.getElementById('cartSidebar') || document.getElementById('cart-modal');
+      if (!cartEl) return;
+
+      // Determinar si debemos abrir, cerrar o alternar la visibilidad
+      if (typeof forceState === 'boolean') {
+        if (forceState) {
+          cartEl.style.display = 'flex';
+          cartEl.classList.add('active');
+        } else {
+          cartEl.style.display = 'none';
+          cartEl.classList.remove('active');
+        }
+      } else {
+        // Si no se envía argumento (ej. clic en el botón flotante), se alterna el estado actual
+        const isVisible = cartEl.style.display === 'flex' || cartEl.classList.contains('active');
+        if (isVisible) {
+          cartEl.style.display = 'none';
+          cartEl.classList.remove('active');
+        } else {
+          cartEl.style.display = 'flex';
+          cartEl.classList.add('active');
+        }
       }
     }
 
     function checkoutWhatsApp() {
-      if (cart.length === 0) { 
-        alert("Agrega al menos un producto al carrito para continuar."); 
-        return; 
-      }
+      if (cart.length === 0) { alert("Agrega al menos un producto al carrito para continuar."); return; }
       const phone = "573002869632";
       let message = "🌿 *NUEVO PEDIDO - AROMANTRIKA*\n\nHola, me gustaría solicitar los siguientes productos:\n\n";
-      cart.forEach(p => { 
-        message += `• *${p.title}* (${p.presentacion}) x${p.qty} - $${(p.price * p.qty).toLocaleString('es-CO')}\n`; 
-      });
+      cart.forEach(p => { message += `• *${p.title}* (${p.presentacion}) x${p.qty} - $${(p.price * p.qty).toLocaleString('es-CO')}\n`; });
       const total = cart.reduce((acc, p) => acc + (p.price * p.qty), 0);
       message += `\n*Total a pagar:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para coordinar el pago y envío. ¡Gracias!`;
       window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
     }
+
+    // --- RESEÑAS Y CARRUSEL ---
+    function setRating(stars) {
+      currentSelectedRating = stars;
+      const starSpan = document.querySelectorAll('#starPicker span');
+      starSpan.forEach((star, i) => {
+        star.style.color = (i < stars) ? '#f59e0b' : '#d1c7bd';
+      });
+    }
+
+    function getReviews() {
+      let saved = localStorage.getItem('aromantrika_reviews');
+      if (!saved) {
+        const initialReview = [{
+          name: "Valeria Ríos",
+          product: "Shampoo Romero",
+          rating: 5,
+          text: "¡Me encantó! Siento el cabello mucho más limpio, con brillo y la caída ha disminuido un montón desde la primera semana."
+        }];
+        localStorage.setItem('aromantrika_reviews', JSON.stringify(initialReview));
+        return initialReview;
+      }
+      return JSON.parse(saved);
+    }
+
+    function renderReviews() {
+      const container = document.getElementById('reviewsList');
+      const dotsContainer = document.getElementById('dotsContainer');
+      const prevBtn = document.getElementById('prevSlideBtn');
+      const nextBtn = document.getElementById('nextSlideBtn');
+
+      if (!container) return;
+      const reviews = getReviews();
+      
+      if (reviews.length === 0) {
+        container.innerHTML = '<p style="color: #78716c; font-size: 14px; font-style: italic; text-align: center;">Aún no hay opiniones publicadas.</p>';
+        if (dotsContainer) dotsContainer.innerHTML = '';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
+      }
+
+      if (prevBtn) prevBtn.style.display = 'flex';
+      if (nextBtn) nextBtn.style.display = 'flex';
+
+      const pairs = [];
+      for (let i = 0; i < reviews.length; i += 2) {
+        pairs.push(reviews.slice(i, i + 2));
+      }
+
+      if (currentSlideIndex >= pairs.length) currentSlideIndex = pairs.length - 1;
+      if (currentSlideIndex < 0) currentSlideIndex = 0;
+
+      const currentPair = pairs[currentSlideIndex];
+
+      container.innerHTML = `
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%;">
+          ${currentPair.map(r => `
+            <div style="background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 12px; padding: 20px; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.02); min-height: 140px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <strong style="color: #1a382b; font-size: 15px;">${r.name}</strong>
+                  <span style="color: #f59e0b; font-size: 16px;">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
+                </div>
+                <div style="font-size: 12px; color: #9C624E; font-weight: 600; margin-bottom: 8px;">Producto: ${r.product}</div>
+                <p style="font-size: 14px; color: #57534e; margin: 0; line-height: 1.5;">"${r.text}"</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      if (prevBtn) prevBtn.disabled = (currentSlideIndex === 0);
+      if (nextBtn) nextBtn.disabled = (currentSlideIndex === pairs.length - 1);
+
+      if (dotsContainer) {
+        dotsContainer.innerHTML = pairs.map((_, idx) => `
+          <div onclick="goToSlide(${idx})" style="width: ${idx === currentSlideIndex ? '24px' : '10px'}; height: 10px; border-radius: ${idx === currentSlideIndex ? '10px' : '50%'}; background-color: ${idx === currentSlideIndex ? '#9C624E' : '#d1c7bd'}; cursor: pointer; transition: all 0.3s;"></div>
+        `).join('');
+      }
+    }
+
+    function moveSlide(direction) {
+      currentSlideIndex += direction;
+      renderReviews();
+    }
+
+    function goToSlide(index) {
+      currentSlideIndex = index;
+      renderReviews();
+    }
+
+    function toggleProductDropdown(e) {
+      if (e) e.stopPropagation();
+      const list = document.getElementById('productDropdownList');
+      if (list) {
+        list.style.display = (list.style.display === 'block') ? 'none' : 'block';
+      }
+    }
+
+    function updateDropdownText() {
+      const checkboxes = document.querySelectorAll('input[name="prod"]:checked');
+      const textSpan = document.getElementById('dropdownSelectedText');
+      if (!textSpan) return;
+      
+      if (checkboxes.length === 0) {
+        textSpan.innerText = "Selecciona los productos...";
+      } else if (checkboxes.length === 1) {
+        textSpan.innerText = checkboxes[0].value;
+      } else {
+        textSpan.innerText = `${checkboxes.length} productos seleccionados`;
+      }
+    }
+
+    function submitReview(event) {
+      event.preventDefault();
+      
+      const nameInput = document.getElementById('reviewerName');
+      const textInput = document.getElementById('reviewText');
+      
+      if (!nameInput || !textInput) {
+        alert("Error: No se encuentran los campos del formulario.");
+        return;
+      }
+
+      const name = nameInput.value.trim();
+      const text = textInput.value.trim();
+
+      const checkboxes = document.querySelectorAll('input[name="prod"]:checked');
+      let selectedProducts = [];
+      checkboxes.forEach((cb) => selectedProducts.push(cb.value));
+
+      if (!name || !text) {
+        alert('Por favor completa tu nombre y tu opinión.');
+        return;
+      }
+
+      if (selectedProducts.length === 0) {
+        alert('Por favor selecciona al menos un producto.');
+        return;
+      }
+
+      const productString = selectedProducts.join(' + ');
+      const newReview = { name, product: productString, rating: currentSelectedRating, text };
+      
+      let reviews = getReviews();
+      reviews.unshift(newReview);
+
+      localStorage.setItem('aromantrika_reviews', JSON.stringify(reviews));
+      
+      currentSlideIndex = 0; 
+      renderReviews();
+      
+      nameInput.value = '';
+      textInput.value = '';
+      checkboxes.forEach(cb => cb.checked = false);
+      updateDropdownText();
+      setRating(5);
+      
+      alert('¡Gracias por tu reseña! Ha sido publicada con éxito.');
+    }
+
+    window.addEventListener('click', function(e) {
+      const dropdown = document.getElementById('productDropdownList');
+      const container = dropdown ? dropdown.parentElement : null;
+      if (container && !container.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderReviews();
+    });
   </script>
 </body>
 </html>
