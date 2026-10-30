@@ -693,50 +693,49 @@
     }
 
    function checkoutWhatsApp() {
-        // 1. Obtener los campos de ciudad y barrio
-        const cityInput = document.getElementById('shippingCity');
-        const neighborhoodInput = document.getElementById('shippingNeighborhood');
-        
-        const city = cityInput ? cityInput.value.trim() : '';
-        const neighborhood = neighborhoodInput ? neighborhoodInput.value.trim() : '';
+      // 1. Obtener los campos de ciudad y barrio
+      const cityInput = document.getElementById('shippingCity');
+      const neighborhoodInput = document.getElementById('shippingNeighborhood');
+      
+      const city = cityInput ? cityInput.value.trim() : '';
+      const neighborhood = neighborhoodInput ? neighborhoodInput.value.trim() : '';
 
-        // 2. Validar que sean obligatorios
-        if (!city || !neighborhood) {
-          alert('Por favor completa tu Ciudad y Barrio/Sector para calcular el envío.');
-          if (!city && cityInput) cityInput.focus();
-          else if (!neighborhood && neighborhoodInput) neighborhoodInput.focus();
-          return;
-        }
-
-        if (cart.length === 0) {
-          alert('Tu carrito está vacío.');
-          return;
-        }
-
-        // 3. Manejo del número consecutivo del pedido
-        let orderNumber = localStorage.getItem('aromantrika_order_seq');
-        orderNumber = orderNumber ? parseInt(orderNumber, 10) + 1 : 1;
-        localStorage.setItem('aromantrika_order_seq', orderNumber);
-        let formattedOrderNum = String(orderNumber).padStart(3, '0');
-
-        // 4. Armar el mensaje para WhatsApp
-        let message = `¡Hola! 👋 Me gustaría hacer un nuevo pedido en Aromantrika:\n\n`;
-        message += `*Pedido #${formattedOrderNum}*\n\n`;
-        
-        let total = 0;
-        cart.forEach(item => {
-          message += `• ${item.qty}x ${item.name} - $${(item.price * item.qty).toLocaleString()} COP\n`;
-          total += item.price * item.qty;
-        });
-
-        message += `\n*Subtotal productos:* $${total.toLocaleString()} COP`;
-        message += `\n*Ciudad:* ${city}`;
-        message += `\n*Barrio / Sector:* ${neighborhood}`;
-        message += '\n\n*(Te responderemos en un momento con el valor exacto del envío y los medios de pago disponibles para finalizar).*';
-        
-        const url = `https://wa.me/573002869632?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
+      // 2. Validar que sean obligatorios
+      if (!city || !neighborhood) {
+        alert('Por favor completa tu Ciudad y Barrio/Sector para calcular el envío.');
+        if (!city && cityInput) cityInput.focus();
+        else if (!neighborhood && neighborhoodInput) neighborhoodInput.focus();
+        return;
       }
+
+      if (cart.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+
+      // 3. Manejo del número consecutivo del pedido
+      let orderNumber = localStorage.getItem('aromantrika_order_seq');
+      orderNumber = orderNumber ? parseInt(orderNumber, 10) + 1 : 1;
+      localStorage.setItem('aromantrika_order_seq', orderNumber);
+      let formattedOrderNum = String(orderNumber).padStart(3, '0');
+
+      // 4. Armar el mensaje para WhatsApp (Usando item.title y item.presentacion)
+      let message = `¡Hola! 👋 Me gustaría hacer un nuevo pedido en Aromantrika:\n\n`;
+      message += `*Pedido #${formattedOrderNum}*\n\n`;
+      
+      let total = 0;
+      cart.forEach(item => {
+        message += `• ${item.qty}x ${item.title} (${item.presentacion}) - $${(item.price * item.qty).toLocaleString()} COP\n`;
+        total += item.price * item.qty;
+      });
+
+      message += `\n*Subtotal productos:* $${total.toLocaleString()} COP`;
+      message += `\n*Ciudad:* ${city}`;
+      message += `\n*Barrio / Sector:* ${neighborhood}`;
+     
+      const url = `https://wa.me/573002869632?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
 
     function openProductModal(id) {
       const p = products.find(item => item.id === id);
