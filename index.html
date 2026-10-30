@@ -741,40 +741,59 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
     🛒 <span id="cart-count-float">0</span>
   </button>
 
-  <!-- ÚNICO BLOQUE DE JAVASCRIPT UNIFICADO PARA CARRITO Y RESEÑAS -->
+ <!-- ÚNICO BLOQUE DE JAVASCRIPT UNIFICADO PARA CARRITO Y RESEÑAS -->
   <script>
     let cart = [];
     let currentSelectedRating = 5;
     let currentSlideIndex = 0;
 
     // --- CARRITO ---
+    function addToCart(name, price, presentacion = 'Unidad') {
+      // Buscamos si ya existe el producto en el carrito por su nombre
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name: name, price: price, presentacion: presentacion, qty: 1 });
+      }
+      updateCartUI();
+      toggleCart(true); // Abre el carrito automáticamente al añadir
+    }
+
+    function addFromModal() {
+      // Usamos las variables globales del modal
+      addToCart(currentModalProduct, currentModalPrice, document.getElementById('modalPresentation').innerText);
+      closeProductModal();
+    }
+
     function updateCartUI() {
-      const cartItems = document.getElementById('cart-items');
-      const cartCount = document.getElementById('cart-count');
+      const cartItems = document.getElementById('cartItemsContainer') || document.getElementById('cart-items');
+      const cartCount = document.getElementById('cartCount') || document.getElementById('cart-count');
       const cartCountFloat = document.getElementById('cart-count-float');
-      const cartTotal = document.getElementById('cart-total');
+      const cartTotal = document.getElementById('cartSubtotal') || document.getElementById('cart-total');
 
       const totalCount = cart.reduce((acc, p) => acc + p.qty, 0);
       const totalPrice = cart.reduce((acc, p) => acc + (p.price * p.qty), 0);
 
       if (cartCount) cartCount.innerText = totalCount;
       if (cartCountFloat) cartCountFloat.innerText = totalCount;
-      if (cartTotal) cartTotal.innerText = `$${totalPrice.toLocaleString('es-CO')} COP`;
+      if (cartTotal) cartTotal.innerText = '$' + totalPrice.toLocaleString('es-CO') + ' COP';
 
       if (cartItems) {
         if (cart.length === 0) {
           cartItems.innerHTML = '<p style="text-align: center; color: #a8a29e; padding: 32px 0;">Tu carrito está vacío</p>';
         } else {
           cartItems.innerHTML = cart.map((p, index) => `
-            <div class="cart-item">
-              <div class="cart-item-info">
-                <h4>${p.title}</h4>
-                <p>$${p.price.toLocaleString('es-CO')} (${p.presentacion})</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #f5f5f4; padding-bottom: 15px;">
+              <div>
+                <h4 style="font-size: 14px; color: #1a382b; margin: 0 0 5px 0;">${p.name}</h4>
+                <span style="font-size: 12px; color: #78716c; display: block; margin-bottom: 2px;">${p.presentacion || ''}</span>
+                <span style="font-size: 13px; color: #9C624E; font-weight: bold;">$${(p.price * p.qty).toLocaleString('es-CO')} COP</span>
               </div>
-              <div class="qty-controls">
-                <button onclick="changeQty(${index}, -1)" class="qty-btn">-</button>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button onclick="changeQty(${index}, -1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold;">-</button>
                 <span style="font-size: 13px; font-weight: bold;">${p.qty}</span>
-                <button onclick="changeQty(${index}, 1)" class="qty-btn">+</button>
+                <button onclick="changeQty(${index}, 1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold;">+</button>
               </div>
             </div>
           `).join('');
@@ -784,45 +803,80 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
 
     function changeQty(index, delta) {
       cart[index].qty += delta;
-      if (cart[index].qty <= 0) { cart.splice(index, 1); }
+      if (cart[index].qty <= 0) { 
+        cart.splice(index, 1); 
+      }
       updateCartUI();
     }
 
-   function toggleCart(forceState) {
-      // Busca cualquiera de las dos estructuras de carrito en el HTML
-      const cartEl = document.getElementById('cartSidebar') || document.getElementById('cart-modal');
-      if (!cartEl) return;
+    function toggleCart(forceState) {
+      const sidebar = document.getElementById('cartSidebar');
+      const modal = document.getElementById('cart-modal');
+      const target = sidebar || modal;
+      if (!target) return;
 
-      // Determinar si debemos abrir, cerrar o alternar la visibilidad
       if (typeof forceState === 'boolean') {
         if (forceState) {
-          cartEl.style.display = 'flex';
-          cartEl.classList.add('active');
+          target.style.display = 'flex';
+          target.classList.add('active');
         } else {
-          cartEl.style.display = 'none';
-          cartEl.classList.remove('active');
+          target.style.display = 'none';
+          target.classList.remove('active');
         }
       } else {
-        // Si no se envía argumento (ej. clic en el botón flotante), se alterna el estado actual
-        const isVisible = cartEl.style.display === 'flex' || cartEl.classList.contains('active');
+        const isVisible = target.style.display === 'flex' || target.classList.contains('active');
         if (isVisible) {
-          cartEl.style.display = 'none';
-          cartEl.classList.remove('active');
+          target.style.display = 'none';
+          target.classList.remove('active');
         } else {
-          cartEl.style.display = 'flex';
-          cartEl.classList.add('active');
+          target.style.display = 'flex';
+          target.classList.add('active');
         }
       }
     }
 
     function checkoutWhatsApp() {
-      if (cart.length === 0) { alert("Agrega al menos un producto al carrito para continuar."); return; }
-      const phone = "573002869632";
-      let message = "🌿 *NUEVO PEDIDO - AROMANTRIKA*\n\nHola, me gustaría solicitar los siguientes productos:\n\n";
-      cart.forEach(p => { message += `• *${p.title}* (${p.presentacion}) x${p.qty} - $${(p.price * p.qty).toLocaleString('es-CO')}\n`; });
-      const total = cart.reduce((acc, p) => acc + (p.price * p.qty), 0);
-      message += `\n*Total a pagar:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para coordinar el pago y envío. ¡Gracias!`;
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+      if (cart.length === 0) { 
+        alert("Tu carrito está vacío."); 
+        return; 
+      }
+
+      // Validar campos de envío si están presentes en la interfaz
+      const cityInput = document.getElementById('shippingCity');
+      const neighborhoodInput = document.getElementById('shippingNeighborhood');
+      
+      const city = cityInput ? cityInput.value.trim() : '';
+      const neighborhood = neighborhoodInput ? neighborhoodInput.value.trim() : '';
+
+      if (cityInput && neighborhoodInput && (!city || !neighborhood)) {
+        alert('Por favor completa tu Ciudad y Barrio/Sector para el envío.');
+        if (!city) cityInput.focus();
+        else neighborhoodInput.focus();
+        return;
+      }
+
+      // Número consecutivo del pedido
+      let orderNumber = localStorage.getItem('aromantrika_order_seq');
+      orderNumber = orderNumber ? parseInt(orderNumber, 10) + 1 : 1;
+      localStorage.setItem('aromantrika_order_seq', orderNumber);
+      let formattedOrderNum = String(orderNumber).padStart(3, '0');
+
+      let message = `¡Hola! 👋 Me gustaría hacer un nuevo pedido en Aromantrika:\n\n`;
+      message += `*Pedido #${formattedOrderNum}*\n\n`;
+      
+      let total = 0;
+      cart.forEach(p => {
+        message += `• ${p.qty}x ${p.name} (${p.presentacion || 'Unidad'}) - $${(p.price * p.qty).toLocaleString('es-CO')} COP\n`;
+        total += p.price * p.qty;
+      });
+
+      message += `\n*Subtotal productos:* $${total.toLocaleString('es-CO')} COP`;
+      if (city) message += `\n*Ciudad:* ${city}`;
+      if (neighborhood) message += `\n*Barrio / Sector:* ${neighborhood}`;
+      
+      
+      const url = `https://wa.me/573002869632?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
     }
 
     // --- RESEÑAS Y CARRUSEL ---
@@ -944,10 +998,7 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
       const nameInput = document.getElementById('reviewerName');
       const textInput = document.getElementById('reviewText');
       
-      if (!nameInput || !textInput) {
-        alert("Error: No se encuentran los campos del formulario.");
-        return;
-      }
+      if (!nameInput || !textInput) return;
 
       const name = nameInput.value.trim();
       const text = textInput.value.trim();
@@ -996,7 +1047,9 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
 
     document.addEventListener('DOMContentLoaded', function() {
       renderReviews();
+      updateCartUI();
     });
+
     function openLightbox(imgSrc) {
       const lightbox = document.getElementById('imageLightbox');
       const lightboxImg = document.getElementById('lightboxImg');
