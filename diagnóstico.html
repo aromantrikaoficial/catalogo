@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Asesoría Capilar · Aromantrika</title>
+  <style>
+    :root {
+      --bg: #F6F3EB;
+      --card: #FFFFFF;
+      --text: #1D2B22;
+      --muted: #5A6B5E;
+      --primary: #3A5A40;
+      --primary-hover: #2E4833;
+      --accent-soft: #E6ECE4;
+      --border: #DCE2D8;
+      --alert-bg: #FDF4EE;
+      --alert-border: #D98A5F;
+      --alert-text: #7A3E1D;
+      --shadow: 0 10px 30px rgba(29, 43, 34, 0.08);
+      --radius: 18px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121814;
+        --card: #1B241E;
+        --text: #EEF2EC;
+        --muted: #9EB0A2;
+        --primary: #588157;
+        --primary-hover: #6A9969;
+        --accent-soft: #26332A;
+        --border: #2D3B31;
+        --alert-bg: #2B201A;
+        --alert-border: #B86B43;
+        --alert-text: #F4C4A8;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      line-height: 1.5;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 460px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .brand-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F6F3EB;
+      border: 1px solid #DCE2D8;
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+
+    .brand-logo {
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: var(--accent-soft);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.25s ease;
+      border-radius: 99px;
+    }
+
+    .question-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .question-hint {
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin-top: -10px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--bg);
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.96rem;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .option-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .option-btn.selected {
+      background: var(--accent-soft);
+      border-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .checkbox-icon {
+      font-size: 1.15rem;
+      line-height: 1.25;
+      color: var(--primary);
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .text-input:focus {
+      border-color: var(--primary);
+    }
+
+    .error-msg {
+      color: #C0392B;
+      font-size: 0.86rem;
+      font-weight: 500;
+      margin-top: -6px;
+    }
+
+    .nav-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      border: 1.5px solid var(--border);
+      flex: 0 0 auto;
+      padding: 14px 16px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--muted);
+      color: var(--text);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .result-box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .result-text {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .alert-box {
+      background: var(--alert-bg);
+      border: 1.5px solid var(--alert-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .alert-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--alert-text);
+    }
+
+    .alert-body {
+      font-size: 0.94rem;
+      color: var(--text);
+    }
+
+    .note-line {
+      font-size: 0.92rem;
+      color: var(--muted);
+      background: var(--accent-soft);
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+
+    .disclaimer {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="app"></main>
+
+  <script>
+    (function () {
+      const WHATSAPP_NUMBER = "573002869632";
+
+      const QUESTIONS = [
+        {
+          id: "nombre",
+          type: "text",
+          title: "¿Cómo te llamas?",
+          hint: "Opcional · Escribe tu nombre para saludarte mejor.",
+          placeholder: "Tu nombre o apodo"
+        },
+        {
+          id: "color",
+          type: "single",
+          title: "¿Cuál es el color natural de tu cabello?",
+          options: [
+            { value: "claro", label: "Rubio o castaño claro, y quiero mantener mi tono" },
+            { value: "otro", label: "Castaño medio u oscuro, negro u otro color" }
+          ]
+        },
+        {
+          id: "preocupaciones",
+          type: "multi",
+          required: true,
+          title: "¿Qué es lo que más te inquieta de tu cabello hoy?",
+          hint: "Puedes marcar varias opciones.",
+          options: [
+            { value: "caida", label: "Siento que se me cae bastante" },
+            { value: "parte", label: "Se me parte con facilidad y no avanza de largo" },
+            { value: "caspa", label: "Tengo caspa, descamación o picazón molesta" },
+            { value: "seco", label: "Lo noto seco, opaco y sin vida" },
+            { value: "grasa", label: "Se me engrasa muy rápido en la raíz" }
+          ]
+        },
+        {
+          id: "cuero",
+          type: "single",
+          title: "¿Cómo sientes tu cuero cabelludo un día después de lavarlo?",
+          options: [
+            { value: "grasa", label: "Ya se siente pesado o con brillo graso" },
+            { value: "seco", label: "Se siente tirante, seco o sin flexibilidad" },
+            { value: "normal", label: "Se mantiene fresco y equilibrado" }
+          ]
+        },
+        {
+          id: "caspa",
+          type: "single",
+          title: "¿Notas presencia de caspa?",
+          options: [
+            { value: "no", label: "No tengo caspa" },
+            { value: "blanca", label: "Sí, caspa seca (finita y blanca como polvito)" },
+            { value: "amarilla", label: "Sí, caspa con tendencia grasa (escamas más pesadas o pegadas)" }
+          ]
+        },
+        {
+          id: "irritacion",
+          type: "single",
+          title: "¿Sientes que tu cuero cabelludo es muy delicado, se irrita fácil, pica demasiado o te molesta seguido?",
+          hint: "Queremos saber si tienes sensibilidad frecuente.",
+          options: [
+            { value: "no", label: "No, todo normal" },
+            { value: "si", label: "Sí, suele molestarme o irritarse con facilidad" }
+          ]
+        },
+        {
+          id: "como_cae",
+          type: "single",
+          title: "Cuando notas que se cae cabello, ¿cómo suele verse?",
+          condition: (ans) => {
+            const p = ans.preocupaciones || [];
+            return !(p.length === 1 && p[0] === "caspa");
+          },
+          options: [
+            { value: "punticos", label: "Largo, completo y con un pequeño punto blanco en la punta" },
+            { value: "cortos", label: "Cortitos, trozados o quebrados" },
+            { value: "ambos", label: "Noto de las dos formas" },
+            { value: "nose", label: "No me he fijado en eso" }
+          ]
+        },
+        {
+          id: "tiempo",
+          type: "single",
+          title: "¿Desde hace cuánto tiempo lo notas así?",
+          options: [
+            { value: "menos_1m", label: "Menos de 1 mes" },
+            { value: "1_3m", label: "Entre 1 y 3 meses" },
+            { value: "3_6m", label: "Entre 3 y 6 meses" },
+            { value: "mas_6m", label: "Más de 6 meses" }
+          ]
+        },
+        {
+          id: "eventos",
+          type: "multi",
+          exclusiveValue: "ninguno",
+          title: "En los últimos 6 meses, ¿te ha pasado algo de esto?",
+          hint: "Marca las que apliquen o toca Continuar.",
+          options: [
+            { value: "estres", label: "Estrés fuerte, cargas pesadas o un cambio grande" },
+            { value: "parto", label: "Parto o periodo de lactancia" },
+            { value: "enf", label: "Una enfermedad fuerte con fiebre o cirugía" },
+            { value: "dieta", label: "Dieta muy estricta o bajé de peso rápido" },
+            { value: "med", label: "Empecé a tomar medicamentos nuevos" },
+            { value: "ninguno", label: "Nada de esto" }
+          ]
+        },
+        {
+          id: "quimicos",
+          type: "multi",
+          exclusiveValue: "ninguno",
+          title: "¿Con qué frecuencia usas calor (plancha/secador) o químicos?",
+          hint: "Selecciona las que apliquen o toca Continuar.",
+          options: [
+            { value: "calor_frecuente", label: "Uso plancha o secador casi todos los días" },
+            { value: "calor_ocasional", label: "Uso calor de vez en cuando (pocas veces al mes)" },
+            { value: "tinte", label: "Me aplico tintes o decoloración" },
+            { value: "alisado", label: "Tengo tratamientos de alisado o keratina" },
+            { value: "ninguno", label: "Ninguno / Cabello al natural" }
+          ]
+        },
+        {
+          id: "largo",
+          type: "single",
+          title: "¿Cómo sientes el largo y las puntas de tu cabello?",
+          options: [
+            { value: "seco", label: "Se sienten secos, sin brillo y con tendencia a abrirse" },
+            { value: "normal", label: "Se sienten bien, con buena vitalidad" }
+          ]
+        },
+        {
+          id: "familia",
+          type: "single",
+          title: "Por el lado de tu familia (papá, mamá, abuelos), ¿has notado tendencia a perder densidad, entradas pronunciadas o coronilla clara?",
+          options: [
+            { value: "si", label: "Sí, es evidente en varios familiares" },
+            { value: "no", label: "No, en la familia todos conservan buen cabello" },
+            { value: "nose", label: "No tengo presente o no sé" }
+          ]
+        },
+        {
+          id: "senales",
+          type: "multi",
+          exclusiveValue: "ninguna",
+          title: "¿Notas alguna de estas señales físicas actualmente?",
+          hint: "Marca las que apliquen o toca Continuar.",
+          options: [
+            { value: "raya", label: "La raya del centro o del lado se ve cada vez más ancha" },
+            { value: "entradas", label: "Veo las entradas más pronunciadas o la coronilla más clara" },
+            { value: "cola", label: "La cola de caballo se siente con mucho menos volumen" },
+            { value: "calvas", label: "Tengo alguna zona redonda, lisa y totalmente sin pelo" },
+            { value: "mechones", label: "El cabello se me ha venido a mechones de golpe" },
+            { value: "cuerpo", label: "Siento mucho cansancio, frío constante o tengo uñas muy quebradizas" },
+            { value: "ninguna", label: "Ninguna de estas" }
+          ]
+        },
+        {
+          id: "lavado",
+          type: "single",
+          title: "¿Cada cuánto te lavas el cabello habitualmente?",
+          options: [
+            { value: "todos", label: "Todos los días" },
+            { value: "cada2", label: "Cada 2 días" },
+            { value: "3sem", label: "3 veces por semana" },
+            { value: "menos3", label: "Menos de 3 veces por semana" }
+          ]
+        },
+        {
+          id: "productos",
+          type: "text",
+          title: "¿Qué productos usas actualmente?",
+          hint: "Opcional · Ej: shampoo comercial, aceites, mascarillas...",
+          placeholder: "Escribe brevemente..."
+        }
+      ];
+
+      let answers = {};
+      let history = [];
+      let currentIndex = 0;
+      let finished = false;
+      let validationError = "";
+
+      const appEl = document.getElementById("app");
+
+      function getVisibleQuestions() {
+        return QUESTIONS.filter((q) => !q.condition || q.condition(answers));
+      }
+
+      function render() {
+        if (finished) {
+          renderResult();
+          return;
+        }
+
+        const visible = getVisibleQuestions();
+        const q = visible[currentIndex];
+        const progressPct = Math.round(((currentIndex + 1) / visible.length) * 100);
+
+        let bodyHtml = "";
+
+        if (q.type === "text") {
+          const val = (answers[q.id] || "").replace(/"/g, "&quot;");
+          bodyHtml = `
+            <input
+              type="text"
+              id="textInput"
+              class="text-input"
+              placeholder="${q.placeholder || ""}"
+              value="${val}"
+              autocomplete="off"
+            />
+          `;
+        } else if (q.type === "single") {
+          const currentVal = answers[q.id];
+          bodyHtml = `<div class="options">` + q.options.map((opt) => `
+            <button
+              type="button"
+              class="option-btn ${currentVal === opt.value ? "selected" : ""}"
+              data-value="${opt.value}"
+            >
+              <span>${opt.label}</span>
+            </button>
+          `).join("") + `</div>`;
+        } else if (q.type === "multi") {
+          const selectedArr = answers[q.id] || [];
+          bodyHtml = `<div class="options">` + q.options.map((opt) => {
+            const isChecked = selectedArr.includes(opt.value);
+            return `
+              <button
+                type="button"
+                class="option-btn ${isChecked ? "selected" : ""}"
+                data-value="${opt.value}"
+              >
+                <span class="checkbox-icon">${isChecked ? "☑" : "☐"}</span>
+                <span>${opt.label}</span>
+              </button>
+            `;
+          }).join("") + `</div>`;
+        }
+
+        const showBack = history.length > 0;
+        const showNext = q.type === "text" || q.type === "multi";
+
+        appEl.innerHTML = `
+          <div class="header">
+            <div class="brand-top">
+              <img src="logo.png" alt="Aromantrika" class="brand-logo" onerror="this.style.display='none'" />
+            </div>
+            <div class="progress-info">
+              <span>Pregunta ${currentIndex + 1} de ${visible.length}</span>
+              <span>${progressPct}%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: ${progressPct}%"></div>
+            </div>
+          </div>
+
+          <h1 class="question-title">${q.title}</h1>
+          ${q.hint ? `<p class="question-hint">${q.hint}</p>` : ""}
+          ${validationError ? `<p class="error-msg">${validationError}</p>` : ""}
+
+          ${bodyHtml}
+
+          ${(showBack || showNext) ? `
+            <div class="nav-row">
+              ${showBack ? `<button type="button" class="btn btn-secondary" id="backBtn">Volver</button>` : ""}
+              ${showNext ? `<button type="button" class="btn btn-primary" id="nextBtn">Continuar</button>` : ""}
+            </div>
+          ` : ""}
+        `;
+
+        bindEvents(q);
+      }
+
+      function bindEvents(q) {
+        const backBtn = document.getElementById("backBtn");
+        if (backBtn) {
+          backBtn.addEventListener("click", () => {
+            validationError = "";
+            if (history.length > 0) {
+              currentIndex = history.pop();
+              render();
+            }
+          });
+        }
+
+        if (q.type === "text") {
+          const input = document.getElementById("textInput");
+          const nextBtn = document.getElementById("nextBtn");
+
+          const submitText = () => {
+            answers[q.id] = input.value.trim();
+            advance();
+          };
+
+          nextBtn.addEventListener("click", submitText);
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              submitText();
+            }
+          });
+        }
+
+        if (q.type === "single") {
+          appEl.querySelectorAll(".option-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              validationError = "";
+              answers[q.id] = btn.getAttribute("data-value");
+              if (q.id === "preocupaciones") {
+                delete answers.como_cae;
+              }
+              advance();
+            });
+          });
+        }
+
+        if (q.type === "multi") {
+          appEl.querySelectorAll(".option-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              validationError = "";
+              const val = btn.getAttribute("data-value");
+              let current = [...(answers[q.id] || [])];
+
+              if (q.exclusiveValue && val === q.exclusiveValue) {
+                current = current.includes(val) ? [] : [val];
+              } else {
+                if (q.exclusiveValue) {
+                  current = current.filter((item) => item !== q.exclusiveValue);
+                }
+                if (current.includes(val)) {
+                  current = current.filter((item) => item !== val);
+                } else {
+                  current.push(val);
+                }
+              }
+
+              answers[q.id] = current;
+              if (q.id === "preocupaciones") {
+                const isOnlyCaspa = current.length === 1 && current[0] === "caspa";
+                if (isOnlyCaspa) delete answers.como_cae;
+              }
+
+              appEl.querySelectorAll(".option-btn").forEach((b) => {
+                const v = b.getAttribute("data-value");
+                const checked = current.includes(v);
+                b.classList.toggle("selected", checked);
+                const icon = b.querySelector(".checkbox-icon");
+                if (icon) icon.textContent = checked ? "☑" : "☐";
+              });
+              const errEl = appEl.querySelector(".error-msg");
+              if (errEl) errEl.remove();
+            });
+          });
+
+          const nextBtn = document.getElementById("nextBtn");
+          nextBtn.addEventListener("click", () => {
+            let current = answers[q.id] || [];
+            if (q.required && current.length === 0) {
+              validationError = "Por favor elige al menos una opción.";
+              render();
+              return;
+            }
+            if (!q.required && current.length === 0 && q.exclusiveValue) {
+              answers[q.id] = [q.exclusiveValue];
+            }
+            validationError = "";
+            advance();
+          });
+        }
+      }
+
+      function advance() {
+        const visible = getVisibleQuestions();
+        if (currentIndex + 1 < visible.length) {
+          history.push(currentIndex);
+          currentIndex += 1;
+          render();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          finished = true;
+          render();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      function evaluateDiagnostic() {
+        const nombre = (answers.nombre || "").trim();
+        const preocupaciones = answers.preocupaciones || [];
+        const senales = answers.senales || [];
+        const eventos = answers.eventos || [];
+        const quimicos = answers.quimicos || [];
+        const comoCae = answers.como_cae || "";
+        const cuero = answers.cuero || "normal";
+        const caspa = answers.caspa || "no";
+        const largo = answers.largo || "normal";
+
+        const alertReasons = [];
+        if (answers.irritacion === "si") {
+          alertReasons.push("sensibilidad fuerte o irritación frecuente en el cuero cabelludo");
+        }
+        if (senales.includes("calvas")) {
+          alertReasons.push("zonas redondas y lisas sin pelo");
+        }
+        if (senales.includes("mechones")) {
+          alertReasons.push("caída a mechones de golpe");
+        }
+
+        const isStrongAlert = alertReasons.length > 0;
+
+        const caida =
+          preocupaciones.includes("caida") ||
+          comoCae === "punticos" ||
+          comoCae === "ambos";
+
+        const tieneQuimicosOCalorFrecuente =
+          quimicos.includes("calor_frecuente") || quimicos.includes("tinte") || quimicos.includes("alisado");
+
+        const rotura =
+          preocupaciones.includes("parte") ||
+          comoCae === "cortos" ||
+          comoCae === "ambos" ||
+          (largo === "seco" && tieneQuimicosOCalorFrecuente);
+
+        let perfilNum = 5;
+        if (caspa === "amarilla") {
+          perfilNum = 3;
+        } else if (caspa === "blanca") {
+          perfilNum = 2;
+        } else if (caida && rotura) {
+          perfilNum = 6;
+        } else if (caida) {
+          perfilNum = cuero === "grasa" ? 1 : 4;
+        } else if (rotura || largo === "seco" || preocupaciones.includes("seco")) {
+          perfilNum = 5;
+        } else if (cuero === "grasa" || preocupaciones.includes("grasa")) {
+          perfilNum = 1;
+        } else {
+          perfilNum = cuero === "seco" ? 2 : 5;
+        }
+
+        const PERFILES = {
+          1: "Raíz grasa",
+          2: "Cuero seco",
+          3: "Caspa grasosa",
+          4: "Caída por estrés",
+          5: "Cabello roto",
+          6: "Caída y rotura"
+        };
+
+        const nombrePerfil = PERFILES[perfilNum];
+        const textoColor = answers.color === "claro" ? "cabello claro" : "cabello oscuro u otro color";
+
+        const addCaida = caida && ![1, 4, 6].includes(perfilNum);
+        const addRotura = rotura && ![5, 6].includes(perfilNum);
+
+        let extraTag = "";
+        if (addCaida && addRotura) {
+          extraTag = " (también: caída y rotura)";
+        } else if (addCaida) {
+          extraTag = " (también: caída)";
+        } else if (addRotura) {
+          extraTag = " (también: rotura)";
+        }
+
+        const perfilCompleto = `${nombrePerfil} · ${textoColor}${extraTag}`;
+
+        const ojoItems = [];
+        if (answers.familia === "si") {
+          ojoItems.push("antecedentes familiares");
+        }
+        const tieneEvento = eventos.length > 0 && !(eventos.length === 1 && eventos[0] === "ninguno");
+        if (tieneEvento) {
+          ojoItems.push("evento reciente");
+        }
+        if (answers.lavado === "todos") {
+          ojoItems.push("se lava todos los días");
+        }
+        if (senales.includes("cuerpo")) {
+          ojoItems.push("cansancio, frío o uñas");
+        }
+
+        const productosActuales = (answers.productos || "").trim() || "-";
+
+        return {
+          nombre,
+          isStrongAlert,
+          alertReasons,
+          hasCuerpoFlag: senales.includes("cuerpo"),
+          perfilCompleto,
+          ojoItems,
+          productosActuales,
+          textoColor
+        };
+      }
+
+      function buildWhatsAppUrl(diag) {
+        let message = "";
+
+        if (diag.isStrongAlert) {
+          const mapPreoc = {
+            caida: "caída",
+            parte: "se parte",
+            caspa: "caspa o picazón",
+            seco: "seco/sin brillo",
+            grasa: "grasa rápida"
+          };
+          const preocTexto = (answers.preocupaciones || [])
+            .map((p) => mapPreoc[p] || p)
+            .join(", ") || "-";
+
+          const mapCuero = { grasa: "grasoso", seco: "seco", normal: "normal" };
+          const mapCaspa = { no: "no", blanca: "blanca", amarilla: "amarillenta/grasosa" };
+
+          const saludo = diag.nombre ? `Hola, soy ${diag.nombre}.` : "Hola.";
+          message = [
+            saludo,
+            `Señales marcadas: ${diag.alertReasons.join("; ")}.`,
+            `Color: ${diag.textoColor}.`,
+            `Preocupaciones: ${preocTexto}.`,
+            `Cuero cabelludo: ${mapCuero[answers.cuero] || "-"}. Caspa: ${mapCaspa[answers.caspa] || "-"}.`,
+            `Usa ahora: ${diag.productosActuales}`,
+            "",
+            "Me gustaría que me orientes con el cuidado mientras tanto."
+          ].join("\n");
+        } else {
+          const saludo = diag.nombre ? `Hola, soy ${diag.nombre}.` : "Hola.";
+          const lines = [
+            saludo,
+            `Mi perfil: ${diag.perfilCompleto}`
+          ];
+          if (diag.ojoItems.length > 0) {
+            lines.push(`Ojo: ${diag.ojoItems.join("; ")}`);
+          }
+          lines.push(`Usa ahora: ${diag.productosActuales}`);
+          lines.push("");
+          lines.push("Quisiera mi rutina personalizada.");
+          message = lines.join("\n");
+        }
+
+        return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      }
+
+      function resetAll() {
+        answers = {};
+        history = [];
+        currentIndex = 0;
+        finished = false;
+        validationError = "";
+        render();
+      }
+
+      function renderResult() {
+        const diag = evaluateDiagnostic();
+        const waUrl = buildWhatsAppUrl(diag);
+
+        if (diag.isStrongAlert) {
+          const marcadasLista = diag.alertReasons.join(", ");
+          appEl.innerHTML = `
+            <div class="header">
+              <div class="brand-top">
+                <img src="logo.png" alt="Aromantrika" class="brand-logo" onerror="this.style.display='none'" />
+              </div>
+            </div>
+
+            <div class="result-box">
+              <div class="alert-box">
+                <h1 class="alert-title">Te recomendamos una valoración médica</h1>
+                <p class="alert-body">
+                  Por lo que nos cuentas (<strong>${marcadasLista}</strong>), lo más responsable y seguro es que un especialista revise tu cuero cabelludo antes de iniciar cualquier tratamiento.
+                </p>
+                <p class="alert-body">
+                  Esto no significa que no podamos acompañarte: escríbenos por WhatsApp y te orientamos con un cuidado botánico suave mientras tanto, sin reemplazar al médico.
+                </p>
+              </div>
+
+              <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">
+                Escribir por WhatsApp
+              </a>
+              <button type="button" class="btn btn-secondary btn-full" id="restartBtn">
+                Volver a empezar
+              </button>
+              <p class="disclaimer">
+                Asesoría de cuidado capilar natural Aromantrika. No reemplaza una consulta médica.
+              </p>
+            </div>
+          `;
+        } else {
+          const titleText = diag.nombre ? `¡Listo, ${diag.nombre}!` : "¡Listo!";
+          appEl.innerHTML = `
+            <div class="header">
+              <div class="brand-top">
+                <img src="logo.png" alt="Aromantrika" class="brand-logo" onerror="this.style.display='none'" />
+              </div>
+            </div>
+
+            <div class="result-box">
+              <h1 class="question-title">${titleText}</h1>
+              <p class="result-text">
+                Ya tenemos tus datos registrados. Toca el botón de abajo para enviármelos por WhatsApp y te responderé con tu rutina y kit personalizado.
+              </p>
+
+              ${diag.hasCuerpoFlag ? `
+                <p class="note-line">
+                  Nota: Como indicaste fatiga o uñas quebradizas, te sugerimos comentarlo en un chequeo médico de rutina (por ejemplo, perfil de hierro y tiroides).
+                </p>
+              ` : ""}
+
+              <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">
+                Enviar mis datos por WhatsApp
+              </a>
+              <button type="button" class="btn btn-secondary btn-full" id="restartBtn">
+                Volver a empezar
+              </button>
+              <p class="disclaimer">
+                Asesoría de cuidado capilar natural Aromantrika. No reemplaza una consulta médica.
+              </p>
+            </div>
+          `;
+        }
+
+        document.getElementById("restartBtn").addEventListener("click", resetAll);
+      }
+
+      render();
+    })();
+  </script>
+</body>
+</html>
