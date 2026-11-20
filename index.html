@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aromantrika | Productos Capilares</title>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@500;600&family=Oswald:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap');
 
-  /* FUENTE OFICIAL */
-  @font-face {
-    font-family: 'Trajan Pro Bold';
-    src: url('TrajanPro-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+  * {
+    box-sizing: border-box;
   }
 
   html, body {
@@ -22,32 +17,20 @@
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f4 !important;
+    background-color: #faf9f6 !important;
     color: #292524;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 60px !important; /* Reducimos el espacio superior */
-    font-family: 'Playfair Display', serif !important;
+    padding-top: 96px !important;
+    font-family: 'Montserrat', sans-serif !important;
   }
 
-  h1, h2, h3, .product-title, .section-title, .catalog-title {
-    font-family: 'Trajan Pro Bold', 'Trajan Pro', serif !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px;
-  }
-
-  p, .product-description, span {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 400 !important;
-  }
-
-  /* FRANJA SUPERIOR VERDE */
   .top-bar {
-    background-color: #064e3b !important;
-    color: #fef3c7 !important;
-    font-size: 12px !important;
-    padding: 6px 10px !important;
+    background-color: #1a382b !important;
+    color: #F1EBDD !important;
+    font-size: 11.5px !important;
+    padding: 7px 10px !important;
     text-align: center !important;
     font-weight: 500 !important;
     width: 100% !important;
@@ -55,595 +38,450 @@
     top: 0 !important;
     left: 0 !important;
     z-index: 1002 !important;
+    letter-spacing: 0.3px;
   }
-  /* BARRA PRINCIPAL BLANCA FIJA */
-  .main-header {
-    background-color: #ffffff !important;
-    padding: 4px 4% !important;
-    border-bottom: 1px solid #e7e5e4 !important;
-    position: fixed !important;
-    top: 32px !important; /* Se coloca exactamente debajo de los ~32px que mide la barra verde */
-    left: 0 !important;
-    width: 100% !important;
-    z-index: 1001 !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  }
-  .header-container img {
-  display: block !important;
-  margin: 0 auto !important;
-}
 
-  .header-container {
-  width: 100% !important;
-  max-width: 1300px !important;
-  margin: 0 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important; /* Asegura que los elementos hijos estén centrados horizontalmente */
-  justify-content: center !important;
-  text-align: center !important; /* Centra cualquier texto interno por seguridad */
-  gap: 2px !important;
-}
-
-.site-header {
+  .site-header {
     background-color: #ffffff !important;
     position: fixed !important;
-    top: 34px !important; /* Lo bajamos un poquito más para dejar aire */
+    top: 29px !important;
     left: 0 !important;
     width: 100% !important;
-    padding: 14px 0 10px 0 !important; /* Mayor padding arriba para separar el logo */
+    height: 55px !important;
     border-bottom: 1px solid #e7e5e4 !important;
     z-index: 1001 !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
-  }
-
-  /* LOGO VISIBLE (Quitamos el filtro blanco para que se vea tu logo real) */
- .brand-logo {
-    height: auto !important;
-    max-height: 45px !important; /* Le damos un poquito más de respiro vertical */
-    width: auto !important;
-    max-width: 180px !important; /* Evita que se expanda de más en pantallas grandes */
-    display: block !important;
-    object-fit: contain !important;
-    margin: 0 auto !important;
-  }
-  
-  /* MENÚ DE NAVEGACIÓN CON COLOR OSCURO LEGIBLE */
-  .main-nav {
     display: flex !important;
-    gap: 20px !important;
     align-items: center !important;
-    justify-content: center !important;
-    flex-wrap: wrap;
+    padding: 0 5% !important;
   }
 
-  .main-nav a, nav a, header a {
-    color: #1a382b !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 600 !important;
-    font-size: 0.9rem !important;
-    text-decoration: none !important;
-    letter-spacing: 0.5px;
+  .header-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent !important;
   }
 
-  .main-nav a:hover, nav a:hover {
-    color: #9C624E !important;
-  }
-
-  /* BANNER PRINCIPAL */
-  .banner-hero {
-    background: #f5f5f4 !important;
-    padding: 40px 20px;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .banner-content h1 {
-    color: #1a382b !important;
-    font-size: 2.3rem !important;
-    font-weight: 700;
-    margin: 0 0 15px 0 !important;
-  }
-
-  .banner-content h1 span {
-    color: #9C624E !important;
-    font-style: italic;
-  }
-
-  .banner-content p {
-    color: #292524 !important;
-    font-size: 1.1rem !important;
-    opacity: 0.9;
-    max-width: 650px;
-    margin: 0 auto 25px auto !important;
-  }
-
-  .badge-botanico {
-    display: inline-block;
-    padding: 4px 0 !important;
+  .logo-container {
+    background: transparent !important;
     background-color: transparent !important;
     border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-container img {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-height: 36px !important;
+    width: auto !important;
+    display: block;
+  }
+
+  .main-nav {
+    display: flex !important;
+    gap: 32px !important;
+    align-items: center !important;
+    margin: 0 auto;
+    background: transparent !important;
+  }
+
+  .main-nav a {
     color: #1a382b !important;
-    font-size: 0.8rem !important;
-    letter-spacing: 2px;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    letter-spacing: 1.2px;
+  }
+
+  .main-nav a:hover {
+    color: #9C624E !important;
+  }
+
+  .banner-hero-purelis {
+    background-image: url('banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+    box-sizing: border-box;
+  }
+
+  .banner-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .banner-hero-purelis .banner-text {
+    max-width: 520px;
+    text-align: left;
+  }
+
+  .banner-hero-purelis .badge-botanico {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 10px !important;
+    letter-spacing: 1.5px;
+    color: #44543e;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .banner-hero-purelis h1 {
+    color: #1a382b !important;
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 3rem !important;
+    line-height: 1.1;
+    margin: 0 0 15px 0 !important;
     text-transform: uppercase;
   }
 
-  .badge-botanico::before,
-  .badge-botanico::after {
-    content: "";
+  .banner-hero-purelis h1 span {
+    color: #44543e !important;
     display: block;
-    width: 60px;
-    height: 2px;
-    background-color: #9C624E;
-    margin: 4px auto;
+    font-weight: 400;
   }
 
-  .banner-buttons {
+  .banner-hero-purelis p {
+    color: #434743 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6;
+    margin: 0 0 25px 0 !important;
+  }
+
+  .banner-hero-purelis .banner-buttons {
     display: flex;
-    justify-content: center;
-    gap: 12px;
+    gap: 15px;
     flex-wrap: wrap;
   }
 
-  .btn-primary {
-    background-color: #9C624E !important;
-    color: #FFFFFF !important;
-    padding: 10px 24px !important;
-    font-size: 0.95rem !important;
-    border-radius: 30px;
+  .banner-hero-purelis .btn-primary {
+    background-color: #1a382b !important;
+    color: #ffffff !important;
+    padding: 12px 28px !important;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 4px 15px rgba(156, 98, 78, 0.4);
-    border: none;
-    cursor: pointer;
   }
 
-  .btn-secondary {
+  .banner-hero-purelis .btn-secondary {
     background-color: transparent !important;
     color: #1a382b !important;
     border: 2px solid #1a382b !important;
     padding: 10px 24px !important;
-    font-size: 0.95rem !important;
-    border-radius: 30px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-decoration: none;
-    display: inline-block;
   }
 
-  .btn-secondary:hover {
-    background-color: #1a382b !important;
-    color: #F5EFE3 !important;
+  .trust-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e7e5e4;
+    padding: 24px 5%;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  .trust-grid {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
-  /* COMPLEMENTOS Y CARRITO */
-  .add-btn {
-    background-color: #065f46;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
   }
 
-  .cart-modal { position: fixed; top: 0; right: -100%; width: 100%; max-width: 380px; height: 100%; background: #ffffff; box-shadow: -4px 0 20px rgba(0,0,0,0.15); z-index: 1000; transition: right 0.3s ease; }
-  .cart-modal.active { right: 0; }
-  .cart-content { display: flex; flex-direction: column; height: 100%; }
-  .cart-header { padding: 16px 20px; background: #15803d; color: white; display: flex; justify-content: space-between; align-items: center; }
-  .close-cart-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
-  .cart-items-body { flex-grow: 1; overflow-y: auto; padding: 20px; }
-  .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #f5f5f4; }
-  .cart-footer { padding: 20px; border-top: 1px solid #e7e5e4; background: #fafaf9; }
-  .btn-checkout-wa { width: 100%; background-color: #25d366; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; text-align: center; }
-  .cart-floating-btn { position: fixed; bottom: 24px; right: 24px; background: #15803d; color: white; border: none; width: 56px; height: 56px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; font-size: 20px; z-index: 999; }</style>
+  .trust-icon {
+    width: 38px;
+    height: 38px;
+    color: #1a382b;
+    flex-shrink: 0;
+  }
 
-<h1 style="display: none;">Aromantrika | Productos Capilares Naturales</h1>
+  .trust-info h4 {
+    margin: 0 0 3px 0;
+    font-size: 13px;
+    font-weight: 600 !important;
+    color: #1a382b;
+  }
 
-<meta name="description" content="Descubre productos capilares naturales y artesanales para toda la familia. Cuidado botánico para tu cabello.">
-<meta name="keywords" content="champús naturales, shampoo natural, acondicionador, tratamiento para el cabello, mascarilla capilar, biorepolarizador, tonico capilar, perfume capilar, 
-productos capilares, cosmética artesanal, cuidado capilar natural, caida del cabello, productos naturales medellin, 
-shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acondicionador natural, acondicionador sin parabenos, tónico capilar, tónico anticaída, tónico crecimiento, mascarilla hidratante, mascarilla nutritiva, biorepolarizador capilar, perfume capilar natural, aromantrika medellin, productos capilares colombia, cuidado capilar botánico, productos capilares artesanales, shampoo para niños, shampoo para mujeres, shampoo para hombres, cuidado del cuero cabelludo, fortalecimiento del cabello, crecimiento del cabello, productos capilares sin químicos, cosmética natural para el cabello, cuidado capilar sostenible, productos capilares ecológicos, shampoo orgánico, acondicionador orgánico, tónico orgánico, mascarilla orgánica, biorepolarizador orgánico, perfume orgánico, aromantrika productos naturales">
-<title>Aromantrika | Productos Capilares Naturales</title>
-<meta name="google-site-verification" content="sRR8gJRd6e7it9Uvr-SI9SPCDEi31UCpGUuhxMwAyK8" />
+  .trust-info p {
+    margin: 0;
+    font-size: 11.5px;
+    color: #78716c;
+  }
 
+ @media (max-width: 860px) {
+    /* 1. Eliminamos el espacio superior en el body para móvil */
+    html, body { 
+      padding-top: 0 !important; 
+    }
 
+    /* 2. Franja verde superior estática y natural */
+    .top-bar {
+      position: relative !important;
+      font-size: 9.5px !important;
+      padding: 6px 4px !important;
+      top: auto !important;
+    }
+
+    /* 3. Header blanco estático sin solaparse arriba */
+    .site-header { 
+      position: relative !important;
+      top: 0 !important;
+      height: auto !important; 
+      padding: 10px 4% !important; 
+      background-color: #ffffff !important;
+      border-bottom: 1px solid #e7e5e4 !important;
+    }
+
+    .header-inner { 
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    .logo-container img { 
+      max-height: 32px !important; 
+    }
+
+    .main-nav { 
+      display: flex !important;
+      gap: 16px !important; 
+      margin: 0 !important;
+      justify-content: center !important;
+    }
+
+    .main-nav a { 
+      font-size: 11px !important; 
+    }
+
+    .banner-hero-purelis { 
+      padding: 20px 4% !important; 
+    }
+
+    .banner-content-wrapper { 
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 15px;
+    }
+
+    .banner-hero-purelis .banner-text { 
+      text-align: center !important;
+      background: rgba(229, 235, 228, 0.95) !important; 
+      padding: 20px 15px !important;
+      border-radius: 8px;
+    }
+
+    .banner-hero-purelis h1 { 
+      font-size: 1.9rem !important; 
+    }
+
+    .banner-hero-purelis .banner-buttons { 
+      justify-content: center; 
+    }
+
+    .trust-grid { 
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  </style>
+
+  <meta name="description" content="Descubre productos capilares naturales y artesanales para toda la familia. Cuidado botánico para tu cabello.">
+  <title>Aromantrika | Productos Capilares Naturales</title>
 </head>
 <body>
 
-  <!-- ENCABEZADO FIJO UNIFICADO (Barra verde + Logo + Menú) -->
+  <!-- 1. FRANJA VERDE SUPERIOR DE ANUNCIOS -->
   <div class="top-bar">
-    🌿 Asesoría y Diagnóstico Capilar Gratuito por WhatsApp +573002869632 | Envíos a todo el país co
+    🌿 Te acompañamos en el cuidado de tu cabello | Envíos a todo Colombia
   </div>
 
+  <!-- 2. ENCABEZADO BLANCO -->
   <header class="site-header">
-    <!-- Logo idéntico al del catálogo -->
-    <a href="index.html" class="logo-container" style="display: flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; margin-bottom: 5px !important;">
-      <img src="logo.png" alt="Aromantrika Logo" style="max-height: 45px !important; width: auto !important;">
-    </a>
-    
-    <!-- Menú de navegación idéntico al del catálogo -->
-    <nav class="main-nav" style="display: flex !important; gap: 24px !important; justify-content: center !important; align-items: center !important;">
-      <a href="index.html" style="color: #292524 !important; font-weight: 500 !important; text-decoration: none !important;">Inicio</a>
-      <a href="catalogo.html" style="color: #292524 !important; font-weight: 500 !important; text-decoration: none !important;">Catálogo</a>
-      <a href="nosotros.html" style="color: #292524 !important; font-weight: 500 !important; text-decoration: none !important;">Nosotros</a>
-    </nav>
+    <div class="header-inner">
+      <a href="index.html" class="logo-container">
+        <img src="logo.png" alt="Aromantrika Logo">
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="nosotros.html">Nosotros</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- BANNER PRINCIPAL -->
-  <section class="banner-hero">
-    <div class="banner-content">
-      <span class="badge-botanico">COSMÉTICA NATURAL & SALUD CAPILAR</span>
-      <h1>Nutrición real para tu cabello<br><span>con el poder de la naturaleza</span></h1>
-      <p>Formulaciones artesanales con extractos puros de origen natural, libres de sulfatos agresivos y parabenos. Creados para la salud capilar de toda la familia a partir de los 3 años.</p>
-      
-      <div class="banner-buttons">
-        <a href="catalogo.html" class="btn-primary">Ver Catálogo</a>
-        <a href="https://wa.me/573002869632?text=Hola%20Aromantrika,%20me%20gustar%C3%ADa%20recibir%20un%20diagn%C3%B3stico%20capilar%20gratuito%20y%20personalizado." 
-           target="_blank" 
-           class="btn-secondary">
-           Click para recibir tu diagnóstico capilar Gratuito
-        </a>
+  <!-- BANNER HERO -->
+  <section class="banner-hero-purelis">
+    <div class="banner-content-wrapper">
+      <div class="banner-text">
+        <span class="badge-botanico">COSMÉTICA NATURAL Y SALUD CAPILAR</span>
+        <h1>EL PODER DE LO NATURAL<br><span>EN TU CABELLO.</span></h1>
+        <p>Formulaciones artesanales con extractos botánicos puros, libres de sulfatos agresivos y parabenos. Cuidado seguro para toda la familia a partir de los 3 años.</p>
+        <div class="banner-buttons">
+          <a href="catalogo.html" class="btn-primary">Ver Catálogo</a>
+          <a href="https://aromantrikaoficial.github.io/catalogo/diagnostico.html" target="_blank" class="btn-secondary">Diagnóstico Capilar Gratis</a>
+        </div>
       </div>
     </div>
   </section>
- <!-- SECCIÓN DESTACADA: LOS PREFERIDOS DE LA COMUNIDAD -->
-    <section style="background-color: #f5f5f4; padding: 48px 20px; border-top: 1px solid #e7e5e4; border-bottom: 1px solid #e7e5e4;">
-      <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-        <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #1a382b; background-color: rgba(26,56,43,0.1); padding: 6px 14px; border-radius: 20px;">Productos más vendidos</span>
-        <h2 style="font-size: 28px; color: #1a382b; margin-top: 12px; margin-bottom: 8px;">Los Preferidos por nuestra Comunidad</h2>
-        <p style="color: #57534e; font-size: 14px; margin-bottom: 32px;">Infaltables en la rutina de cuidado capilar natural más elegidos para fortalecer y revitalizar el cabello.</p>
 
- <!-- SECCIÓN DESTACADA: LOS PREFERIDOS DE LA COMUNIDAD -->
-    <!-- GRID DE PRODUCTOS -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; text-align: left;">
-          
+  <!-- FRANJA DE 4 BENEFICIOS -->
+  <div class="trust-bar">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+        </svg>
+        <div class="trust-info">
+          <h4>Ingredientes de origen natural</h4>
+          <p>Fórmulas botánicas y artesanales</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+        <div class="trust-info">
+          <h4>Sin Químicos Agresivos</h4>
+          <p>Libre de sulfatos y parabenos</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <div class="trust-info">
+          <h4>Cuidado para la familia</h4>
+          <p>Apto desde los 3 años de edad</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+        <div class="trust-info">
+          <h4>Envíos Nacionales</h4>
+          <p>Entregas en Medellín, área metropolitana y todo el país</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN DESTACADA: LOS PREFERIDOS DE LA COMUNIDAD -->
+  <section style="background-color: #f5f5f4; padding: 48px 20px; border-top: 1px solid #e7e5e4; border-bottom: 1px solid #e7e5e4;">
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+      <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #1a382b; background-color: rgba(26,56,43,0.1); padding: 6px 14px; border-radius: 20px;">Productos más vendidos</span>
+      <h2 style="font-size: 28px; color: #1a382b; margin-top: 12px; margin-bottom: 8px;">Los Preferidos por nuestra Comunidad</h2>
+      <p style="color: #57534e; font-size: 14px; margin-bottom: 32px;">Infaltables en la rutina de cuidado capilar natural más elegidos para fortalecer y revitalizar el cabello.</p>
+
+      <!-- GRID DE PRODUCTOS -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; text-align: left;">
+        
         <!-- PRODUCTO 1: SHAMPOO ROMERO -->
-          <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column;">
-            <div onclick="openProductModal('Shampoo Romero Fortalecedor Botánico', 'Romero-.jpg', 'Frasco x 500 ml', '$33.000 COP', 'Fórmula magistral diseñada para limpiar suavemente la fibra capilar, estimular la irrigación del cuero cabelludo y fortalecer la hebra desde la raíz, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.', '• Estimula el crecimiento de nuevos folículos capilares.\n• Fortalece la hebra capilar reduciendo la ruptura.\n• Regula la producción de grasa en el cuero cabelludo.', 'Aplicar únicamente sobre el cuero cabelludo húmedo, masajear suavemente de 3 a 5 minutos y enjuagar con abundante agua fría.', 'Extracto puro de Romero, Ortiga y Guásimo')" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
-              <img src="Romero-.jpg" alt="Shampoo de Romero" style="width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
-            </div>
-            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
-              <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal('Shampoo Romero Fortalecedor Botánico', 'Romero-.jpg', 'Frasco x 500 ml', '$33.000 COP', 'Fórmula magistral diseñada para limpiar suavemente la fibra capilar...', '• Estimula el crecimiento...', 'Aplicar únicamente...', 'Extracto puro de Romero...')">Shampoo Romero Fortalecedor Botánico</h3>
-              <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">Fórmula ancestral diseñada para limpiar suavemente la fibra capilar, ayudando a disminuir la caída y promover el crecimiento del cabello.</p>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                <span style="font-size: 16px; font-weight: bold; color: #9C624E;">$33.000 COP</span>
-                <button onclick="addToCart('Shampoo Romero Fortalecedor Botánico', 33000)" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
-              </div>
+        <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column;">
+          <div onclick="openProductModal('Shampoo Romero Fortalecedor Botánico', 'Romero-.jpg', 'Frasco x 500 ml', '$33.000 COP', 'Fórmula magistral diseñada para limpiar suavemente la fibra capilar, estimular la irrigación del cuero cabelludo y fortalecer la hebra desde la raíz, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.', '• Estimula el crecimiento de nuevos folículos capilares.\n• Fortalece la hebra capilar reduciendo la ruptura.\n• Regula la producción de grasa en el cuero cabelludo.', 'Aplicar únicamente sobre el cuero cabelludo húmedo, masajear suavemente de 3 a 5 minutos y enjuagar con abundante agua fría.', 'Extracto puro de Romero, Ortiga y Guásimo')" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
+            <img src="Romero-.jpg" alt="Shampoo de Romero" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
+          </div>
+          <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal('Shampoo Romero Fortalecedor Botánico', 'Romero-.jpg', 'Frasco x 500 ml', '$33.000 COP', 'Fórmula magistral diseñada para limpiar suavemente la fibra capilar, estimular la irrigación del cuero cabelludo y fortalecer la hebra desde la raíz, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.', '• Estimula el crecimiento de nuevos folículos capilares.\n• Fortalece la hebra capilar reduciendo la ruptura.\n• Regula la producción de grasa en el cuero cabelludo.', 'Aplicar únicamente sobre el cuero cabelludo húmedo, masajear suavemente de 3 a 5 minutos y enjuagar con abundante agua fría.', 'Extracto puro de Romero, Ortiga y Guásimo')">Shampoo Romero Fortalecedor Botánico</h3>
+            <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">Fórmula ancestral diseñada para limpiar suavemente la fibra capilar, ayudando a disminuir la caída y promover el crecimiento del cabello.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+              <span style="font-size: 16px; font-weight: bold; color: #9C624E;">$33.000 COP</span>
+              <button onclick="addToCart('Shampoo Romero Fortalecedor Botánico', 33000, 'Frasco x 500 ml')" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
             </div>
           </div>
+        </div>
 
-          <!-- PRODUCTO 2: TÓNICO -->
-          <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column;">
-            <div onclick="openProductModal('Tónico Capilar Bioactivador', 'tonico-.jpg', '250 ml', '$28.000 COP', 'Tónico concentrado sin enjuague formulado para revitalizar el folículo piloso, frenar la caída excesiva y promover el crecimiento.', '• Nutre directamente el folículo capilar.\n• Revitaliza el cabello débil y sin vida.\n• Elimina la caspa.\n• Fácil absorción sin dejar sensación grasosa.', 'Aplicar diariamente mañana o noche; directamente en el cuero cabelludo (húmedo o seco), realizando masajes circulares con la yema de los dedos. No se enjuaga.', 'Extracto puro de Romero, Ortiga, Guásimo, Canela, Eucalipto, Caléndula, Hoja de laurel, Guayabo, Quina, Cola de caballo, Cafeina y Pantenol (Provitamina B5).')" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
-              <img src="tonico-.jpg" alt="Tónico Capilar" style="width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
-            </div>
-            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
-              <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal('Tónico Capilar Bioactivador', 'tonico-.jpg', '250 ml', '$28.000 COP', 'Tónico concentrado sin enjuague formulado para revitalizar el folículo piloso, frenar la caída excesiva y promover el crecimiento.', '• Nutre directamente el folículo capilar.\n• Revitaliza el cabello débil y sin vida.\n• Elimina la caspa.\n• Fácil absorción sin dejar sensación grasosa.', 'Aplicar diariamente mañana o noche; directamente en el cuero cabelludo (húmedo o seco), realizando masajes circulares con la yema de los dedos. No se enjuaga.', 'Extracto puro de Romero, Ortiga, Guásimo, Canela, Eucalipto, Caléndula, Hoja de laurel, Guayabo, Quina, Cola de caballo, Cafeina y Pantenol (Provitamina B5).')">TÓNICO CAPILAR BIOACTIVADOR</h3>
-              <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">Tónico concentrado sin enjuague a base de Romero, Ortiga y Guásimo para revitalizar el folículo.</p>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                <span style="font-size: 16px; font-weight: bold; color: #9C624E;">$28.000 COP</span>
-                <button onclick="addToCart('Tónico Capilar Bioactivador', 28000)" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
-              </div>
+        <!-- PRODUCTO 2: TÓNICO -->
+        <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column;">
+          <div onclick="openProductModal('Tónico Capilar Bioactivador', 'tonico-.jpg', '250 ml', '$28.000 COP', 'Tónico concentrado sin enjuague formulado para revitalizar el folículo piloso, frenar la caída excesiva y promover el crecimiento.', '• Nutre directamente el folículo capilar.\n• Revitaliza el cabello débil y sin vida.\n• Elimina la caspa.\n• Fácil absorción sin dejar sensación grasosa.', 'Aplicar diariamente mañana o noche; directamente en el cuero cabelludo (húmedo o seco), realizando masajes circulares con la yema de los dedos. No se enjuaga.', 'Extracto puro de Romero, Ortiga, Guásimo, Canela, Eucalipto, Caléndula, Hoja de laurel, Guayabo, Quina, Cola de caballo, Cafeina y Pantenol (Provitamina B5).')" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
+            <img src="tonico-.jpg" alt="Tónico Capilar" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
+          </div>
+          <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal('Tónico Capilar Bioactivador', 'tonico-.jpg', '250 ml', '$28.000 COP', 'Tónico concentrado sin enjuague formulado para revitalizar el folículo piloso, frenar la caída excesiva y promover el crecimiento.', '• Nutre directamente el folículo capilar.\n• Revitaliza el cabello débil y sin vida.\n• Elimina la caspa.\n• Fácil absorción sin dejar sensación grasosa.', 'Aplicar diariamente mañana o noche; directamente en el cuero cabelludo (húmedo o seco), realizando masajes circulares con la yema de los dedos. No se enjuaga.', 'Extracto puro de Romero, Ortiga, Guásimo, Canela, Eucalipto, Caléndula, Hoja de laurel, Guayabo, Quina, Cola de caballo, Cafeina y Pantenol (Provitamina B5).')">TÓNICO CAPILAR BIOACTIVADOR</h3>
+            <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">Tónico concentrado sin enjuague a base de Romero, Ortiga y Guásimo para revitalizar el folículo.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+              <span style="font-size: 16px; font-weight: bold; color: #9C624E;">$28.000 COP</span>
+              <button onclick="addToCart('Tónico Capilar Bioactivador', 28000, '250 ml')" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
             </div>
           </div>
+        </div>
 
         <!-- PRODUCTO 3: KIT -->
-          <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column; position: relative;">
-            <div style="position: absolute; top: 12px; left: 12px; background: #9C624E; color: white; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 20px; z-index: 2; letter-spacing: 1px;">AHORRO KIT</div>
-            <div onclick="openProductModal('Kit Capilar Anticaída y Crecimiento', '4 romero-.jpg', 'Kit Completo (Shampoo + Tónico)', '$88.000 COP', 'El tratamiento completo anticaída e hidratación: limpieza profunda fortalecedora y nutrición directa al folículo.', '• Combate la caída de forma integral.\n• Acelera el crecimiento visible del cabello.\n• Aporta brillo, suavidad y vitalidad desde las primeras semanas.', 'Usar el shampoo en cada lavado capilar, después el Acondicionador y aplicar el tónico diario en el cuero cabelludo (así ese dia no laves el cabello) para maximizar los resultados.', 'Incluye Shampoo Natural de Romero Fortalecedor Botánico, Ortiga y Guásimo (500ml);  Acondicionador Nutritivo Herbal (500ml) y Tónico Capilar Bioactivador (250ml).')" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
-              <img src="4 romero-.jpg" alt="Kit Capilar" style="width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
-            </div>
-            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
-              <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal('Kit Capilar Anticaída y Crecimiento', '4 romero-.jpg', 'Kit Completo (Shampoo + Tónico)', '$88.000 COP', 'El tratamiento completo anticaída e hidratación: limpieza profunda fortalecedora y nutrición directa al folículo.', '• Combate la caída de forma integral.\n• Acelera el crecimiento visible del cabello.\n• Aporta brillo, suavidad y vitalidad desde las primeras semanas.', 'Usar el shampoo en cada lavado capilar, después el Acondicionador y aplicar el tónico diario en el cuero cabelludo (así ese dia no laves el cabello) para maximizar los resultados.', 'Incluye Shampoo Natural de Romero Fortalecedor Botánico, Ortiga y Guásimo (500ml);  Acondicionador Nutritivo Herbal (500ml) y Tónico Capilar Bioactivador (250ml).')">KIT CAPILAR ANTICAÍDA, CRECIMIENTO E HIDRATACIÓN</h3>
-              <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">Kit ideal para la rutina diaria: Shampoo de Romero + Acondicionador + Tónico capilar.</p>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                <span style="font-size: 16px; font-weight: bold; color: #9C624E;">$88.000 COP</span>
-                <button onclick="addToCart('Kit Capilar Anticaída y Crecimiento', 88000)" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
-              </div>
-            </div>
+        <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column; position: relative;">
+          <div style="position: absolute; top: 12px; left: 12px; background: #9C624E; color: white; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 20px; z-index: 2; letter-spacing: 1px;">AHORRO KIT</div>
+          <div onclick="openProductModal('Kit Capilar Anticaída y Crecimiento', '4 romero-.jpg', 'Kit Completo (Shampoo + Tónico)', '$88.000 COP', 'El tratamiento completo anticaída e hidratación: limpieza profunda fortalecedora y nutrición directa al folículo.', '• Combate la caída de forma integral.\n• Acelera el crecimiento visible del cabello.\n• Aporta brillo, suavidad y vitalidad desde las primeras semanas.', 'Usar el shampoo en cada lavado capilar, después el Acondicionador y aplicar el tónico diario en el cuero cabelludo para maximizar los resultados.', 'Incluye Shampoo Natural de Romero Fortalecedor Botánico, Ortiga y Guásimo (500ml); Acondicionador Nutritivo Herbal (500ml) y Tónico Capilar Bioactivador (250ml).')" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
+            <img src="4 romero-.jpg" alt="Kit Capilar" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
           </div>
-
-        </div>
-    </section>
-
-   <!-- VENTANA MODAL DETALLE DE PRODUCTO -->
-    <div id="productModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center; padding: 15px; overflow-y: auto;">
-      <div style="background: white; max-width: 520px; width: 100%; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.3); max-height: 90vh; display: flex; flex-direction: column;">
-        
-        <!-- Botón cerrar -->
-        <button onclick="closeProductModal()" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.6); color: white; border: none; width: 34px; height: 34px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">✕</button>
-        
-            <!-- CONTENEDOR DE LA IMAGEN DEL MODAL CON BOTÓN DE AMPLIAR -->
-        <div onclick="openLightbox(document.getElementById('modalImg').src)" style="width: 100%; height: 260px; background: #fafaf9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-bottom: 1px solid #e7e5e4; overflow: hidden; cursor: pointer; position: relative;" title="Haz clic para ampliar la imagen">
-          <img id="modalImg" src="" alt="Imagen del producto" style="width: 100%; height: 100%; object-fit: contain; display: block; padding: 15px;">
-          <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ampliar foto</span>
-        </div>
-        <!-- Contenido desplazable del modal -->
-        <div style="padding: 24px; overflow-y: auto; flex-grow: 1; text-align: left;">
-          <h3 id="modalTitle" style="font-size: 18px; color: #1a382b; margin-bottom: 4px; font-weight: bold;"></h3>
-          <p id="modalPresentation" style="font-size: 13px; color: #78716c; margin-bottom: 12px; font-weight: 600;"></p>
-          
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid #e7e5e4; padding-bottom: 16px;">
-            <span id="modalPrice" style="font-size: 22px; font-weight: bold; color: #9C624E;"></span>
-            <button onclick="addFromModal()" style="background-color: #1a382b; color: white; border: none; padding: 10px 22px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 10px rgba(26,56,43,0.2);">Añadir al Carrito</button>
-          </div>
-
-          <p id="modalDesc" style="font-size: 14px; color: #57534e; margin-bottom: 20px; line-height: 1.5;"></p>
-
-          <!-- ACORDEÓN / SECCIONES DESPLEGABLES -->
-          <div style="border-top: 1px solid #e7e5e4;">
-            
-            <!-- Beneficios -->
-            <div style="border-bottom: 1px solid #e7e5e4;">
-              <button onclick="toggleAccordion('accBenefits')" style="width: 100%; background: none; border: none; padding: 14px 0; text-align: left; font-size: 14px; font-weight: bold; color: #1a382b; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                <span>✨ Beneficios</span>
-                <span id="icon-accBenefits" style="font-size: 16px;">+</span>
-              </button>
-              <div id="accBenefits" style="display: none; padding-bottom: 14px; font-size: 13px; color: #57534e; line-height: 1.6; white-space: pre-line;"></div>
+          <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal('Kit Capilar Anticaída y Crecimiento', '4 romero-.jpg', 'Kit Completo (Shampoo + Tónico)', '$88.000 COP', 'El tratamiento completo anticaída e hidratación: limpieza profunda fortalecedora y nutrición directa al folículo.', '• Combate la caída de forma integral.\n• Acelera el crecimiento visible del cabello.\n• Aporta brillo, suavidad y vitalidad desde las primeras semanas.', 'Usar el shampoo en cada lavado capilar, después el Acondicionador y aplicar el tónico diario en el cuero cabelludo para maximizar los resultados.', 'Incluye Shampoo Natural de Romero Fortalecedor Botánico, Ortiga y Guásimo (500ml); Acondicionador Nutritivo Herbal (500ml) y Tónico Capilar Bioactivador (250ml).')">KIT CAPILAR ANTICAÍDA, CRECIMIENTO E HIDRATACIÓN</h3>
+            <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">Kit ideal para la rutina diaria: Shampoo de Romero + Acondicionador + Tónico capilar.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+              <span style="font-size: 16px; font-weight: bold; color: #9C624E;">$88.000 COP</span>
+              <button onclick="addToCart('Kit Capilar Anticaída y Crecimiento', 88000, 'Kit Completo')" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
             </div>
-
-            <!-- Modo de Uso -->
-            <div style="border-bottom: 1px solid #e7e5e4;">
-              <button onclick="toggleAccordion('accUsage')" style="width: 100%; background: none; border: none; padding: 14px 0; text-align: left; font-size: 14px; font-weight: bold; color: #1a382b; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                <span>🧴 Modo de Uso</span>
-                <span id="icon-accUsage" style="font-size: 16px;">+</span>
-              </button>
-              <div id="accUsage" style="display: none; padding-bottom: 14px; font-size: 13px; color: #57534e; line-height: 1.6; white-space: pre-line;"></div>
-            </div>
-
-            <!-- Ingredientes -->
-            <div style="border-bottom: 1px solid #e7e5e4;">
-              <button onclick="toggleAccordion('accIngredients')" style="width: 100%; background: none; border: none; padding: 14px 0; text-align: left; font-size: 14px; font-weight: bold; color: #1a382b; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                <span>🌿 Ingredientes Activos</span>
-                <span id="icon-accIngredients" style="font-size: 16px;">+</span>
-              </button>
-              <div id="accIngredients" style="display: none; padding-bottom: 14px; font-size: 13px; color: #57534e; line-height: 1.6; white-space: pre-line;"></div>
-            </div>
-
           </div>
         </div>
 
       </div>
     </div>
-
-    <!-- PANEL LATERAL FLOTANTE DEL CARRITO (ESTILO CATÁLOGO) -->
-    <div id="cartSidebar" style="display: none; position: fixed; top: 0; right: 0; width: 380px; max-width: 100%; height: 100%; background: white; z-index: 3000; box-shadow: -5px 0 25px rgba(0,0,0,0.15); flex-direction: column;">
-      <div style="background: #1a382b; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <h3 style="font-size: 18px; margin: 0;">Tu Pedido Capilar 🌿</h3>
-        <button onclick="toggleCart()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">✕</button>
-      </div>
-      <!-- Campos de Destino Obligatorios -->
-        <div style="margin-bottom: 12px;">
-          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 5px;">🏙️ Ciudad / Municipio <span style="color: #9C624E;">*</span>:</label>
-          <input type="text" id="shippingCity" required placeholder="Ej: Medellín, Envigado, Caldas..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
-        </div>
-
-        <div style="margin-bottom: 12px;">
-          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 5px;">📍 Barrio, Vereda o Sector <span style="color: #9C624E;">*</span>:</label>
-          <input type="text" id="shippingNeighborhood" required placeholder="Ej: Aranjuez, San Antonio de Prado..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
-          <small style="font-size: 11px; color: #78716c; display: block; margin-top: 4px; line-height: 1.3;">* El valor exacto del envío se calcula según la zona o corregimiento indicado.</small>
-        </div>
-      <div id="cartItemsContainer" style="padding: 20px; overflow-y: auto; flex-grow: 1;">
-        <!-- Aquí se pintan los productos agregados dinámicamente -->
-      </div>
-
-      <div style="padding: 20px; border-top: 1px solid #e7e5e4; background: #fafaf9;">
-        <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: bold; margin-bottom: 10px; color: #1a382b;">
-          <span>Subtotal productos:</span>
-          <span id="cartSubtotal">$0 COP</span>
-        </div>
-        <p style="font-size: 11px; color: #78716c; margin-bottom: 15px; line-height: 1.4;">* El costo del envío y el tiempo de entrega (Medellín, Área metropolitana o Nacional) se calculan y confirman al coordinar por WhatsApp.</p>
-        <button onclick="checkoutWhatsApp()" style="width: 100%; background-color: #22c55e; color: white; border: none; padding: 12px; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center;">Enviar pedido a WhatsApp</button>
-      </div>
-    </div>
-
-    <!-- BOTÓN FLOTANTE DE ACCESO AL CARRITO -->
-    <div onclick="toggleCart()" style="position: fixed; bottom: 20px; right: 20px; background: #1a382b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1500;">
-      🛒 <span id="cartCount" style="position: absolute; top: 5px; right: 5px; background: #9C624E; color: white; font-size: 11px; font-weight: bold; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">0</span>
-    </div>
-
-    <!-- SCRIPT JS GENERAL PARA MODAL Y CARRITO FLOTANTE -->
-    <script>
-      let currentModalProduct = '';
-      let currentModalPrice = 0;
-
-      function openProductModal(title, imgSrc, presentation, priceStr, desc, benefits, usage, ingredients) {
-        // Guardamos el nombre del producto actual
-        currentModalProduct = title;
-        
-        // Limpiamos el texto del precio (ej: "$ 65.000 COP") para dejar solo el número (65000)
-        let cleanPrice = priceStr.replace(/[^0-9]/g, '');
-        currentModalPrice = cleanPrice ? parseInt(cleanPrice, 10) : 0;
-
-        document.getElementById('modalTitle').innerText = title;
-        document.getElementById('modalImg').src = imgSrc;
-        document.getElementById('modalPresentation').innerText = presentation;
-        document.getElementById('modalPrice').innerText = priceStr;
-        document.getElementById('modalDesc').innerText = desc;
-        
-        document.getElementById('accBenefits').innerText = benefits;
-        document.getElementById('accUsage').innerText = usage;
-        document.getElementById('accIngredients').innerText = ingredients;
-
-        // Mostrar modal y ocultar secciones del acordeón por defecto
-        document.getElementById('productModal').style.display = 'flex';
-        ['accBenefits', 'accUsage', 'accIngredients'].forEach(id => {
-          document.getElementById(id).style.display = 'none';
-          document.getElementById('icon-' + id).innerText = '+';
-        });
-      }
-
-      function closeProductModal() {
-        document.getElementById('productModal').style.display = 'none';
-      }
-
-      function toggleAccordion(id) {
-        const el = document.getElementById(id);
-        const icon = document.getElementById('icon-' + id);
-        if (el.style.display === 'none') {
-          el.style.display = 'block';
-          icon.innerText = '-';
-        } else {
-          el.style.display = 'none';
-          icon.innerText = '+';
-        }
-      }
-
-      function addToCart(name, price) {
-        const existing = cart.find(item => item.name === name);
-        if (existing) {
-          existing.qty += 1;
-        } else {
-          cart.push({ name, price, qty: 1 });
-        }
-        updateCartUI();
-        // Abrir automáticamente el carrito al añadir para mejor experiencia
-        document.getElementById('cartSidebar').style.display = 'flex';
-      }
-
-      function addFromModal() {
-        addToCart(currentModalProduct, currentModalPrice);
-        closeProductModal();
-      }
-
-      function toggleCart() {
-        const sidebar = document.getElementById('cartSidebar');
-        sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
-      }
-
-      function updateCartUI() {
-        const container = document.getElementById('cartItemsContainer');
-        const countBadge = document.getElementById('cartCount');
-        const subtotalEl = document.getElementById('cartSubtotal');
-        
-        container.innerHTML = '';
-        let totalCount = 0;
-        let totalPrice = 0;
-
-        if (cart.length === 0) {
-          container.innerHTML = '<p style="color: #78716c; text-align: center; margin-top: 40px;">Tu carrito está vacío.</p>';
-        } else {
-          cart.forEach((item, index) => {
-            totalCount += item.qty;
-            totalPrice += item.price * item.qty;
-
-            const div = document.createElement('div');
-            div.style.cssText = "display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #f5f5f4; padding-bottom: 15px;";
-            div.innerHTML = `
-              <div>
-                <h4 style="font-size: 14px; color: #1a382b; margin: 0 0 5px 0;">${item.name}</h4>
-                <span style="font-size: 13px; color: #9C624E; font-weight: bold;">$${(item.price * item.qty).toLocaleString()} COP</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <button onclick="changeQty(${index}, -1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">-</button>
-                <span style="font-size: 13px; font-weight: bold;">${item.qty}</span>
-                <button onclick="changeQty(${index}, 1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">+</button>
-              </div>
-            `;
-            container.appendChild(div);
-          });
-        }
-
-        countBadge.innerText = totalCount;
-        subtotalEl.innerText = '$' + totalPrice.toLocaleString() + ' COP';
-      }
-
-      function changeQty(index, delta) {
-        cart[index].qty += delta;
-        if (cart[index].qty <= 0) {
-          cart.splice(index, 1);
-        }
-        updateCartUI();
-      }
-
-      function checkoutWhatsApp() {
-        if (cart.length === 0) {
-          alert('Tu carrito está vacío.');
-          return;
-        }
-
-        // 1. Obtener y limpiar los valores de los inputs
-        const cityInput = document.getElementById('shippingCity');
-        const neighborhoodInput = document.getElementById('shippingNeighborhood');
-        
-        const city = cityInput ? cityInput.value.trim() : '';
-        const neighborhood = neighborhoodInput ? neighborhoodInput.value.trim() : '';
-
-        // 2. Validar que no estén vacíos (por si intentan saltárselo)
-        if (!city || !neighborhood) {
-          alert('Por favor completa tu Ciudad y Barrio/Sector para calcular el envío.');
-          if (!city && cityInput) cityInput.focus();
-          else if (!neighborhood && neighborhoodInput) neighborhoodInput.focus();
-          return;
-        }
-
-        // 3. Manejo del número consecutivo del pedido
-        let orderNumber = localStorage.getItem('aromantrika_order_seq');
-        orderNumber = orderNumber ? parseInt(orderNumber, 10) + 1 : 1;
-        localStorage.setItem('aromantrika_order_seq', orderNumber);
-        let formattedOrderNum = String(orderNumber).padStart(3, '0');
-
-        // 4. Armar el mensaje para WhatsApp con los datos validados
-        let message = `¡Hola! 👋 Me gustaría hacer un nuevo pedido en Aromantrika:\n\n`;
-        message += `*Pedido #${formattedOrderNum}*\n\n`;
-        
-        let total = 0;
-        cart.forEach(item => {
-          message += `• ${item.qty}x ${item.name} - $${(item.price * item.qty).toLocaleString()} COP\n`;
-          total += item.price * item.qty;
-        });
-
-        message += `\n*Subtotal productos:* $${total.toLocaleString()} COP`;
-        message += `\n*Ciudad:* ${city}`;
-        message += `\n*Barrio / Sector:* ${neighborhood}`;
-        message += '\n\n*.*';
-        
-        const url = `https://wa.me/573002869632?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
-      }
-    </script>
-<!-- ... Aquí termina el catálogo o la sección anterior de tu página ... -->
   </section>
 
-  <!-- PEGA AQUÍ EL BLOQUE HTML DE LAS RESEÑAS -->
+  <!-- SECCIÓN DE RESEÑAS -->
   <section class="reviews-section" style="background-color: #ffffff; padding: 40px 20px; margin-top: 20px;">
     <div style="max-width: 900px; margin: 0 auto; text-align: center;">
       <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #1a382b; background-color: rgba(26,56,43,0.1); padding: 6px 14px; border-radius: 20px;">Testimonios Reales</span>
-      <h2 style="font-size: 28px; color: #1a382b; margin-top: 12px; margin-bottom: 10px; font-family: 'Trajan Pro Bold', serif;">LO QUE DICE NUESTRA COMUNIDAD</h2>
+      <h2 style="font-size: 28px; color: #1a382b; margin-top: 12px; margin-bottom: 10px; font-family: 'Oswald', sans-serif;">LO QUE DICE NUESTRA COMUNIDAD</h2>
       <p style="color: #78716c; font-size: 14px; margin-bottom: 20px;">Conoce las experiencias de quienes ya transformaron su rutina capilar o déjanos tu opinión.</p>
 
-      <!-- CARRUSEL DESLIZANTE DE RESEÑAS EN PAREJA -->
       <div style="position: relative; display: flex; align-items: center; justify-content: center; margin: 20px 0 10px 0;">
         <button id="prevSlideBtn" class="slider-btn" onclick="moveSlide(-1)" style="background: #1a382b; color: white; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; margin-right: 12px; z-index: 10; flex-shrink: 0;">‹</button>
         <div id="reviewsList" style="width: 100%;"></div>
         <button id="nextSlideBtn" class="slider-btn" onclick="moveSlide(1)" style="background: #1a382b; color: white; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; margin-left: 12px; z-index: 10; flex-shrink: 0;">›</button>
       </div>
 
-      <!-- PUNTOS DEL CARRUSEL -->
       <div id="dotsContainer" style="display: flex; justify-content: center; gap: 8px; margin-bottom: 30px;"></div>
 
-     <!-- FORMULARIO PARA AGREGAR RESEÑA -->
       <div style="background: #fdfbf7; border: 1px solid #d4d0c8; border-radius: 16px; padding: 24px; max-width: 550px; margin: 0 auto; text-align: left;">
-        <h3 style="font-size: 16px; color: #1a382b; margin-top: 0; margin-bottom: 12px; font-family: 'Trajan Pro Bold', serif;">💬 Deja tu propia reseña</h3>
+        <h3 style="font-size: 16px; color: #1a382b; margin-top: 0; margin-bottom: 12px; font-family: 'Oswald', sans-serif;">💬 Deja tu propia reseña</h3>
         <form id="reviewForm" onsubmit="submitReview(event)">
-          
           <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">Tu Nombre:</label>
-          <input type="text" id="reviewerName" required placeholder="Ej: Marcela Gómez" style="width: 100%; padding: 10px; margin-bottom: 14px; border-radius: 8px; border: 1px solid #d7d3d0; box-sizing: border-box; font-family: inherit;">
+          <input type="text" id="reviewerName" required placeholder="Ej: Marcela Gómez" style="width: 100%; padding: 10px; margin-bottom: 14px; border-radius: 8px; border: 1px solid #d7d3d0; box-sizing: border-box;">
 
-          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 6px;">Productos que probaste (puedes marcar varios):</label>
+          <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 6px;">Productos que probaste:</label>
           <div style="position: relative;">
             <div onclick="toggleProductDropdown(event)" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d7d3d0; background: white; font-size: 13px; color: #57534e; cursor: pointer; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box;">
               <span id="dropdownSelectedText">Selecciona los productos...</span>
@@ -655,10 +493,6 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
               <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Acondicionador" onchange="updateDropdownText()"> Acondicionador</label>
               <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Tratamiento" onchange="updateDropdownText()"> Tratamiento</label>
               <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Tónico Capilar" onchange="updateDropdownText()"> Tónico Capilar</label>
-              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Acondicionador" onchange="updateDropdownText()"> Kit Shampoo + Acondicionador</label>
-              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Tratamiento" onchange="updateDropdownText()"> Kit Shampoo + Tratamiento</label>
-              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Tónico Capilar" onchange="updateDropdownText()"> Kit Shampoo + Tónico Capilar</label>
-              <label style="display: block; padding: 6px; cursor: pointer; font-size: 13px; color: #57534e;"><input type="checkbox" name="prod" value="Kit Shampoo + Acondicionador + Tónico Capilar" onchange="updateDropdownText()"> Kit Shampoo + Acondicionador + Tónico Capilar</label>
             </div>
           </div>
 
@@ -672,7 +506,7 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
           </div>
 
           <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">Tu Opinión:</label>
-          <textarea id="reviewText" rows="3" required placeholder="Escribe aquí tu experiencia..." style="width: 100%; padding: 10px; margin-bottom: 16px; border-radius: 8px; border: 1px solid #d7d3d0; box-sizing: border-box; font-family: inherit;"></textarea>
+          <textarea id="reviewText" rows="3" required placeholder="Escribe aquí tu experiencia..." style="width: 100%; padding: 10px; margin-bottom: 16px; border-radius: 8px; border: 1px solid #d7d3d0; box-sizing: border-box;"></textarea>
 
           <button type="submit" style="background-color: #1a382b; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; width: 100%;">Publicar Reseña</button>
         </form>
@@ -680,76 +514,139 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
     </div>
   </section>
 
-  <!-- PIE DE PÁGINA (FOOTER) COMPACTO -->
+  <!-- PIE DE PÁGINA (FOOTER) -->
   <footer style="background-color: #1a382b; color: white; padding: 25px 20px 15px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    
-    <!-- Título de Marca -->
-    <h3 style="font-size: 16px; margin: 0 0 8px 0; letter-spacing: 1px; font-family: 'Trajan Pro Bold', serif;">🌿 AROMANTRIKA PRODUCTOS CAPILARES</h3>
-    
-    <!-- Descripción breve -->
+    <h3 style="font-size: 16px; margin: 0 0 8px 0; letter-spacing: 1px; font-family: 'Oswald', sans-serif;">🌿 AROMANTRIKA PRODUCTOS CAPILARES</h3>
     <p style="font-size: 12px; color: #d1c7bd; max-width: 480px; margin: 0 0 16px 0; line-height: 1.4;">
       Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.
     </p>
-
-    <!-- Redes Sociales -->
-    <p style="font-size: 11px; color: #d1c7bd; margin: 0 0 10px 0;">Síguenos en nuestras redes sociales:</p>
     <div style="display: flex; gap: 14px; align-items: center; justify-content: center; margin-bottom: 20px;">
-      <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" style="text-decoration: none;">
-        <img src="tiktok.png" alt="TikTok" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-      </a>
-      <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" style="text-decoration: none;">
-        <img src="instagram.png" alt="Instagram" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-      </a>
-      <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" style="text-decoration: none;">
-        <img src="facebook.png" alt="Facebook" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-      </a>
-      <a href="https://wa.me/573002869632" target="_blank" style="text-decoration: none;">
-        <img src="whatsApp.png" alt="WhatsApp" style="width: 30px; height: 30px; object-fit: contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-      </a>
+      <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank"><img src="tiktok.png" alt="TikTok" style="width: 30px; height: 30px; object-fit: contain;"></a>
+      <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank"><img src="instagram.png" alt="Instagram" style="width: 30px; height: 30px; object-fit: contain;"></a>
+      <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank"><img src="facebook.png" alt="Facebook" style="width: 30px; height: 30px; object-fit: contain;"></a>
+      <a href="https://wa.me/573002869632" target="_blank"><img src="whatsApp.png" alt="WhatsApp" style="width: 30px; height: 30px; object-fit: contain;"></a>
     </div>
-
-    <!-- Copyright -->
     <div style="border-top: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 600px; padding-top: 12px; font-size: 11px; color: #a8a29e;">
       © 2026 Aromantrika Productos Capilares. Todos los derechos reservados.
     </div>
   </footer>
 
- <!-- CARRITO DE COMPRAS FLOTANTE -->
-  <div id="cart-modal" class="cart-modal">
-    <div class="cart-content">
-      <div class="cart-header">
-        <h3>Tu Pedido Capilar 🌿</h3>
-        <button onclick="toggleCart(false)" class="close-cart-btn">&times;</button>
+  <!-- MODAL DE DETALLE DE PRODUCTO -->
+  <div id="productModal" onclick="if(event.target === this) closeProductModal()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: #ffffff; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; border-radius: 16px; padding: 25px; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.3); color: #1c1917; text-align: left;">
+      
+      <button onclick="closeProductModal()" style="position: absolute; top: 15px; right: 15px; background: #e7e5e4; color: #1c1917; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;">&times;</button>
+      
+      <div onclick="openLightbox(document.getElementById('modalImg').src)" style="width: 100%; height: 260px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; background: #fafaf9; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;">
+        <img id="modalImg" src="" alt="Producto Aromantrika" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+        <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 8px; border-radius: 4px;">🔍 Ampliar foto</span>
       </div>
-      <div id="cart-items" class="cart-items-body"></div>
-      <div class="cart-footer">
-        <div class="cart-total-row">
-          <span>Subtotal productos:</span>
-          <strong id="cart-total">$0 COP</strong>
-        </div>
-        <p style="font-size: 11px; color: #78716c; margin-bottom: 14px; text-align: center; line-height: 1.4;">
-          * El costo del envío y el tiempo de entrega (Medellín, Área Metropolitana o Nacional) se calculan y confirman al coordinar por WhatsApp.
-        </p>
-        <button onclick="checkoutWhatsApp()" class="btn-checkout-wa">
-          Enviar pedido a WhatsApp
-        </button>
+
+      <h2 id="modalTitle" style="font-size: 18px; font-weight: bold; color: #1a382b; margin-bottom: 4px;"></h2>
+      <p id="modalPresentation" style="font-size: 13px; color: #78716c; margin-bottom: 14px;"></p>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fafaf9; padding: 12px 16px; border-radius: 8px; border: 1px solid #e7e5e4;">
+        <span id="modalPrice" style="font-size: 20px; font-weight: bold; color: #9C624E;"></span>
+        <button id="modalAddBtn" onclick="addFromModal()" style="background-color: #1a382b; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;">Añadir al Carrito</button>
       </div>
+
+      <p id="modalDesc" style="font-size: 13.5px; color: #57534e; margin-bottom: 20px; line-height: 1.5;"></p>
+      
+      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px; margin-bottom: 15px;">
+        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">🌿 Beneficios</div>
+        <div id="accBenefits" style="font-size: 13px; color: #57534e; white-space: pre-line; line-height: 1.5;"></div>
+      </div>
+
+      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px; margin-bottom: 15px;">
+        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">⏱️ Modo de Uso</div>
+        <div id="accUsage" style="font-size: 13px; color: #57534e; white-space: pre-line; line-height: 1.5;"></div>
+      </div>
+
+      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px;">
+        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">🌱 Ingredientes Activos</div>
+        <div id="accIngredients" style="font-size: 13px; color: #57534e; white-space: pre-line; line-height: 1.5;"></div>
+      </div>
+
     </div>
   </div>
 
-  <button id="cart-floating-btn" onclick="toggleCart(true)" class="cart-floating-btn">
-    🛒 <span id="cart-count-float">0</span>
-  </button>
+  <!-- CARRITO LATERAL -->
+  <div id="cartSidebar" style="display: none; position: fixed; top: 0; right: 0; width: 380px; max-width: 100%; height: 100%; background: white; z-index: 3000; box-shadow: -5px 0 25px rgba(0,0,0,0.15); flex-direction: column;">
+    <div style="background: #1a382b; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+      <h3 style="font-size: 18px; margin: 0;">Tu Pedido Capilar 🌿</h3>
+      <button onclick="toggleCart()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">✕</button>
+    </div>
+    
+    <div style="padding: 15px 20px 0 20px;">
+      <div style="margin-bottom: 12px;">
+        <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 5px;">🏙️ Ciudad / Municipio <span style="color: #9C624E;">*</span>:</label>
+        <input type="text" id="shippingCity" required placeholder="Ej: Medellín, Envigado..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
+      </div>
 
- <!-- ÚNICO BLOQUE DE JAVASCRIPT UNIFICADO PARA CARRITO Y RESEÑAS -->
+      <div style="margin-bottom: 12px;">
+        <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 5px;">📍 Barrio, Vereda o Sector <span style="color: #9C624E;">*</span>:</label>
+        <input type="text" id="shippingNeighborhood" required placeholder="Ej: Aranjuez, Poblado..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
+        <small style="font-size: 11px; color: #78716c; display: block; margin-top: 4px;">* El valor exacto del envío se calcula según la zona.</small>
+      </div>
+    </div>
+
+    <div id="cartItemsContainer" style="padding: 10px 20px; overflow-y: auto; flex-grow: 1;"></div>
+
+    <div style="padding: 20px; border-top: 1px solid #e7e5e4; background: #fafaf9;">
+      <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: bold; margin-bottom: 10px; color: #1a382b;">
+        <span>Subtotal productos:</span>
+        <span id="cartSubtotal">$0 COP</span>
+      </div>
+      <p style="font-size: 11px; color: #78716c; margin-bottom: 15px; line-height: 1.4;">* El costo del envío y el tiempo de entrega se confirman al coordinar por WhatsApp.</p>
+      <button onclick="checkoutWhatsApp()" style="width: 100%; background-color: #22c55e; color: white; border: none; padding: 12px; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center;">Enviar pedido a WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE DEL CARRITO -->
+  <div onclick="toggleCart()" style="position: fixed; bottom: 20px; right: 20px; background: #1a382b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1500;">
+    🛒 <span id="cartCount" style="position: absolute; top: 5px; right: 5px; background: #9C624E; color: white; font-size: 11px; font-weight: bold; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">0</span>
+  </div>
+
+  <!-- VISOR DE IMAGEN (LIGHTBOX) -->
+  <div id="imageLightbox" onclick="closeLightbox()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center; padding: 20px; cursor: zoom-out;">
+    <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 36px; font-weight: bold; cursor: pointer;">&times;</span>
+    <img id="lightboxImg" src="" alt="Imagen ampliada" style="max-width: 95%; max-height: 90vh; border-radius: 8px; object-fit: contain;">
+  </div>
+
+  <!-- SCRIPT GENERAL -->
   <script>
     let cart = [];
+    let currentModalProduct = '';
+    let currentModalPrice = 0;
+    let currentModalPresentation = '';
     let currentSelectedRating = 5;
     let currentSlideIndex = 0;
 
-    // --- CARRITO ---
+    function openProductModal(title, imgSrc, presentation, priceStr, desc, benefits, usage, ingredients) {
+      currentModalProduct = title;
+      currentModalPresentation = presentation;
+      
+      let cleanPrice = priceStr.replace(/[^0-9]/g, '');
+      currentModalPrice = cleanPrice ? parseInt(cleanPrice, 10) : 0;
+
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalPresentation').innerText = presentation;
+      document.getElementById('modalPrice').innerText = priceStr;
+      document.getElementById('modalDesc').innerText = desc;
+      
+      document.getElementById('accBenefits').innerText = benefits;
+      document.getElementById('accUsage').innerText = usage;
+      document.getElementById('accIngredients').innerText = ingredients;
+
+      document.getElementById('productModal').style.display = 'flex';
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').style.display = 'none';
+    }
+
     function addToCart(name, price, presentacion = 'Unidad') {
-      // Buscamos si ya existe el producto en el carrito por su nombre
       const existing = cart.find(item => item.name === name);
       if (existing) {
         existing.qty += 1;
@@ -757,105 +654,90 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
         cart.push({ name: name, price: price, presentacion: presentacion, qty: 1 });
       }
       updateCartUI();
-      toggleCart(true); // Abre el carrito automáticamente al añadir
+      toggleCart(true);
     }
 
     function addFromModal() {
-      // Usamos las variables globales del modal
-      addToCart(currentModalProduct, currentModalPrice, document.getElementById('modalPresentation').innerText);
+      addToCart(currentModalProduct, currentModalPrice, currentModalPresentation);
       closeProductModal();
-    }
-
-    function updateCartUI() {
-      const cartItems = document.getElementById('cartItemsContainer') || document.getElementById('cart-items');
-      const cartCount = document.getElementById('cartCount') || document.getElementById('cart-count');
-      const cartCountFloat = document.getElementById('cart-count-float');
-      const cartTotal = document.getElementById('cartSubtotal') || document.getElementById('cart-total');
-
-      const totalCount = cart.reduce((acc, p) => acc + p.qty, 0);
-      const totalPrice = cart.reduce((acc, p) => acc + (p.price * p.qty), 0);
-
-      if (cartCount) cartCount.innerText = totalCount;
-      if (cartCountFloat) cartCountFloat.innerText = totalCount;
-      if (cartTotal) cartTotal.innerText = '$' + totalPrice.toLocaleString('es-CO') + ' COP';
-
-      if (cartItems) {
-        if (cart.length === 0) {
-          cartItems.innerHTML = '<p style="text-align: center; color: #a8a29e; padding: 32px 0;">Tu carrito está vacío</p>';
-        } else {
-          cartItems.innerHTML = cart.map((p, index) => `
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #f5f5f4; padding-bottom: 15px;">
-              <div>
-                <h4 style="font-size: 14px; color: #1a382b; margin: 0 0 5px 0;">${p.name}</h4>
-                <span style="font-size: 12px; color: #78716c; display: block; margin-bottom: 2px;">${p.presentacion || ''}</span>
-                <span style="font-size: 13px; color: #9C624E; font-weight: bold;">$${(p.price * p.qty).toLocaleString('es-CO')} COP</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <button onclick="changeQty(${index}, -1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold;">-</button>
-                <span style="font-size: 13px; font-weight: bold;">${p.qty}</span>
-                <button onclick="changeQty(${index}, 1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold;">+</button>
-              </div>
-            </div>
-          `).join('');
-        }
-      }
-    }
-
-    function changeQty(index, delta) {
-      cart[index].qty += delta;
-      if (cart[index].qty <= 0) { 
-        cart.splice(index, 1); 
-      }
-      updateCartUI();
     }
 
     function toggleCart(forceState) {
       const sidebar = document.getElementById('cartSidebar');
-      const modal = document.getElementById('cart-modal');
-      const target = sidebar || modal;
-      if (!target) return;
+      if (!sidebar) return;
 
       if (typeof forceState === 'boolean') {
-        if (forceState) {
-          target.style.display = 'flex';
-          target.classList.add('active');
-        } else {
-          target.style.display = 'none';
-          target.classList.remove('active');
-        }
+        sidebar.style.display = forceState ? 'flex' : 'none';
       } else {
-        const isVisible = target.style.display === 'flex' || target.classList.contains('active');
-        if (isVisible) {
-          target.style.display = 'none';
-          target.classList.remove('active');
-        } else {
-          target.style.display = 'flex';
-          target.classList.add('active');
-        }
+        sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
       }
     }
 
-    function checkoutWhatsApp() {
-      if (cart.length === 0) { 
-        alert("Tu carrito está vacío."); 
-        return; 
+    function updateCartUI() {
+      const container = document.getElementById('cartItemsContainer');
+      const countBadge = document.getElementById('cartCount');
+      const subtotalEl = document.getElementById('cartSubtotal');
+      
+      container.innerHTML = '';
+      let totalCount = 0;
+      let totalPrice = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p style="color: #78716c; text-align: center; margin-top: 40px;">Tu carrito está vacío.</p>';
+      } else {
+        cart.forEach((item, index) => {
+          totalCount += item.qty;
+          totalPrice += item.price * item.qty;
+
+          const div = document.createElement('div');
+          div.style.cssText = "display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #f5f5f4; padding-bottom: 15px;";
+          div.innerHTML = `
+            <div>
+              <h4 style="font-size: 14px; color: #1a382b; margin: 0 0 3px 0;">${item.name}</h4>
+              <span style="font-size: 11px; color: #78716c; display: block; margin-bottom: 2px;">${item.presentacion}</span>
+              <span style="font-size: 13px; color: #9C624E; font-weight: bold;">$${(item.price * item.qty).toLocaleString()} COP</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button onclick="changeQty(${index}, -1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">-</button>
+              <span style="font-size: 13px; font-weight: bold;">${item.qty}</span>
+              <button onclick="changeQty(${index}, 1)" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">+</button>
+            </div>
+          `;
+          container.appendChild(div);
+        });
       }
 
-      // Validar campos de envío si están presentes en la interfaz
+      countBadge.innerText = totalCount;
+      subtotalEl.innerText = '$' + totalPrice.toLocaleString() + ' COP';
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+
       const cityInput = document.getElementById('shippingCity');
       const neighborhoodInput = document.getElementById('shippingNeighborhood');
       
       const city = cityInput ? cityInput.value.trim() : '';
       const neighborhood = neighborhoodInput ? neighborhoodInput.value.trim() : '';
 
-      if (cityInput && neighborhoodInput && (!city || !neighborhood)) {
-        alert('Por favor completa tu Ciudad y Barrio/Sector para el envío.');
-        if (!city) cityInput.focus();
-        else neighborhoodInput.focus();
+      if (!city || !neighborhood) {
+        alert('Por favor completa tu Ciudad y Barrio/Sector para calcular el envío.');
+        if (!city && cityInput) cityInput.focus();
+        else if (!neighborhood && neighborhoodInput) neighborhoodInput.focus();
         return;
       }
 
-      // Número consecutivo del pedido
       let orderNumber = localStorage.getItem('aromantrika_order_seq');
       orderNumber = orderNumber ? parseInt(orderNumber, 10) + 1 : 1;
       localStorage.setItem('aromantrika_order_seq', orderNumber);
@@ -865,21 +747,20 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
       message += `*Pedido #${formattedOrderNum}*\n\n`;
       
       let total = 0;
-      cart.forEach(p => {
-        message += `• ${p.qty}x ${p.name} (${p.presentacion || 'Unidad'}) - $${(p.price * p.qty).toLocaleString('es-CO')} COP\n`;
-        total += p.price * p.qty;
+      cart.forEach(item => {
+        message += `• ${item.qty}x ${item.name} (${item.presentacion}) - $${(item.price * item.qty).toLocaleString()} COP\n`;
+        total += item.price * item.qty;
       });
 
-      message += `\n*Subtotal productos:* $${total.toLocaleString('es-CO')} COP`;
-      if (city) message += `\n*Ciudad:* ${city}`;
-      if (neighborhood) message += `\n*Barrio / Sector:* ${neighborhood}`;
-      
+      message += `\n*Subtotal productos:* $${total.toLocaleString()} COP`;
+      message += `\n*Ciudad:* ${city}`;
+      message += `\n*Barrio / Sector:* ${neighborhood}`;
       
       const url = `https://wa.me/573002869632?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
     }
 
-    // --- RESEÑAS Y CARRUSEL ---
+    // --- RESEÑAS ---
     function setRating(stars) {
       currentSelectedRating = stars;
       const starSpan = document.querySelectorAll('#starPicker span');
@@ -994,15 +875,12 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
 
     function submitReview(event) {
       event.preventDefault();
-      
       const nameInput = document.getElementById('reviewerName');
       const textInput = document.getElementById('reviewText');
-      
       if (!nameInput || !textInput) return;
 
       const name = nameInput.value.trim();
       const text = textInput.value.trim();
-
       const checkboxes = document.querySelectorAll('input[name="prod"]:checked');
       let selectedProducts = [];
       checkboxes.forEach((cb) => selectedProducts.push(cb.value));
@@ -1022,7 +900,6 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
       
       let reviews = getReviews();
       reviews.unshift(newReview);
-
       localStorage.setItem('aromantrika_reviews', JSON.stringify(reviews));
       
       currentSlideIndex = 0; 
@@ -1066,10 +943,5 @@ shampoo romero, shampoo manzanilla, shampoo sin sal, shampoo sin sulfatos, acond
       }
     }
   </script>
-  <!-- VISOR DE IMAGEN AMPLIADA (LIGHTBOX) -->
-  <div id="imageLightbox" onclick="closeLightbox()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center; padding: 20px; cursor: zoom-out;">
-    <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 36px; font-weight: bold; cursor: pointer;">&times;</span>
-    <img id="lightboxImg" src="" alt="Imagen ampliada" style="max-width: 95%; max-height: 90vh; border-radius: 8px; object-fit: contain; box-shadow: 0 5px 25px rgba(0,0,0,0.5);">
-  </div>
 </body>
 </html>
