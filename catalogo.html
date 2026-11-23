@@ -1,879 +1,1743 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo | Aromantrika Productos Capilares</title>
-    <style>
-      :root {
-        --color-primario: #15803d;
-        --color-oscuro: #1c1917;
-        --color-fondo: #fafaf9;
-        --color-gris-claro: #f5f5f4;
-        --color-borde: #e7e5e4;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
+  <!-- ===== SEO ===== -->
+  <title>Catálogo | Aromantrika Productos Capilares</title>
+  <meta name="description" content="Catálogo de productos capilares naturales Aromantrika: shampoo de romero y manzanilla, acondicionador, tratamiento biorepolarizador, tónico anticaída y kits de rutina completa. Arma tu pedido por WhatsApp con envíos a todo Colombia.">
+  <meta name="theme-color" content="#1a382b">
+  <link rel="icon" type="image/png" href="logo.png">
 
-      body {
-        background-color: var(--color-fondo);
-        color: var(--color-oscuro);
-      }
+  <!-- Open Graph (cómo se ve al compartir en redes) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aromantrika Productos Capilares">
+  <meta property="og:title" content="Catálogo | Aromantrika Productos Capilares">
+  <meta property="og:description" content="Cosmética capilar artesanal de origen natural: shampoos, tratamientos, tónicos y kits. Arma tu pedido por WhatsApp con envíos a todo el país.">
+  <meta property="og:image" content="https://aromantrikaoficial.github.io/banner.jpg">
+  <meta property="og:locale" content="es_CO">
 
-      header {
-      background: #ffffff;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--color-borde);
+  <!-- Fuentes (mismas del index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Datos estructurados: ayuda a Google a entender los productos -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo Aromantrika",
+    "itemListElement": [
+      {"@type": "Product", "name": "Shampoo Romero Fortalecedor Botánico", "category": "Shampoo", "offers": {"@type": "Offer", "price": "33000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Shampoo Manzanilla Aclarante Natural", "category": "Shampoo", "offers": {"@type": "Offer", "price": "33000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Acondicionador Nutritivo Herbal", "category": "Acondicionador", "offers": {"@type": "Offer", "price": "33000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Tratamiento Biorepolarizador Herbal", "category": "Tratamiento", "offers": {"@type": "Offer", "price": "35000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Tónico Capilar Bioactivador anticaída y crecimiento", "category": "Tónico", "offers": {"@type": "Offer", "price": "28000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Kit Rutina Capilar Completa de Romero", "category": "Kit", "offers": {"@type": "Offer", "price": "88000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Kit Rutina Capilar Completa de Manzanilla", "category": "Kit", "offers": {"@type": "Offer", "price": "88000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Kit crecimiento e hidratación de Romero", "category": "Kit", "offers": {"@type": "Offer", "price": "60000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Kit crecimiento e hidratación de Manzanilla", "category": "Kit", "offers": {"@type": "Offer", "price": "60000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Kit crecimiento, nutrición y Reparación de Romero", "category": "Kit", "offers": {"@type": "Offer", "price": "62000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}},
+      {"@type": "Product", "name": "Kit crecimiento, nutrición y Reparación de Manzanilla", "category": "Kit", "offers": {"@type": "Offer", "price": "62000", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}}
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       AROMANTRIKA · CATÁLOGO
+       Mismas variables y componentes del index = coherencia total
+       ============================================================ */
+    :root {
+      --verde: #1a382b;
+      --verde-claro: #2b5443;
+      --verde-agua: #44543e;
+      --terracota: #9C624E;
+      --crema: #faf9f6;
+      --crema-2: #f5f5f4;
+      --panel: #fdfbf7;
+      --tinta: #292524;
+      --texto: #57534e;
+      --texto-suave: #78716c;
+      --borde: #e7e5e4;
+      --blanco: #ffffff;
+      --radio: 14px;
+      --sombra: 0 4px 15px rgba(0, 0, 0, .05);
+      --fuente-texto: 'Montserrat', system-ui, sans-serif;
+      --fuente-titulos: 'Oswald', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--crema);
+      color: var(--tinta);
+      font-family: var(--fuente-texto);
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.sin-scroll { overflow: hidden; }
+
+    img { max-width: 100%; }
+    button { font-family: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--terracota);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* ---------- Accesibilidad: saltar al contenido ---------- */
+    .saltar-contenido {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--verde);
+      color: #fff;
+      padding: 10px 18px;
+      z-index: 4000;
+      border-radius: 0 0 10px 0;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .saltar-contenido:focus { left: 0; }
+
+    /* ============================================================
+       CABECERA (idéntica al index)
+       ============================================================ */
+    .cabecera-fija {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .barra-superior {
+      background: var(--verde);
+      color: #F1EBDD;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      margin: 0;
+      letter-spacing: .3px;
+    }
+
+    .barra-navegacion {
+      background: var(--blanco);
+      border-bottom: 1px solid var(--borde);
+      padding: 10px 4%;
+    }
+
+    .barra-navegacion__interior {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
+    .logo img { height: 40px; width: auto; display: block; }
+
+    .menu-principal {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 0 auto;
+    }
+
+    .menu-principal a {
+      color: var(--verde);
+      font-weight: 600;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1.1px;
+      transition: color .2s;
+    }
+
+    .menu-principal a:hover { color: var(--terracota); }
+
+    /* Página actual resaltada (mismo mecanismo del index) */
+    .menu-principal a[aria-current="page"] { color: var(--terracota); }
+
+    .menu-principal .btn-diagnostico {
+      background: var(--terracota);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      letter-spacing: .8px;
+    }
+
+    .menu-principal .btn-diagnostico:hover {
+      background: #87533f;
+      color: #fff;
+    }
+
+    .boton-carrito {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .2s;
+    }
+
+    .boton-carrito:hover { background: var(--verde-claro); }
+    .boton-carrito svg { width: 16px; height: 16px; }
+
+    .contador-carrito {
+      background: var(--terracota);
+      border-radius: 999px;
+      min-width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      padding: 0 6px;
+    }
+
+    /* ============================================================
+       BOTONES (idénticos al index)
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background .2s, color .2s, transform .2s;
+    }
+
+    .btn-primario { background: var(--verde); color: #fff; }
+    .btn-primario:hover { background: var(--verde-claro); transform: translateY(-1px); }
+
+    .btn-secundario { border-color: var(--verde); color: var(--verde); background: transparent; }
+    .btn-secundario:hover { background: var(--verde); color: #fff; }
+
+    /* ============================================================
+       SECCIONES COMUNES (idénticas al index)
+       ============================================================ */
+    .seccion { padding: 56px 20px; }
+
+    .seccion--gris {
+      background: var(--crema-2);
+      border-top: 1px solid var(--borde);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .seccion__interior { max-width: 1100px; margin: 0 auto; text-align: center; }
+
+    /* ---------- Píldora etiqueta (igual al index) ---------- */
+    .etiqueta-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--verde-agua);
+      background: rgba(68, 84, 62, .1);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    /* ============================================================
+       CABECERA DEL CATÁLOGO (título de la página)
+       ============================================================ */
+    .cabecera-catalogo { padding: 46px 20px 10px; text-align: center; }
+
+    .cabecera-catalogo h1 {
+      font-family: var(--fuente-titulos);
+      font-size: clamp(1.7rem, 3.4vw, 2.2rem);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--verde);
+      margin: 12px 0 10px;
+    }
+
+    .cabecera-catalogo .subtitulo {
+      color: var(--texto-suave);
+      font-size: 14.5px;
+      line-height: 1.55;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       FILTROS DE CATEGORÍA (píldoras, estilo del index)
+       ============================================================ */
+    .filtros-catalogo {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 30px 0 14px;
+    }
+
+    .filtro-btn {
+      background: var(--blanco);
+      border: 1.5px solid var(--borde);
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--texto);
+      cursor: pointer;
+      transition: all .18s;
+    }
+
+    .filtro-btn:hover { border-color: var(--verde); color: var(--verde); }
+    .filtro-btn.activo { background: var(--verde); border-color: var(--verde); color: #fff; }
+
+    .contador-resultados {
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--texto-suave);
+      margin: 0 0 28px;
+    }
+
+    /* ============================================================
+       PRODUCTOS (mismas tarjetas del index)
+       ============================================================ */
+    .grid-productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+      text-align: left;
+    }
+
+    .tarjeta-producto {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .tarjeta-producto:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,.08); }
+
+    .tarjeta-producto__media {
+      position: relative;
+      background: #fafaf9;
+      height: 220px;
+      padding: 0;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tarjeta-producto__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+      transition: transform .25s;
+    }
+
+    .tarjeta-producto__media:hover img { transform: scale(1.04); }
+
+    .pista-ver-detalle {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, .6);
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .etiqueta-oferta {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--terracota);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .tarjeta-producto__cuerpo { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+
+    .tarjeta-producto h3 { font-size: 16px; color: var(--verde); margin: 0 0 4px; line-height: 1.35; }
+
+    .titulo-producto {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .titulo-producto:hover { color: var(--terracota); }
+
+    .tarjeta-producto__presentacion {
+      display: block;
+      font-size: 12px;
+      color: var(--texto-suave);
+      margin: 0 0 10px;
+    }
+
+    .tarjeta-producto__desc {
+      font-size: 13px;
+      color: var(--texto);
+      margin: 0 0 16px;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    /* En el catálogo la descripción se recorta a 4 líneas:
+       el detalle completo vive en el modal */
+    .catalogo-grid .tarjeta-producto__desc {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .tarjeta-producto__pie {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
+      margin-top: auto;
+      gap: 10px;
+    }
+
+    .precio { font-size: 16px; font-weight: 700; color: var(--terracota); }
+
+    .btn-anadir {
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-anadir:hover { background: var(--verde-claro); }
+    /* ---------- Precio + valor ml / ancla de valor en kits ---------- */
+    .precio-bloque { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .valor-ml { font-size: 11.5px; font-weight: 500; color: var(--texto-suave); }
+    .precio-ancla { font-size: 11.5px; color: var(--texto-suave); }
+    .precio-ancla s { font-weight: 700; }
+
+    .modal-valor-ml { display: block; font-size: 11.5px; color: var(--texto-suave); margin-top: 2px; }
+    .modal-compra__datos { display: flex; flex-direction: column; }
+
+    /* ---------- "Llévalo en rutina" (modal, solo productos individuales) ---------- */
+    .modal-rutina {
+      border: 1px solid var(--borde);
+      background: #fafaf9;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 0 0 18px;
+    }
+
+    .modal-rutina h3 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--verde);
+      margin: 0 0 4px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .modal-rutina__nota { font-size: 12.5px; color: var(--texto-suave); margin: 0 0 6px; }
+
+    .modal-rutina__fila {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--texto);
+      border-top: 1px dashed var(--borde);
+      cursor: pointer;
+    }
+
+    .modal-rutina__fila:first-of-type { border-top: none; }
+    .modal-rutina__fila input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--verde); flex-shrink: 0; cursor: pointer; }
+    .modal-rutina__fila span { flex-grow: 1; }
+    .modal-rutina__fila strong { font-size: 12.5px; color: var(--terracota); white-space: nowrap; }
+
+    .modal-rutina__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--verde);
+      border-top: 1px solid var(--borde);
+      padding-top: 10px;
+      margin: 8px 0 12px;
+    }
+
+    .modal-rutina__boton { width: 100%; }
+
+    .modal-rutina__kit { font-size: 12.5px; color: var(--texto); line-height: 1.5; margin: 10px 0 0; }
+
+    .modal-rutina__kit-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: var(--terracota);
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       CTA DE ASESORÍA (diagnóstico capilar, igual al index)
+       ============================================================ */
+    .cta-asesoria {
+      background: var(--verde);
+      color: #F1EBDD;
+      text-align: center;
+      padding: 52px 20px;
+    }
+
+    .cta-asesoria h2 {
+      font-family: var(--fuente-titulos);
+      font-size: clamp(1.5rem, 3vw, 1.9rem);
+      margin: 0 0 10px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .cta-asesoria p {
+      max-width: 640px;
+      margin: 0 auto 26px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #dfe8e0;
+    }
+
+    .cta-asesoria__botones { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .cta-asesoria .btn-secundario { border-color: #fff; color: #fff; }
+    .cta-asesoria .btn-secundario:hover { background: #fff; color: var(--verde); }
+
+    .cta-asesoria .btn-primario { background: var(--terracota); }
+    .cta-asesoria .btn-primario:hover { background: #87533f; }
+
+    /* ============================================================
+       PIE DE PÁGINA (idéntico al index)
+       ============================================================ */
+    .pie {
+      background: var(--verde);
+      color: #fff;
+      padding: 32px 20px 18px;
+      text-align: center;
+    }
+
+    .pie h2 {
+      font-family: var(--fuente-titulos);
+      font-size: 16px;
+      letter-spacing: 1px;
+      margin: 0 0 8px;
+    }
+
+    .pie > p {
+      font-size: 12.5px;
+      color: #d1c7bd;
+      max-width: 520px;
+      margin: 0 auto 16px;
+      line-height: 1.55;
+    }
+
+    .pie__redes { display: flex; gap: 14px; justify-content: center; margin-bottom: 18px; }
+
+    .pie__redes a { display: inline-flex; transition: transform .2s; }
+    .pie__redes a:hover { transform: scale(1.12); }
+    .pie__redes img { width: 30px; height: 30px; object-fit: contain; }
+
+    .pie p.pie__nota { font-size: 12px; color: #dfe8e0; margin: 0 auto 18px; font-weight: 500; }
+
+    .pie__legal {
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      max-width: 620px;
+      margin: 0 auto;
+      padding-top: 14px;
+      font-size: 12px;
+      color: #a8a29e;
+    }
+
+    /* ============================================================
+       MODAL DE PRODUCTO (idéntico al index)
+       ============================================================ */
+    .modal-producto {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .8);
+      z-index: 3100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s, visibility .2s;
+    }
+
+    .modal-producto.abierto { opacity: 1; visibility: visible; }
+
+    .modal-caja {
+      background: var(--blanco);
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 16px;
+      padding: 26px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .3);
+      text-align: left;
+    }
+
+    .modal-cerrar {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--borde);
+      color: var(--tinta);
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background .2s;
+    }
+
+    .modal-cerrar:hover { background: #d6d3d1; }
+
+    .modal-foto {
+      width: 100%;
+      height: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0 0 20px;
+      background: #fafaf9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+      position: relative;
+      border: none;
+      padding: 0;
+    }
+
+    .modal-foto img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+
+    .modal-titulo { font-size: 19px; font-weight: 700; color: var(--verde); margin: 0 0 4px; }
+    .modal-presentacion { font-size: 13px; color: var(--texto-suave); margin: 0 0 16px; }
+
+    .modal-compra {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      background: #fafaf9;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--borde);
+    }
+
+    .modal-precio { font-size: 20px; font-weight: 700; color: var(--terracota); }
+
+    .modal-descripcion { font-size: 13.5px; color: var(--texto); margin: 0 0 20px; line-height: 1.55; }
+
+    .modal-bloque { border-top: 1px solid var(--borde); padding-top: 15px; margin-bottom: 15px; }
+    .modal-bloque h3 { font-size: 14px; font-weight: 600; color: var(--verde); margin: 0 0 8px; }
+    .modal-bloque__texto { font-size: 13px; color: var(--texto); white-space: pre-line; line-height: 1.55; }
+
+    /* ============================================================
+       CARRITO LATERAL (idéntico al index)
+       ============================================================ */
+    .cortina {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      z-index: 2990;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s, visibility .25s;
+    }
+
+    .cortina.visible { opacity: 1; visibility: visible; }
+
+    .carrito-lateral {
+      position: fixed;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      flex-wrap: wrap; /* Permite que los elementos bajen si no caben en una sola línea */
-      gap: 12px;       /* Espacio ordenado cuando se acomodan en celular */
+      right: 0;
+      width: 400px;
+      max-width: 100%;
+      height: 100%;
+      background: var(--blanco);
+      z-index: 3000;
+      box-shadow: -5px 0 25px rgba(0, 0, 0, .15);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      visibility: hidden;
+      transition: transform .28s ease, visibility .28s;
     }
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column; /* En celulares, coloca el logo arriba y el menú abajo */
-        justify-content: center;
-        text-align: center;
-        padding: 12px 15px;
-      }
+    .carrito-lateral.abierto { transform: none; visibility: visible; }
+
+    .carrito-cabecera {
+      background: var(--verde);
+      color: #fff;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-      .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-      }
+    .carrito-cabecera h2 { font-size: 17px; margin: 0; font-weight: 600; }
 
-      .logo-text {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--color-primario);
-        letter-spacing: -0.5px;
-      }
+    .carrito-cerrar {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
 
-      nav {
-        display: flex;
-        gap: 24px;
-      }
+    .carrito-datos { padding: 16px 20px 4px; }
 
-      nav a {
-        text-decoration: none;
-        color: #44403c;
-        font-size: 15px;
-        font-weight: 600;
-        transition: color 0.2s ease;
-      }
+    .obligatorio { color: var(--terracota); }
 
-      nav a:hover, nav a.active {
-        color: var(--color-primario);
-      }
+    .campo { border: none; padding: 0; margin: 0; }
 
-      /* Contenedor Principal del Catálogo */
-      .catalogo-container {
-        padding: 40px 20px;
-        max-width: 1100px;
-        margin: 0 auto;
-      }
+    .campo label,
+    .campo legend {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--verde);
+      display: block;
+      margin-bottom: 5px;
+      padding: 0;
+    }
 
-      .section-header {
-        text-align: center;
-        margin-bottom: 32px;
-      }
+    .campo input[type="text"],
+    .campo textarea,
+    .campo select {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #d7d3d0;
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--tinta);
+      background: #fff;
+    }
 
-      .badge-sub {
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: var(--color-primario);
-        background: #dcfce7;
-        padding: 4px 12px;
-        border-radius: 20px;
-      }
+    .campo textarea { resize: vertical; }
 
-      .section-title {
-        font-size: 28px;
-        color: var(--color-oscuro);
-        margin-top: 10px;
-        margin-bottom: 8px;
-      }
+    .campo-doble { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-      .section-subtitle {
-        color: #78716c;
-        font-size: 15px;
-      }
+    .carrito-nota-envio {
+      font-size: 11.5px;
+      color: var(--texto-suave);
+      margin: 0 0 4px;
+      line-height: 1.4;
+    }
 
-      /* Filtros de Categorías */
-      .categories-filter {
-        display: flex;
+    .carrito-items { padding: 8px 20px; overflow-y: auto; flex-grow: 1; }
+
+    .carrito-vacio { color: var(--texto-suave); text-align: center; margin-top: 36px; font-size: 14px; }
+
+    .carrito-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--crema-2);
+      padding-bottom: 15px;
+    }
+
+    .carrito-item__info h4 { font-size: 14px; color: var(--verde); margin: 0 0 3px; }
+    .carrito-item__info span { font-size: 11px; color: var(--texto-suave); display: block; margin-bottom: 2px; }
+    .carrito-item__info strong { font-size: 13px; color: var(--terracota); }
+
+    .carrito-item__controles { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+    .carrito-item__controles button {
+      background: var(--borde);
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s;
+    }
+
+    .carrito-item__controles button:hover { background: #d6d3d1; }
+    .carrito-item__controles span { font-size: 13px; font-weight: 700; min-width: 18px; text-align: center; }
+
+    .carrito-pie { padding: 20px; border-top: 1px solid var(--borde); background: #fafaf9; }
+
+    .carrito-subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--verde);
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      background: #22c55e;
+      color: #fff;
+      border: none;
+      padding: 13px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-whatsapp:hover { background: #1eae53; }
+
+    /* ============================================================
+       VISOR DE IMAGEN (LIGHTBOX, idéntico al index)
+       ============================================================ */
+    .visor-imagen {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .9);
+      z-index: 3200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      cursor: zoom-out;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s, visibility .2s;
+    }
+
+    .visor-imagen.abierto { opacity: 1; visibility: visible; }
+
+    .visor-imagen img {
+      max-width: 95%;
+      max-height: 90vh;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .visor-cerrar {
+      position: absolute;
+      top: 16px;
+      right: 26px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 38px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ============================================================
+       WHATSAPP FLOTANTE (idéntico al index)
+       ============================================================ */
+    .whatsapp-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
+      z-index: 1500;
+      text-decoration: none;
+      transition: transform .2s ease;
+    }
+
+    .whatsapp-flotante:hover { transform: scale(1.08); }
+    .whatsapp-flotante svg { width: 30px; height: 30px; }
+
+    /* ============================================================
+       RESPONSIVE (mismos cortes del index)
+       ============================================================ */
+    @media (max-width: 680px) {
+      .barra-navegacion__interior { flex-wrap: wrap; }
+      .logo { order: 1; }
+      .logo img { height: 36px; }
+      .boton-carrito { order: 2; margin-left: auto; }
+      .menu-principal {
+        order: 3;
+        width: 100%;
         justify-content: center;
-        gap: 10px;
         flex-wrap: wrap;
-        margin-bottom: 40px;
+        gap: 10px 16px;
+        margin-top: 4px;
       }
+      .cabecera-catalogo { padding: 34px 16px 6px; }
+      .grid-productos { grid-template-columns: 1fr; }
+      .campo-doble { grid-template-columns: 1fr; }
+      .seccion { padding: 44px 16px; }
+      .cta-asesoria { padding: 44px 18px; }
+            .modal-compra { flex-wrap: wrap; }
+      .modal-compra__datos { flex: 1 1 100%; margin-bottom: 12px; }
+      .modal-compra .btn-primario { width: 100%; }
+    }
 
-      .cat-btn {
-        background: #ffffff;
-        border: 1px solid #d6d3d1;
-        padding: 8px 18px;
-        border-radius: 20px;
-        font-size: 14px;
-        color: #44403c;
-        cursor: pointer;
-        transition: all 0.2s ease;
+    /* Respeto a quienes prefieren menos movimiento */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
       }
-
-      .cat-btn.active, .cat-btn:hover {
-        background-color: var(--color-primario);
-        color: #ffffff;
-        border-color: var(--color-primario);
-      }
-
-      /* Grid de Productos */
-      .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 24px;
-      }
-
-      .product-card {
-        background: #ffffff;
-        border: 1px solid var(--color-borde);
-        border-radius: 12px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: box-shadow 0.2s ease;
-      }
-
-      .product-card:hover {
-        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      }
-
-      .product-image-container {
-        position: relative;
-        height: 220px;
-        background-color: var(--color-gris-claro);
-        overflow: hidden;
-        cursor: pointer;
-      }
-
-      .product-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      .product-card:hover .product-image {
-        transform: scale(1.08);
-      }
-
-      .product-badge {
-        position: absolute;
-        bottom: 8px;
-        left: 8px;
-        background: rgba(28, 25, 23, 0.85);
-        color: #ffffff;
-        font-size: 11px;
-        padding: 3px 8px;
-        border-radius: 4px;
-      }
-
-      /* Modal para ver imagen grande */
-      .image-modal {
-        display: none;
-        position: fixed;
-        z-index: 2000;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.85);
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      }
-      .image-modal.active {
-        display: flex;
-      }
-      .image-modal img {
-        max-width: 90%;
-        max-height: 85vh;
-        border-radius: 8px;
-        object-fit: contain;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      }
-      .close-modal {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        color: white;
-        font-size: 36px;
-        font-weight: bold;
-        cursor: pointer;
-        background: none;
-        border: none;
-      }
-
-      /* Carrito Lateral y Botón Flotante */
-      .cart-modal {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        max-width: 380px;
-        height: 100%;
-        background: #ffffff;
-        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
-        z-index: 1000;
-        transition: right 0.3s ease;
-      }
-
-      .cart-modal.active {
-        right: 0;
-      }
-
-      .cart-content {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .cart-header {
-        padding: 16px 20px;
-        background: var(--color-primario);
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .close-cart-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-      }
-
-      .cart-items-body {
-        flex-grow: 1;
-        overflow-y: auto;
-        padding: 20px;
-      }
-
-      .cart-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 16px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid var(--color-gris-claro);
-      }
-
-      .cart-item-info h4 {
-        font-size: 14px;
-        margin-bottom: 4px;
-        color: var(--color-oscuro);
-      }
-
-      .cart-item-info p {
-        font-size: 12px;
-        color: #78716c;
-      }
-
-      .qty-controls {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .qty-btn {
-        background: var(--color-borde);
-        border: none;
-        width: 24px;
-        height: 24px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-
-      .cart-footer {
-        padding: 20px;
-        border-top: 1px solid var(--color-borde);
-        background: var(--color-fondo);
-      }
-
-      .cart-total-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 16px;
-        margin-bottom: 16px;
-      }
-
-      .btn-checkout-wa {
-        width: 100%;
-        background-color: #25d366;
-        color: white;
-        border: none;
-        padding: 12px;
-        border-radius: 8px;
-        font-weight: bold;
-        font-size: 14px;
-        cursor: pointer;
-        text-align: center;
-      }
-
-      .cart-floating-btn {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        background: var(--color-primario);
-        color: white;
-        border: none;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        cursor: pointer;
-        font-size: 20px;
-        z-index: 999;
-      }
-
-      #cart-count {
-        position: absolute;
-        top: 4px;
-        right: 4px;
-        background: #dc2626;
-        color: white;
-        font-size: 11px;
-        font-weight: bold;
-        padding: 2px 6px;
-        border-radius: 10px;
-      }
-    </style>
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Barra Superior -->
-  <!-- Barra Superior y Logo en PNG de Aromantrika -->
-  <header>
-    <a href="catalogo.html" class="logo-container" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-      <!-- Reemplaza 'tu-logo.png' con el nombre exacto de tu archivo de imagen -->
-      <img src="logo.png" alt="Aromantrika" style="height: 50px; width: auto; object-fit: contain;">
-    </a>
-    <nav style="display: flex; gap: 24px;">
-         
-	  <a href="index.html">Inicio</a>
-      <a href="catalogo.html" class="active">Catálogo</a>
-      <a href="nosotros.html">Nosotros</a>
-    </nav>
-  </header>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
 
-  <!-- Contenido del Catálogo -->
-  <div class="catalogo-container">
-    <div class="section-header">
-      <span class="badge-sub">Línea Capilar Natural</span>
-      <h2 class="section-title">Catálogo de Productos</h2>
-      <p class="section-subtitle">Selecciona tus productos favoritos y arma tu pedido directamente por WhatsApp.</p>
+  <!-- ============================================================
+       CABECERA (idéntica al index; aquí "Catálogo" es la página actual)
+       ============================================================ -->
+  <div class="cabecera-fija">
+    <p class="barra-superior">
+      <span style="display:block;">🌿 Te acompañamos en el cuidado de tu cabello</span>
+      <span style="display:block;">Envíos a todo el país · Hecho en Medellín - Colombia <svg viewBox="0 0 21 14" width="15" height="10" style="vertical-align:-1px; margin-left:4px; border-radius:2px;" role="img" aria-label="Bandera de Colombia"><rect width="21" height="7" fill="#FCD116"/><rect y="7" width="21" height="3.5" fill="#003893"/><rect y="10.5" width="21" height="3.5" fill="#CE1126"/></svg></span>
+    </p>
+
+    <div class="barra-navegacion">
+      <div class="barra-navegacion__interior">
+        <a class="logo" href="index.html" aria-label="Aromantrika, ir al inicio">
+          <img src="logo.png" alt="Aromantrika">
+        </a>
+
+        <nav class="menu-principal" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html" aria-current="page">Catálogo</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a class="btn-diagnostico" href="https://aromantrikaoficial.github.io/catalogo/diagnostico.html" target="_blank" rel="noopener noreferrer">Diagnóstico gratis</a>
+        </nav>
+
+        <button class="boton-carrito" id="botonCarrito" type="button" aria-haspopup="dialog" aria-label="Abrir carrito, 0 productos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.5"></circle>
+            <circle cx="18" cy="20" r="1.5"></circle>
+            <path d="M2 3h2.5l2.7 12.3a1.6 1.6 0 0 0 1.6 1.2h8.4a1.6 1.6 0 0 0 1.6-1.2L21.5 7H5.1"></path>
+          </svg>
+          <span class="contador-carrito" id="contadorCarrito" aria-hidden="true">0</span>
+        </button>
+      </div>
     </div>
-
-    <!-- Filtros de Categorías -->
-    <div class="categories-filter">
-      <button onclick="filterCategory('todos', this)" class="cat-btn active">Todos</button>
-      <button onclick="filterCategory('shampoo', this)" class="cat-btn">Shampoos</button>
-      <button onclick="filterCategory('tratamiento', this)" class="cat-btn">Tratamiento & Acondicionador</button>
-      <button onclick="filterCategory('tonico', this)" class="cat-btn">Tónico Capilar</button>
-      <button onclick="filterCategory('kits', this)" class="cat-btn">Kits Especiales</button>
-    </div>
-
-    <!-- Cuadrícula de Productos -->
-    <div id="product-grid" class="product-grid"></div>
   </div>
 
-     
-  <!-- Carrito Lateral -->
-      <div id="cart-modal" class="cart-modal">
-        <div class="cart-content">
-          <div class="cart-header">
-            <h3>Tu Pedido Capilar 🌿</h3>
-            <button onclick="toggleCart(false)" class="close-cart-btn">&times;</button>
-          </div>
-          <div id="cart-items" class="cart-items-body"></div>
-          
-          <div class="cart-footer">
-            
-            <!-- CAMPOS DE DESTINO OBLIGATORIOS -->
-            <div style="margin-bottom: 10px;">
-              <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">🏙️ Ciudad / Municipio <span style="color: #9C624E;">*</span>:</label>
-              <input type="text" id="shippingCity" required placeholder="Ej: Medellín, Envigado..." style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
-            </div>
+  <main id="contenido">
 
-            <div style="margin-bottom: 10px;">
-              <label style="font-size: 13px; font-weight: bold; color: #1a382b; display: block; margin-bottom: 4px;">📍 Barrio o Sector <span style="color: #9C624E;">*</span>:</label>
-              <input type="text" id="shippingNeighborhood" required placeholder="Ej: Aranjuez, Poblado..." style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #e7e5e4; font-size: 13px; color: #57534e; background: white; box-sizing: border-box;">
-              <small style="font-size: 10px; color: #78716c; display: block; margin-top: 3px;">* El envío se calcula según la zona.</small>
-            </div>
-            <!-- FIN DE LOS CAMPOS -->
+    <!-- ===== TÍTULO DEL CATÁLOGO ===== -->
+    <section class="cabecera-catalogo" aria-labelledby="tituloCatalogo">
+      <span class="etiqueta-pill">Línea capilar natural</span>
+      <h1 id="tituloCatalogo">Catálogo de productos</h1>
+      <p class="subtitulo">Selecciona tus productos, añádelos al carrito y arma tu pedido directamente por WhatsApp. Fórmulas botánicas artesanales para toda la familia.</p>
+    </section>
 
-            <div class="cart-total-row">
-              <span>Subtotal productos:</span>
-              <strong id="cart-total">$0 COP</strong>
-            </div>
-            <p style="font-size: 11px; color: #78716c; margin-bottom: 14px; text-align: center;">
-              * El costo del envío y el tiempo de entrega (Medellín, Área metropolitana o Nacional) se confirman al enviar tu pedido.
-            </p>
-            <button onclick="checkoutWhatsApp()" class="btn-checkout-wa">
-              Enviar pedido a WhatsApp
-            </button>
-          </div>
-        </div>
-      </div>
+    <!-- ===== FILTROS + CUADRÍCULA ===== -->
+    <section class="seccion seccion--gris" aria-label="Listado de productos">
+      <div class="seccion__interior">
 
-  <!-- Botón Flotante Carrito -->
-  <button id="cart-floating-btn" onclick="toggleCart(true)" class="cart-floating-btn">
-    🛒 <span id="cart-count">0</span>
-  </button>
-
-  <script>
-    const products = [
-      {
-        id: 1,
-        title: "Shampoo Romero Fortalecedor Botánico",
-        category: "shampoo",
-        price: 33000,
-        presentacion: "Frasco x 500 ml",
-        extractos: "Romero, Quina, Ortiga, Guasimo, Hoja de Laurel, Cola de caballo, Aloe Vera, Linaza, Guayabo, Clavo de Olor, Decyl glucoside, Betaina de coco, Glicerina, cafeina",
-        ingredients: "Extracto puro de Romero, Ortiga y Guásimo",
-        image: "Romero-.jpg",
-        desc: "Fórmula magistral diseñada para limpiar suavemente la fibra capilar, estimular la irrigación del cuero cabelludo y fortalecer la hebra desde la raíz, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.",
-        beneficios: "• Estimula el crecimiento de nuevos folículos capilares.\n• Fortalece la hebra capilar reduciendo la ruptura.\n• Regula la producción de grasa en el cuero cabelludo.",
-        modo_uso: "Aplicar únicamente sobre el cuero cabelludo húmedo (el largo se lava con la espuma que se genera, aplicar shampoo puede resecar y desperdiciar producto), masajear suavemente el cuero cabelludo de 3 a 5 minutos y enjuagar con abundante agua fría."
-      },
-      {
-        id: 2,
-        title: "Shampoo Manzanilla Aclarante Natural",
-        category: "shampoo",
-        price: 33000,
-        presentacion: "Frasco x 500 ml",
-        extractos: "Extractos de Manzanilla, Ortiga, Guásimo, Hoja de laurel, Cola de cabello, Aloe vera, Linaza, Guayabo, Clavo de olor, Decyl glucoside, Betaina de coco, Glicerina, Cafeina.",
-        ingredients: "Manzanilla, Guásimo & Sábila",
-        image: "Manzanilla-.jpg",
-        desc: "Limpia delicadamente mientras resalta y cuida los reflejos dorados naturales del cabello, aportando brillo, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.",
-        beneficios: "• Realza los reflejos dorados de forma natural.\n• Ayuda a detener la caída, elimina la caspa y activa el crecimiento.\n• Cuida y nutre el cuero cabelludo.",
-        modo_uso: "Aplicar únicamente sobre el cuero cabelludo húmedo (el largo se lava con la espuma que se genera, aplicar shampoo puede resecar y desperdiciar producto), masajear suavemente el cuero cabelludo de 3 a 5 minutos y enjuagar con abundante agua fría."
-      },
-      {
-        id: 3,
-        title: "Acondicionador Nutritivo Herbal",
-        category: "tratamiento",
-        price: 33000,
-        presentacion: "Frasco x 500 ml",
-        extractos: "Manteca de karité, Leches de arroz y avena, Aceite de coco y argán, Aloe vera y Linaza",
-        ingredients: "Pantenol (Provitamina B5), Aloe vera y Linaza",
-        image: "Acondicionador-.jpg",
-        desc: "Desenreda de manera natural, aporta una suavidad profunda y sella la cutícula para restaurar el brillo de la fibra capilar.",
-        beneficios: "• Desenreda sin esfuerzo y sin generar grasa.\n• Sella la cutícula y previene puntas abiertas.\n• Aporta hidratación.",
-        modo_uso: "Aplicar de medios a puntas siempre después del shampoo, con el cabello ligeramente húmedo, no chorreando agua, dejar actuar por 3 a 5 minutos y enjuagar con abundante agua fría."
-      },
-      {
-        id: 4,
-        title: "Tratamiento Biorepolarizador Herbal",
-        category: "tratamiento",
-        price: 35000,
-        presentacion: "Frasco x 500 ml",
-        extractos: "Aceite de Argán y Aguacate, Pantenol, Aloe vera y Linaza",
-        ingredients: "Linaza, Guasimo, Manteca de karité, Zanahoria, Leches de arroz y avena.",
-        image: "Tratamiento-.jpg",
-        desc: "Mascarilla de nutrición intensiva para reparar la fibra capilar maltratada, porosa o reseca, devolviéndole su vitalidad.",
-        beneficios: "• Repara la hebra capilar altamente maltratada.\n• Devuelve la elasticidad, hidratación y brillo.\n• Sella la porosidad del cabello.",
-        modo_uso: "Aplicar de medios a puntas sobre el cabello limpio y húmedo. Usar entre 1 a 2 veces por semana según el daño del cabello. Dejar actuar de 15 a 20 minutos y enjuagar. Orden de lavado del día que uses el Tratamiento: shampoo y enjuagar, tratamiento, dejar actuar y enjuagar y terminar con Acondicionador y enjuagar"
-      },
-      {
-        id: 5,
-        title: "Tónico Capilar Bioactivador anticaída y crecimiento",
-        category: "tonico",
-        price: 28000,
-        presentacion: "Atomizador x 250 ml",
-        extractos: "Extractos herbales Romero, Guasimo, Canela, Ortiga, Manzanilla, Eucalipto, Calendula, Hoja de Laurel, guayabo, Quina, Cola de caballo, Clavo de olor.",
-        ingredients: "Cafeina, Pantenol (Provitamina B5)",
-        image: "tonico-.jpg",
-        desc: "Tónico concentrado sin enjuague para aplicar únicamente en el cuero cabelludo, ayuda a detener la caída, elimina la caspa y promueve el crecimiento del cabello.",
-        beneficios: "• Bioactiva la irrigación sanguínea del folículo.\n• Detiene la caída excesiva y combate la caspa.\n• Estimula un crecimiento fuerte y sano.",
-        modo_uso: "Aplicar todos los días (mañana o noche) únicamente en el cuero cabelludo limpio (seco o húmedo) dando suaves masajes circulares. No se enjuaga."
-      },
-      {
-        id: 6,
-        title: "Kit Rutina Capilar Completa de Romero",
-        category: "kits",
-        price: 88000,
-        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml + Tónico 250ml)",
-        extractos: "Sistema botánico integral capilar",
-        image: "4 romero-.jpg",
-        desc: "El tratamiento combinado perfecto para realizar una rutina completa de limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
-        beneficios: "• Rutina integral 3 en 1 para potenciar resultados.\n• Limpieza, hidratación y bioactivación capilar combinadas.",
-        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo, y el tónico diariamente en el cuero cabelludo así ese día no laves tu cabello."
-      },
-      {
-        id: 7,
-        title: "Kit Rutina Capilar Completa de Manzanilla",
-        category: "kits",
-        price: 88000,
-        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml + Tónico 250ml)",
-        extractos: "Sistema botánico integral capilar",
-        image: "combo 4 manzanilla-.jpg",
-        desc: "El tratamiento combinado perfecto para realizar una rutina completa de limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
-        beneficios: "• Cuida y aclara manteniendo la salud capilar.\n• Sistema completo de hidratación y crecimiento.",
-        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo, y el tónico diariamente en el cuero cabelludo así ese día no laves tu cabello."
-      },
-      {
-        id: 8,
-        title: "Kit crecimiento e hidratación de Romero",
-        category: "kits",
-        price: 60000,
-        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml)",
-        extractos: "Sistema botánico integral capilar",
-        image: "combo 3 romero-.jpg",
-        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
-        beneficios: "• Dúo ideal para limpieza diaria e hidratación.\n• Fortalece la raíz y suaviza las puntas.",
-        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo."
-      },
-      {
-        id: 9,
-        title: "Kit crecimiento e hidratación de Manzanilla",
-        category: "kits",
-        price: 60000,
-        presentacion: "Kit (Shampoo 500ml + Acondicionador 500ml)",
-        extractos: "Sistema botánico integral capilar",
-        image: "combo 3 manzanilla-.jpg",
-        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
-        beneficios: "• Mantiene los reflejos dorados limpios y suaves.\n• Hidratación equilibrada para toda la familia.",
-        modo_uso: "Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo."
-      },
-      {
-        id: 10,
-        title: "Kit crecimiento, nutrición y Reparación de Romero",
-        category: "kits",
-        price: 62000,
-        presentacion: "Kit (Shampoo 500ml + Biorepolarizador 500ml)",
-        extractos: "Sistema botánico integral capilar",
-        image: "combo 5 romero-.jpg",
-        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
-        beneficios: "• Estimulación de raíz combinada con reparación profunda de puntas.\n• Ideal para cabellos resecos y con caída.",
-        modo_uso: "Lavar con shampoo (2 -3 veces por semana) y usar el biorepolarizador como mascarilla nutritiva de 1 a 2 veces por semana. El Tratamiento no reemplaza el Acondicionador"
-      },
-      {
-        id: 11,
-        title: "Kit crecimiento, nutrición y Reparación de Manzanilla",
-        category: "kits",
-        price: 62000,
-        presentacion: "Kit (Shampoo 500ml + Biorepolarizador 500ml)",
-        extractos: "Sistema botánico integral capilar",
-        image: "combo 5 manzanilla-.jpg",
-        desc: "El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.",
-        beneficios: "• Limpieza del cuero cabelludo, Nutrición intensiva para cabellos claros o rubios maltratados.",
-        modo_uso: "Lavar con shampoo (2 -3 veces por semana) y usar el biorepolarizador como mascarilla nutritiva de 1 a 2 veces por semana. El Tratamiento no reemplaza el Acondicionador"
-      }
-    ];
-
-    let cart = [];
-
-    function renderProducts(filter = 'todos') {
-      const grid = document.getElementById('product-grid');
-      if (!grid) return;
-
-      grid.innerHTML = '';
-      const filtered = filter === 'todos' ? products : products.filter(p => p.category === filter);
-
-      filtered.forEach(p => {
-        let precioFormateado = "$" + p.price.toLocaleString('es-CO') + " COP";
-
-        grid.innerHTML += `
-          <div style="background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e7e5e4; display: flex; flex-direction: column;">
-            
-            <!-- Contenedor de la Imagen -->
-            <div onclick="openProductModal(${p.id})" style="cursor: pointer; position: relative; overflow: hidden; background: #fafaf9; height: 220px; display: flex; align-items: center; justify-content: center;">
-              <img src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 8px; border-radius: 4px;">🔍 Ver Detalle</span>
-            </div>
-
-            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
-              <h3 style="font-size: 16px; color: #1a382b; margin-bottom: 8px; cursor: pointer;" onclick="openProductModal(${p.id})">${p.title}</h3>
-              <p style="font-size: 13px; color: #57534e; margin-bottom: 16px; flex-grow: 1;">${p.desc}</p>
-              
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                <span style="font-size: 16px; font-weight: bold; color: #9C624E;">${precioFormateado}</span>
-                <button onclick="addToCart(${p.id})" style="background-color: #1a382b; color: white; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">+ Añadir</button>
-              </div>
-            </div>
-
-          </div>
-        `;
-      });
-    }
-
-    function filterCategory(cat, element) {
-      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-      if (element) element.classList.add('active');
-      renderProducts(cat);
-    }
-
-    function addToCart(id) {
-      const item = cart.find(p => p.id === id);
-      if (item) {
-        item.qty++;
-      } else {
-        const prod = products.find(p => p.id === id);
-        if (prod) cart.push({ ...prod, qty: 1 });
-      }
-      updateCartUI();
-      toggleCart(true);
-    }
-
-    function updateCartUI() {
-      const cartItems = document.getElementById('cart-items');
-      const cartCount = document.getElementById('cart-count');
-      const cartTotal = document.getElementById('cart-total');
-
-      const totalCount = cart.reduce((acc, p) => acc + p.qty, 0);
-      const totalPrice = cart.reduce((acc, p) => acc + (p.price * p.qty), 0);
-
-      if (cartCount) cartCount.innerText = totalCount;
-      if (cartTotal) cartTotal.innerText = `$${totalPrice.toLocaleString('es-CO')} COP`;
-
-      if (cartItems) {
-        if (cart.length === 0) {
-          cartItems.innerHTML = '<p style="text-align: center; color: #a8a29e; padding: 32px 0;">Tu carrito está vacío</p>';
-        } else {
-          cartItems.innerHTML = cart.map(p => `
-            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #f4f4f5; padding-bottom: 8px;">
-              <div class="cart-item-info">
-                <h4 style="font-size: 14px; margin: 0; color: #1c1917;">${p.title}</h4>
-                <p style="font-size: 12px; color: #78716c; margin: 2px 0 0 0;">$${p.price.toLocaleString('es-CO')}</p>
-              </div>
-              <div class="qty-controls" style="display: flex; align-items: center; gap: 8px;">
-                <button onclick="changeQty(${p.id}, -1)" class="qty-btn" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">-</button>
-                <span style="font-size: 13px; font-weight: bold;">${p.qty}</span>
-                <button onclick="changeQty(${p.id}, 1)" class="qty-btn" style="background: #e7e5e4; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">+</button>
-              </div>
-            </div>
-          `).join('');
-        }
-      }
-    }
-
-    function changeQty(id, delta) {
-      const item = cart.find(p => p.id === id);
-      if (item) {
-        item.qty += delta;
-        if (item.qty <= 0) cart = cart.filter(p => p.id !== id);
-      }
-      updateCartUI();
-    }
-
-    function toggleCart(forceOpen = false) {
-      const modal = document.getElementById('cart-modal');
-      if (!modal) return;
-      if (forceOpen) modal.classList.add('active');
-      else modal.classList.toggle('active');
-    }
-
-   function checkoutWhatsApp() {
-      // 1. Obtener los campos de ciudad y barrio
-      const cityInput = document.getElementById('shippingCity');
-      const neighborhoodInput = document.getElementById('shippingNeighborhood');
-      
-      const city = cityInput ? cityInput.value.trim() : '';
-      const neighborhood = neighborhoodInput ? neighborhoodInput.value.trim() : '';
-
-      // 2. Validar que sean obligatorios
-      if (!city || !neighborhood) {
-        alert('Por favor completa tu Ciudad y Barrio/Sector para calcular el envío.');
-        if (!city && cityInput) cityInput.focus();
-        else if (!neighborhood && neighborhoodInput) neighborhoodInput.focus();
-        return;
-      }
-
-      if (cart.length === 0) {
-        alert('Tu carrito está vacío.');
-        return;
-      }
-
-      // 3. Manejo del número consecutivo del pedido
-      let orderNumber = localStorage.getItem('aromantrika_order_seq');
-      orderNumber = orderNumber ? parseInt(orderNumber, 10) + 1 : 1;
-      localStorage.setItem('aromantrika_order_seq', orderNumber);
-      let formattedOrderNum = String(orderNumber).padStart(3, '0');
-
-      // 4. Armar el mensaje para WhatsApp (Usando item.title y item.presentacion)
-      let message = `¡Hola! 👋 Me gustaría hacer un nuevo pedido en Aromantrika:\n\n`;
-      message += `*Pedido #${formattedOrderNum}*\n\n`;
-      
-      let total = 0;
-      cart.forEach(item => {
-        message += `• ${item.qty}x ${item.title} (${item.presentacion}) - $${(item.price * item.qty).toLocaleString()} COP\n`;
-        total += item.price * item.qty;
-      });
-
-      message += `\n*Subtotal productos:* $${total.toLocaleString()} COP`;
-      message += `\n*Ciudad:* ${city}`;
-      message += `\n*Barrio / Sector:* ${neighborhood}`;
-     
-      const url = `https://wa.me/573002869632?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
-    }
-
-    function openProductModal(id) {
-      const p = products.find(item => item.id === id);
-      if (!p) return;
-
-      document.getElementById('modalTitle').innerText = p.title;
-      document.getElementById('modalImg').src = p.image;
-      document.getElementById('modalPrice').innerText = "$" + p.price.toLocaleString('es-CO') + " COP";
-      document.getElementById('modalDesc').innerText = p.desc || "";
-      document.getElementById('modalPresentation').innerText = p.presentacion;
-      document.getElementById('modalBeneficios').innerText = p.beneficios || "• Nutre y fortalece profundamente la hebra capilar.\n• Ingredientes de origen natural.";
-      document.getElementById('modalModoUso').innerText = p.modo_uso || "Aplicar sobre el cabello húmedo, masajear suavemente y enjuagar con abundante agua.";
-      document.getElementById('modalExtractos').innerText = p.extractos || p.ingredients || "Extractos botánicos naturales.";
-
-      document.getElementById('modalAddBtn').setAttribute('onclick', `addToCart(${p.id}); closeProductModal();`);
-      
-      const modal = document.getElementById('productModal');
-      if (modal) modal.style.display = 'flex';
-    }
-
-    function closeProductModal() {
-      const modal = document.getElementById('productModal');
-      if (modal) modal.style.display = 'none';
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderProducts();
-    });
-    function openLightbox(imgSrc) {
-      const lightbox = document.getElementById('imageLightbox');
-      const lightboxImg = document.getElementById('lightboxImg');
-      if (lightbox && lightboxImg) {
-        lightboxImg.src = imgSrc;
-        lightbox.style.display = 'flex';
-      }
-    }
-
-    function closeLightbox() {
-      const lightbox = document.getElementById('imageLightbox');
-      if (lightbox) {
-        lightbox.style.display = 'none';
-      }
-    }
-  </script>
-
-  <!-- PIE DE PÁGINA (FOOTER) PROFESIONAL -->
-  <footer style="background-color: #1c1917; color: #f5f5f4; padding: 50px 20px 24px 20px; margin-top: 60px; border-top: 3px solid #15803d; width: 100%; box-sizing: border-box;">
-    <div style="max-width: 1100px; margin: 0 auto; width: 100%;">
-      <div style="width: 100%; max-width: 600px; margin: 0 auto; margin-bottom: 35px;">
-        
-        <div style="width: 100%; margin-bottom: 30px;">
-          <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 12px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <span>🌿</span> Aromantrika Productos Capilares
-          </h3>
-          <p style="font-size: 13px; color: #a8a29e; line-height: 1.6; text-align: center; margin: 0 auto; max-width: 480px;">
-            Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.
-          </p>
+        <div class="filtros-catalogo" role="group" aria-label="Filtrar productos por categoría">
+          <button class="filtro-btn activo" type="button" data-cat="todos" data-label="Todos">Todos</button>
+          <button class="filtro-btn" type="button" data-cat="shampoo" data-label="Shampoos">Shampoos</button>
+          <button class="filtro-btn" type="button" data-cat="tratamiento" data-label="Tratamiento &amp; Acondicionador">Tratamiento &amp; Acondicionador</button>
+          <button class="filtro-btn" type="button" data-cat="tonico" data-label="Tónico Capilar">Tónico Capilar</button>
+          <button class="filtro-btn" type="button" data-cat="kits" data-label="Kits Especiales">Kits Especiales</button>
         </div>
 
-        <div style="width: 100%;">
-          <h4 style="color: #ffffff; font-size: 15px; margin-bottom: 14px; font-weight: 600; text-align: center;">Conéctate con Nosotros</h4>
-          <p style="font-size: 13px; color: #a8a29e; margin-bottom: 16px; line-height: 1.5; text-align: center;">Síguenos en nuestras redes sociales y descubre tips de cuidado capilar:</p>
-          
-          <div style="text-align: center; width: 100%;">
-            <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-              <img src="tiktok.png" alt="TikTok" style="width: 36px; height: 36px; object-fit: contain;">
-            </a>
-            <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-              <img src="instagram.png" alt="Instagram" style="width: 36px; height: 36px; object-fit: contain;">
-            </a>
-            <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-              <img src="facebook.png" alt="Facebook" style="width: 36px; height: 36px; object-fit: contain;">
-            </a>
-            <a href="https://wa.me/573002869632" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-              <img src="whatsApp.png" alt="WhatsApp" style="width: 36px; height: 36px; object-fit: contain;">
-            </a>
-          </div>
-        </div>
+        <p class="contador-resultados" id="contadorResultados" aria-live="polite"></p>
+
+        <!-- ✏️ Las tarjetas se generan solas desde PRODUCTOS (al final del archivo).
+             Para editar textos, precios o imágenes: cambia el objeto del producto. -->
+        <div class="grid-productos catalogo-grid" id="contenedorProductos"></div>
 
       </div>
+    </section>
+
+    <!-- ===== CTA: DIAGNÓSTICO CAPILAR (igual al index) ===== -->
+    <section class="cta-asesoria" aria-labelledby="tituloAsesoriaCatalogo">
+      <h2 id="tituloAsesoriaCatalogo">¿No sabes qué producto necesita tu cabello?</h2>
+      <p>Haz el diagnóstico capilar gratuito y recibe una recomendación de rutina según tu tipo de cabello y tus necesidades. También puedes escribirnos directamente: te acompañamos en cada paso.</p>
+      <div class="cta-asesoria__botones">
+        <a class="btn btn-primario" href="https://aromantrikaoficial.github.io/catalogo/diagnostico.html" target="_blank" rel="noopener noreferrer">Hacer mi diagnóstico gratis</a>
+        <a class="btn btn-secundario" href="https://wa.me/573002869632?text=Hola%2C%20quiero%20asesor%C3%ADa%20personalizada%20para%20mi%20cabello" target="_blank" rel="noopener noreferrer">Asesoría por WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIE DE PÁGINA (idéntico al index) ===== -->
+  <footer class="pie">
+    <h2>🌿 Aromantrika Productos Capilares</h2>
+    <p>Fórmulas botánicas artesanales diseñadas para cuidar, nutrir y realzar la belleza natural de tu cabello con el poder de los extractos vegetales.</p>
+
+    <div class="pie__redes">
+      <a href="https://www.tiktok.com/@aromantrikaoficial?_r=1&_t=ZS-9A7OTDyt7kW" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Aromantrika"><img src="tiktok.png" alt="" width="30" height="30"></a>
+      <a href="https://www.instagram.com/aromantrikaoficial?stkn=dXdib3ZzdDJ0emJr" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Aromantrika"><img src="instagram.png" alt="" width="30" height="30"></a>
+      <a href="https://www.facebook.com/share/19D3mGLg4u/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Aromantrika"><img src="facebook.png" alt="" width="30" height="30"></a>
+      <a href="https://wa.me/573002869632" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Aromantrika"><img src="whatsApp.png" alt="" width="30" height="30"></a>
     </div>
 
-    <div style="border-top: 1px solid #292524; padding-top: 20px; text-align: center; font-size: 12px; color: #78716c; width: 100%;">
-      © 2026 Aromantrika Productos Capilares. Todos los derechos reservados.
-    </div>
+    <p class="pie__nota">Envíos a todo el país · Asesoría personalizada por WhatsApp</p>
+
+    <div class="pie__legal">© 2026 Aromantrika Productos Capilares. Todos los derechos reservados.</div>
   </footer>
 
- <!-- MODAL ÚNICO DE DETALLE DE PRODUCTO -->
-  <div id="productModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px;">
-    <div style="background: #ffffff; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; border-radius: 16px; padding: 25px; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.3); color: #1c1917; text-align: left;">
-      
-      <!-- Botón de Cerrar (X) -->
-      <button onclick="closeProductModal()" style="position: absolute; top: 15px; right: 15px; background: #e7e5e4; color: #1c1917; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;">&times;</button>
-      
-      <!-- Imagen Interactiva del Modal (Clic para ampliar) -->
-      <div onclick="openLightbox(document.getElementById('modalImg').src)" style="width: 100%; height: 260px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; background: #fafaf9; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;" title="Haz clic para ampliar la imagen">
-        <img id="modalImg" src="" alt="Producto Aromantrika" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
-        <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 8px; border-radius: 4px;">🔍 Ampliar foto</span>
+  <!-- ===== MODAL DE DETALLE DE PRODUCTO ===== -->
+  <div class="modal-producto" id="modalProducto" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal-caja">
+      <button class="modal-cerrar" id="modalCerrar" type="button" aria-label="Cerrar detalle del producto">&times;</button>
+
+      <button class="modal-foto" id="modalFoto" type="button" aria-label="Ampliar imagen del producto">
+        <img id="modalImagen" src="" alt="">
+        <span class="pista-ver-detalle">🔍 Ampliar foto</span>
+      </button>
+
+      <h2 class="modal-titulo" id="modalTitulo"></h2>
+      <p class="modal-presentacion" id="modalPresentacion"></p>
+
+           <div class="modal-compra">
+        <div class="modal-compra__datos">
+          <span class="modal-precio" id="modalPrecio"></span>
+          <span class="modal-valor-ml" id="modalValorMl" hidden></span>
+        </div>
+        <button class="btn btn-primario" id="modalAgregar" type="button">Añadir al carrito</button>
       </div>
 
-      <!-- Título y Presentación -->
-      <h2 id="modalTitle" style="font-size: 18px; font-weight: bold; color: #1a382b; margin-bottom: 4px;"></h2>
-      <p id="modalPresentation" style="font-size: 13px; color: #78716c; margin-bottom: 14px;"></p>
+      <!-- "Llévalo en rutina": se llena solo para productos individuales -->
+      <div class="modal-rutina" id="modalRutina" hidden></div>
 
-      <!-- Precio y Botón de Añadir al Carrito -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fafaf9; padding: 12px 16px; border-radius: 8px; border: 1px solid #e7e5e4;">
-        <span id="modalPrice" style="font-size: 20px; font-weight: bold; color: #9C624E;"></span>
-        <button id="modalAddBtn" style="background-color: #1a382b; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;">Añadir al Carrito</button>
+      <p class="modal-descripcion" id="modalDescripcion"></p>
+
+      <div class="modal-bloque">
+        <h3>🌿 Beneficios</h3>
+        <div class="modal-bloque__texto" id="modalBeneficios"></div>
       </div>
 
-      <!-- Descripción corta -->
-      <p id="modalDesc" style="font-size: 13.5px; color: #57534e; margin-bottom: 20px; line-height: 1.5;"></p>
-      
-      <!-- Sección Beneficios -->
-      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px; margin-bottom: 15px;">
-        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">🌿 Beneficios</div>
-        <div id="modalBeneficios" style="font-size: 13px; color: #57534e; white-space: pre-line; line-height: 1.5;"></div>
+      <div class="modal-bloque">
+        <h3>⏱️ Modo de uso</h3>
+        <div class="modal-bloque__texto" id="modalModoUso"></div>
       </div>
 
-      <!-- Sección Modo de Uso -->
-      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px; margin-bottom: 15px;">
-        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">⏱️ Modo de Uso</div>
-        <div id="modalModoUso" style="font-size: 13px; color: #57534e; line-height: 1.5;"></div>
+      <div class="modal-bloque">
+        <h3>🌱 Extractos botánicos</h3>
+        <div class="modal-bloque__texto" id="modalExtractos"></div>
       </div>
-
-      <!-- Sección Ingredientes Activos -->
-      <div style="border-top: 1px solid #e7e5e4; padding-top: 15px;">
-        <div style="font-weight: 600; color: #1a382b; font-size: 14px; margin-bottom: 8px;">🌱 Ingredientes Activos</div>
-        <div id="modalExtractos" style="font-size: 13px; color: #57534e; line-height: 1.5;"></div>
-      </div>
-
     </div>
   </div>
 
-  <!-- VISOR DE IMAGEN AMPLIADA (LIGHTBOX) -->
-  <div id="imageLightbox" onclick="closeLightbox()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center; padding: 20px; cursor: zoom-out;">
-    <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 36px; font-weight: bold; cursor: pointer;">&times;</span>
-    <img id="lightboxImg" src="" alt="Imagen ampliada" style="max-width: 95%; max-height: 90vh; border-radius: 8px; object-fit: contain; box-shadow: 0 5px 25px rgba(0,0,0,0.5);">
+  <!-- ===== CARRITO LATERAL (mismo formato del index) ===== -->
+  <div class="cortina" id="carritoCortina"></div>
+
+  <aside class="carrito-lateral" id="carritoLateral" role="dialog" aria-modal="true" aria-label="Tu pedido Aromantrika">
+    <div class="carrito-cabecera">
+      <h2>Tu pedido 🌿</h2>
+      <button class="carrito-cerrar" id="btnCerrarCarrito" type="button" aria-label="Cerrar carrito">&times;</button>
+    </div>
+
+    <div class="carrito-datos">
+      <div class="campo">
+        <label for="campoNombre">Tu nombre <span class="obligatorio">*</span></label>
+        <input type="text" id="campoNombre" name="nombreCliente" autocomplete="name" placeholder="Ej: Marcela Gómez">
+      </div>
+
+      <div class="campo">
+        <label for="campoDireccion">Dirección completa <span class="obligatorio">*</span></label>
+        <input type="text" id="campoDireccion" name="direccion" autocomplete="street-address" placeholder="Calle / carrera, número, apto o casa">
+      </div>
+
+      <div class="campo-doble">
+        <div class="campo">
+          <label for="campoCiudad">Ciudad / Municipio <span class="obligatorio">*</span></label>
+          <input type="text" id="campoCiudad" name="ciudad" placeholder="Ej: Medellín, Envigado...">
+        </div>
+        <div class="campo">
+          <label for="campoBarrio">Barrio o sector <span class="obligatorio">*</span></label>
+          <input type="text" id="campoBarrio" name="barrio" placeholder="Ej: Aranjuez, Poblado...">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="campoPago">Método de pago preferido</label>
+        <select id="campoPago" name="pago">
+          <option value="">Sin preferencia</option>
+          <option>Pago contraentrega</option>
+          <option>Transferencia bancaria</option>
+          <option>Nequi</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <p class="carrito-nota-envio">El costo exacto del envío y el tiempo de entrega se confirman al coordinar por WhatsApp.</p>
+    </div>
+
+    <div class="carrito-items" id="carritoItems"></div>
+
+    <div class="carrito-pie">
+      <div class="carrito-subtotal">
+        <span>Subtotal productos:</span>
+        <strong id="carritoSubtotal">$0 COP</strong>
+      </div>
+      <button class="btn-whatsapp" id="btnEnviarPedido" type="button">Enviar pedido por WhatsApp</button>
+    </div>
+  </aside>
+
+  <!-- ===== BOTÓN FLOTANTE DE WHATSAPP ===== -->
+  <a href="https://wa.me/573002869632?text=Hola%2C%20estoy%20viendo%20el%20cat%C3%A1logo%20de%20Aromantrika%20y%20quiero%20asesor%C3%ADa"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="whatsapp-flotante"
+     aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 448 512" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
+
+  <!-- ===== VISOR DE IMAGEN (LIGHTBOX) ===== -->
+  <div class="visor-imagen" id="visorImagen" role="dialog" aria-modal="true" aria-label="Imagen ampliada del producto">
+    <button class="visor-cerrar" id="btnCerrarVisor" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
+    <img id="imagenAmpliada" src="" alt="Imagen ampliada del producto">
   </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      /* ==========================================================
+         ✏️ CONFIGURACIÓN: número de WhatsApp de la marca
+         (código de país + número, sin espacios)
+         ========================================================== */
+      const CONFIG = {
+        whatsapp: '573002869632'
+      };
+
+      /* ==========================================================
+         ✏️ PRODUCTOS: edita aquí textos, precios, imágenes o badges.
+         - "categoria": shampoo | tratamiento | tonico | kits (coincide con los filtros)
+         - "badge": etiqueta corta que sale sobre la foto (déjala vacía '' si no quieres)
+         ========================================================== */
+      const PRODUCTOS = [
+        {
+          id: 'shampoo-romero',
+          nombre: 'Shampoo Romero Fortalecedor Botánico',
+          categoria: 'shampoo',
+          badge: 'LÍNEA ROMERO',
+          precio: 33000,
+          presentacion: 'Frasco x 500 ml',
+          imagen: 'Romero-.jpg',
+          descripcion: 'Fórmula magistral diseñada para limpiar suavemente la fibra capilar, estimular la irrigación del cuero cabelludo y fortalecer la hebra desde la raíz, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.',
+          beneficios: '• Estimula el crecimiento de nuevos folículos capilares.\n• Fortalece la hebra capilar reduciendo la ruptura.\n• Regula la producción de grasa en el cuero cabelludo.',
+          modoUso: 'Aplicar únicamente sobre el cuero cabelludo húmedo (el largo se lava con la espuma que se genera, aplicar shampoo puede resecar y desperdiciar producto), masajear suavemente el cuero cabelludo de 3 a 5 minutos y enjuagar con abundante agua fría.',
+          extractos: 'Romero, Quina, Ortiga, Guasimo, Hoja de Laurel, Cola de caballo, Aloe Vera, Linaza, Guayabo, Clavo de Olor, Decyl glucoside, Betaina de coco, Glicerina, Cafeina.'
+        },
+        {
+          id: 'shampoo-manzanilla',
+          nombre: 'Shampoo Manzanilla Aclarante Natural',
+          categoria: 'shampoo',
+          badge: 'LÍNEA MANZANILLA',
+          precio: 33000,
+          presentacion: 'Frasco x 500 ml',
+          imagen: 'Manzanilla-.jpg',
+          descripcion: 'Limpia delicadamente mientras resalta y cuida los reflejos dorados naturales del cabello, aportando brillo, ayudando a detener la caída, eliminar la caspa y activar el crecimiento del cabello.',
+          beneficios: '• Realza los reflejos dorados de forma natural.\n• Ayuda a detener la caída, elimina la caspa y activa el crecimiento.\n• Cuida y nutre el cuero cabelludo.',
+          modoUso: 'Aplicar únicamente sobre el cuero cabelludo húmedo (el largo se lava con la espuma que se genera, aplicar shampoo puede resecar y desperdiciar producto), masajear suavemente el cuero cabelludo de 3 a 5 minutos y enjuagar con abundante agua fría.',
+          extractos: 'Extractos de Manzanilla, Ortiga, Guásimo, Hoja de laurel, Cola de cabello, Aloe vera, Linaza, Guayabo, Clavo de olor, Decyl glucoside, Betaina de coco, Glicerina, Cafeina.'
+        },
+        {
+          id: 'acondicionador-nutritivo',
+          nombre: 'Acondicionador Nutritivo Herbal',
+          categoria: 'tratamiento',
+          badge: 'NUTRICIÓN',
+          precio: 33000,
+          presentacion: 'Frasco x 500 ml',
+          imagen: 'Acondicionador-.jpg',
+          descripcion: 'Desenreda de manera natural, aporta una suavidad profunda y sella la cutícula para restaurar el brillo de la fibra capilar.',
+          beneficios: '• Desenreda sin esfuerzo y sin generar grasa.\n• Sella la cutícula y previene puntas abiertas.\n• Aporta hidratación.',
+          modoUso: 'Aplicar de medios a puntas siempre después del shampoo, con el cabello ligeramente húmedo, no chorreando agua, dejar actuar por 3 a 5 minutos y enjuagar con abundante agua fría.',
+          extractos: 'Manteca de karité, Leches de arroz y avena, Aceite de coco y argán, Aloe vera y Linaza.'
+        },
+        {
+          id: 'tratamiento-biorepolarizador',
+          nombre: 'Tratamiento Biorepolarizador Herbal',
+          categoria: 'tratamiento',
+          badge: 'REPARACIÓN PROFUNDA',
+          precio: 35000,
+          presentacion: 'Frasco x 500 ml',
+          imagen: 'Tratamiento-.jpg',
+          descripcion: 'Mascarilla de nutrición intensiva para reparar la fibra capilar maltratada, porosa o reseca, devolviéndole su vitalidad.',
+          beneficios: '• Repara la hebra capilar altamente maltratada.\n• Devuelve la elasticidad, hidratación y brillo.\n• Sella la porosidad del cabello.',
+          modoUso: 'Aplicar de medios a puntas sobre el cabello limpio y húmedo. Usar entre 1 a 2 veces por semana según el daño del cabello. Dejar actuar de 15 a 20 minutos y enjuagar. Orden de lavado del día que uses el Tratamiento: shampoo y enjuagar, tratamiento, dejar actuar y enjuagar y terminar con Acondicionador y enjuagar.',
+          extractos: 'Aceite de Argán y Aguacate, Pantenol, Aloe vera y Linaza.'
+        },
+        {
+          id: 'tonico-bioactivador',
+          nombre: 'Tónico Capilar Bioactivador anticaída y crecimiento',
+          categoria: 'tonico',
+          badge: 'ANTICAÍDA',
+          precio: 28000,
+          presentacion: 'Atomizador x 250 ml',
+          imagen: 'tonico-.jpg',
+          descripcion: 'Tónico concentrado sin enjuague para aplicar únicamente en el cuero cabelludo, ayuda a detener la caída, elimina la caspa y promueve el crecimiento del cabello.',
+          beneficios: '• Bioactiva la irrigación sanguínea del folículo.\n• Detiene la caída excesiva y combate la caspa.\n• Estimula un crecimiento fuerte y sano.',
+          modoUso: 'Aplicar todos los días (mañana o noche) únicamente en el cuero cabelludo limpio (seco o húmedo) dando suaves masajes circulares. No se enjuaga.',
+          extractos: 'Extractos herbales Romero, Guasimo, Canela, Ortiga, Manzanilla, Eucalipto, Calendula, Hoja de Laurel, guayabo, Quina, Cola de caballo, Clavo de olor.'
+        },
+        {
+          id: 'kit-anticaida',
+          nombre: 'Kit Rutina Capilar Completa de Romero',
+          categoria: 'kits',
+          badge: 'RUTINA COMPLETA',
+          precio: 90000,
+          presentacion: 'Kit (Shampoo 500ml + Acondicionador 500ml + Tónico 250ml)',
+          imagen: '4 romero-.jpg',
+          descripcion: 'El tratamiento combinado perfecto para realizar una rutina completa de limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.',
+          beneficios: '• Rutina integral 3 en 1 para potenciar resultados.\n• Limpieza, hidratación y bioactivación capilar combinadas.',
+          modoUso: 'Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo, y el tónico diariamente en el cuero cabelludo así ese día no laves tu cabello.',
+          extractos: 'Sistema botánico integral capilar.'
+        },
+        {
+          id: 'kit-manzanilla-completo',
+          nombre: 'Kit Rutina Capilar Completa de Manzanilla',
+          categoria: 'kits',
+          badge: 'RUTINA COMPLETA',
+          precio: 90000,
+          presentacion: 'Kit (Shampoo 500ml + Acondicionador 500ml + Tónico 250ml)',
+          imagen: 'combo 4 manzanilla-.jpg',
+          descripcion: 'El tratamiento combinado perfecto para realizar una rutina completa de limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.',
+          beneficios: '• Cuida y aclara manteniendo la salud capilar.\n• Sistema completo de hidratación y crecimiento.',
+          modoUso: 'Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo, y el tónico diariamente en el cuero cabelludo así ese día no laves tu cabello.',
+          extractos: 'Sistema botánico integral capilar.'
+        },
+        {
+          id: 'kit-romero-duo',
+          nombre: 'Kit crecimiento e hidratación de Romero',
+          categoria: 'kits',
+          badge: 'EMPIEZA TU RUTINA',
+          precio: 60000,
+          presentacion: 'Kit (Shampoo 500ml + Acondicionador 500ml)',
+          imagen: 'combo 3 romero-.jpg',
+          descripcion: 'El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.',
+          beneficios: '• Dúo ideal para limpieza diaria e hidratación.\n• Fortalece la raíz y suaviza las puntas.',
+          modoUso: 'Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo.',
+          extractos: 'Sistema botánico integral capilar.'
+        },
+        {
+          id: 'kit-manzanilla-duo',
+          nombre: 'Kit crecimiento e hidratación de Manzanilla',
+          categoria: 'kits',
+          badge: 'AEMPIEZA TU RUTINA',
+          precio: 60000,
+          presentacion: 'Kit (Shampoo 500ml + Acondicionador 500ml)',
+          imagen: 'combo 3 manzanilla-.jpg',
+          descripcion: 'El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.',
+          beneficios: '• Mantiene los reflejos dorados limpios y suaves.\n• Hidratación equilibrada para toda la familia.',
+          modoUso: 'Usar el shampoo en cada lavado, el acondicionador de medios a puntas después del shampoo.',
+          extractos: 'Sistema botánico integral capilar.'
+        },
+        {
+          id: 'kit-romero-reparacion',
+          nombre: 'Kit crecimiento, nutrición y Reparación de Romero',
+          categoria: 'kits',
+          badge: 'REPARACIÓN INTENSA',
+          precio: 62000,
+          presentacion: 'Kit (Shampoo 500ml + Biorepolarizador 500ml)',
+          imagen: 'combo 5 romero-.jpg',
+          descripcion: 'El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.',
+          beneficios: '• Estimulación de raíz combinada con reparación profunda de puntas.\n• Ideal para cabellos resecos y con caída.',
+          modoUso: 'Lavar con shampoo (2 -3 veces por semana) y usar el biorepolarizador como mascarilla nutritiva de 1 a 2 veces por semana. El Tratamiento no reemplaza el Acondicionador.',
+          extractos: 'Sistema botánico integral capilar.'
+        },
+        {
+          id: 'kit-manzanilla-reparacion',
+          nombre: 'Kit crecimiento, nutrición y Reparación de Manzanilla',
+          categoria: 'kits',
+          badge: 'NUTRICIÓN + BRILLO',
+          precio: 62000,
+          presentacion: 'Kit (Shampoo 500ml + Biorepolarizador 500ml)',
+          imagen: 'combo 5 manzanilla-.jpg',
+          descripcion: 'El tratamiento combinado perfecto enfocado en la limpieza, hidratación profunda y estimulación capilar para promover un crecimiento saludable del cabello, ayudar a disminuir la caída y eliminar la caspa.',
+          beneficios: '• Limpieza del cuero cabelludo, Nutrición intensiva para cabellos claros o rubios maltratados.',
+          modoUso: 'Lavar con shampoo (2 -3 veces por semana) y usar el biorepolarizador como mascarilla nutritiva de 1 a 2 veces por semana. El Tratamiento no reemplaza el Acondicionador.',
+          extractos: 'Sistema botánico integral capilar.'
+        }
+      ];
+      /* ==========================================================
+         ✏️ GATILLOS DE VENTA (nuevo bloque)
+         1) RUTINAS: productos que se sugieren juntos en el modal
+            ("Llévalo en rutina"). kit = el kit que contiene esa
+            misma combinación (se muestra solo si sale más barato).
+         2) KIT_SEPARADO: precio de cada kit comprado por separado
+            (ancla de valor que reemplaza el "ahorras $6.000").
+         ========================================================== */
+      const RUTINAS = {
+        'shampoo-romero':               { agrega: ['acondicionador-nutritivo', 'tonico-bioactivador'], kit: 'kit-anticaida' },
+        'shampoo-manzanilla':           { agrega: ['acondicionador-nutritivo', 'tonico-bioactivador'], kit: 'kit-manzanilla-completo' },
+        'acondicionador-nutritivo':     { agrega: ['shampoo-romero', 'tonico-bioactivador'], kit: 'kit-anticaida' },
+        'tratamiento-biorepolarizador': { agrega: ['shampoo-romero'], kit: 'kit-romero-reparacion' },
+        'tonico-bioactivador':          { agrega: ['shampoo-romero', 'acondicionador-nutritivo'], kit: 'kit-anticaida' }
+      };
+
+      const KIT_SEPARADO = {
+        'kit-anticaida': 94000,
+        'kit-manzanilla-completo': 94000,
+        'kit-romero-duo': 66000,
+        'kit-manzanilla-duo': 66000,
+        'kit-romero-reparacion': 68000,
+        'kit-manzanilla-reparacion': 68000
+      };
+      /* ---------- Utilidades ---------- */
+      const $ = (selector) => document.querySelector(selector);
+      const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+      const formatoCOP = (valor) => '$' + valor.toLocaleString('es-CO');
+
+      const escaparHTML = (texto = '') => String(texto).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      }[c]));
+
+      const abrirWhatsApp = (mensaje) =>
+        window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(mensaje), '_blank', 'noopener');
+
+      /* ---------- Gestión de capas (modal / carrito / visor) ---------- */
+      let focoPrevio = null;
+
+      function abrirCapa(elemento) {
+        focoPrevio = document.activeElement;
+        elemento.classList.add('abierto');
+        document.body.classList.add('sin-scroll');
+      }
+
+      function cerrarCapa(elemento) {
+        elemento.classList.remove('abierto');
+        document.body.classList.remove('sin-scroll');
+        if (focoPrevio && document.contains(focoPrevio)) focoPrevio.focus();
+        focoPrevio = null;
+      }
+
+      /* ==========================================================
+         CATÁLOGO: filtros + tarjetas
+         ========================================================== */
+      let filtroActual = 'todos';
+
+      /* ---------- Valor ml y ancla de valor ---------- */
+      function valorML(p) {
+        if (p.categoria === 'kits') return '';
+        const m = p.presentacion.match(/(\d+)\s*ml/i);
+        return m ? '$' + (p.precio / Number(m[1])).toLocaleString('es-CO', { maximumFractionDigits: 2 }) : '';
+      }
+
+      function tarjetaHTML(p) {
+        const nombre = escaparHTML(p.nombre);
+        const esKit = p.categoria === 'kits';
+        const separado = KIT_SEPARADO[p.id];
+        return `
+          <article class="tarjeta-producto">
+            ${p.badge ? `<span class="etiqueta-oferta">${escaparHTML(p.badge)}</span>` : ''}
+            <button class="tarjeta-producto__media" type="button" data-abrir-producto="${p.id}" aria-label="Ver detalle: ${nombre}">
+              <img src="${p.imagen}" alt="${nombre} de Aromantrika" loading="lazy" decoding="async">
+              <span class="pista-ver-detalle">Ver detalle</span>
+            </button>
+            <div class="tarjeta-producto__cuerpo">
+              <h3><button class="titulo-producto" type="button" data-abrir-producto="${p.id}">${nombre}</button></h3>
+              <span class="tarjeta-producto__presentacion">${escaparHTML(p.presentacion)}</span>
+              <p class="tarjeta-producto__desc">${escaparHTML(p.descripcion)}</p>
+              <div class="tarjeta-producto__pie">
+                <div class="precio-bloque">
+                  <span class="precio">${formatoCOP(p.precio)} COP</span>
+                  ${esKit
+                    ? (separado ? `<span class="precio-ancla"><s>${formatoCOP(separado)}</s> por separado</span>` : '')
+                    : (valorML(p) ? `<span class="valor-ml">Valor ml: ${valorML(p)}</span>` : '')}
+                </div>
+                <button class="btn-anadir" type="button" data-agregar="${p.id}" aria-label="Añadir ${nombre} al carrito">+ Añadir</button>
+              </div>
+            </div>
+          </article>`;
+      }
+
+      function renderCatalogo(filtro) {
+        filtroActual = filtro;
+        const lista = filtro === 'todos' ? PRODUCTOS : PRODUCTOS.filter((p) => p.categoria === filtro);
+        $('#contenedorProductos').innerHTML = lista.map(tarjetaHTML).join('');
+        $('#contadorResultados').textContent =
+          lista.length === 1 ? 'Mostrando 1 producto' : 'Mostrando ' + lista.length + ' productos';
+      }
+
+      function prepararFiltros() {
+        $$('.filtro-btn').forEach((btn) => {
+          const cat = btn.dataset.cat;
+          const n = cat === 'todos' ? PRODUCTOS.length : PRODUCTOS.filter((p) => p.categoria === cat).length;
+          btn.textContent = btn.dataset.label + ' (' + n + ')';
+          btn.addEventListener('click', () => {
+            $$('.filtro-btn').forEach((b) => b.classList.remove('activo'));
+            btn.classList.add('activo');
+            renderCatalogo(cat);
+          });
+        });
+      }
+
+      /* ==========================================================
+         MODAL DE PRODUCTO
+         ========================================================== */
+      let productoActual = null;
+
+            function abrirModalProducto(id) {
+        const p = PRODUCTOS.find((item) => item.id === id);
+        if (!p) return;
+        productoActual = id;
+
+        $('#modalTitulo').textContent = p.nombre;
+        $('#modalImagen').src = p.imagen;
+        $('#modalImagen').alt = p.nombre;
+        $('#modalPresentacion').textContent = p.presentacion;
+        $('#modalPrecio').textContent = formatoCOP(p.precio) + ' COP';
+
+        const ml = valorML(p);
+        const elMl = $('#modalValorMl');
+        elMl.hidden = !ml;
+        elMl.textContent = ml ? 'Valor ml: ' + ml : '';
+
+        $('#modalDescripcion').textContent = p.descripcion;
+        $('#modalBeneficios').textContent = p.beneficios;
+        $('#modalModoUso').textContent = p.modoUso;
+        $('#modalExtractos').textContent = p.extractos;
+
+        prepararRutinaModal(p);
+
+        abrirCapa($('#modalProducto'));
+        $('#modalCerrar').focus();
+      }
+
+      function cerrarModalProducto() { cerrarCapa($('#modalProducto')); }
+
+            /* ==========================================================
+         "LLÉVALO EN RUTINA" (solo productos individuales)
+         ========================================================== */
+      function prepararRutinaModal(p) {
+        const caja = $('#modalRutina');
+        const config = RUTINAS[p.id];
+        if (!config) { caja.hidden = true; caja.innerHTML = ''; return; }
+
+        const extras = config.agrega
+          .map((idExtra) => PRODUCTOS.find((x) => x.id === idExtra))
+          .filter(Boolean);
+
+        const filas = extras.map((extra) => `
+          <label class="modal-rutina__fila">
+            <input type="checkbox" checked data-rutina-id="${extra.id}">
+            <span>${escaparHTML(extra.nombre)}</span>
+            <strong>+ ${formatoCOP(extra.precio)} COP</strong>
+          </label>`).join('');
+
+        const totalRutina = p.precio + extras.reduce((suma, extra) => suma + extra.precio, 0);
+        const kit = config.kit ? PRODUCTOS.find((x) => x.id === config.kit) : null;
+        const consejoKit = (kit && kit.precio < totalRutina)
+          ? `<p class="modal-rutina__kit">💡 Tip: esta misma rutina existe como <button type="button" class="modal-rutina__kit-btn" data-abrir-producto="${kit.id}">${escaparHTML(kit.nombre)}</button> por ${formatoCOP(kit.precio)} COP — sale más conveniente 😉</p>`
+          : '';
+
+        caja.innerHTML = `
+          <h3>Llévalo en rutina 🧴</h3>
+          <p class="modal-rutina__nota">Marca lo que quieras junto a este producto: los que trabajan juntos dan mejores resultados.</p>
+          ${filas}
+          <div class="modal-rutina__total"><span>Total de tu rutina:</span> <strong id="rutinaTotal"></strong></div>
+          <button class="btn btn-primario modal-rutina__boton" type="button" data-agregar-rutina="${p.id}">Agregar mi rutina al carrito</button>
+          ${consejoKit}`;
+
+        caja.hidden = false;
+        actualizarTotalRutina(p.precio);
+      }
+
+      function actualizarTotalRutina(precioBase) {
+        let total = precioBase;
+        $$('#modalRutina input[type="checkbox"]:checked').forEach((cb) => {
+          const extra = PRODUCTOS.find((x) => x.id === cb.dataset.rutinaId);
+          if (extra) total += extra.precio;
+        });
+        const el = $('#rutinaTotal');
+        if (el) el.textContent = formatoCOP(total) + ' COP';
+      }
+
+      /* ==========================================================
+         CARRITO (mismo almacenamiento que el index: carrito compartido)
+         ========================================================== */
+      let carrito = [];
+      try {
+        carrito = JSON.parse(localStorage.getItem('aromantrika_carrito') || '[]');
+        if (!Array.isArray(carrito)) carrito = [];
+      } catch { carrito = []; }
+
+      const guardarCarrito = () => localStorage.setItem('aromantrika_carrito', JSON.stringify(carrito));
+
+      function agregarAlCarrito(id) {
+        const p = PRODUCTOS.find((item) => item.id === id);
+        if (!p) return;
+        const existente = carrito.find((item) => item.id === id);
+        if (existente) existente.cantidad += 1;
+        else carrito.push({ id: id, nombre: p.nombre, precio: p.precio, presentacion: p.presentacion, cantidad: 1 });
+        guardarCarrito();
+        actualizarCarrito();
+      }
+
+      function cambiarCantidad(indice, delta) {
+        carrito[indice].cantidad += delta;
+        if (carrito[indice].cantidad <= 0) carrito.splice(indice, 1);
+        guardarCarrito();
+        actualizarCarrito();
+      }
+
+      function actualizarCarrito() {
+        const contenedor = $('#carritoItems');
+        const contador = $('#contadorCarrito');
+        const subtotalEl = $('#carritoSubtotal');
+        const botonCarrito = $('#botonCarrito');
+        if (!contenedor) return;
+
+        let unidades = 0;
+        let total = 0;
+        contenedor.innerHTML = '';
+
+        if (carrito.length === 0) {
+          contenedor.innerHTML = '<p class="carrito-vacio">Tu carrito está vacío. Explora el catálogo y arma tu rutina 🌿</p>';
+        } else {
+          carrito.forEach((item, indice) => {
+            unidades += item.cantidad;
+            total += item.precio * item.cantidad;
+
+            const fila = document.createElement('div');
+            fila.className = 'carrito-item';
+            const nombreSeguro = escaparHTML(item.nombre);
+            fila.innerHTML = `
+              <div class="carrito-item__info">
+                <h4>${nombreSeguro}</h4>
+                <span>${escaparHTML(item.presentacion)}</span>
+                <strong>${formatoCOP(item.precio * item.cantidad)} COP</strong>
+              </div>
+              <div class="carrito-item__controles">
+                <button type="button" data-accion="restar" data-indice="${indice}" aria-label="Quitar una unidad de ${nombreSeguro}">−</button>
+                <span>${item.cantidad}</span>
+                <button type="button" data-accion="sumar" data-indice="${indice}" aria-label="Agregar una unidad de ${nombreSeguro}">+</button>
+              </div>`;
+            contenedor.appendChild(fila);
+          });
+        }
+
+        contador.textContent = unidades;
+        botonCarrito.setAttribute('aria-label', 'Abrir carrito, ' + unidades + (unidades === 1 ? ' producto' : ' productos'));
+        subtotalEl.textContent = formatoCOP(total) + ' COP';
+      }
+
+      function abrirCarrito() {
+        abrirCapa($('#carritoLateral'));
+        $('#carritoCortina').classList.add('visible');
+        $('#btnCerrarCarrito').focus();
+      }
+
+      function cerrarCarrito() {
+        cerrarCapa($('#carritoLateral'));
+        $('#carritoCortina').classList.remove('visible');
+      }
+
+      /* ---------- Checkout por WhatsApp ---------- */
+      function enviarPedidoWhatsApp() {
+        if (carrito.length === 0) {
+          alert('Tu carrito está vacío. Agrega productos para continuar.');
+          return;
+        }
+
+        const campos = [
+          { etiqueta: 'tu nombre', valor: $('#campoNombre').value.trim() },
+          { etiqueta: 'tu dirección completa', valor: $('#campoDireccion').value.trim() },
+          { etiqueta: 'tu ciudad o municipio', valor: $('#campoCiudad').value.trim() },
+          { etiqueta: 'tu barrio o sector', valor: $('#campoBarrio').value.trim() }
+        ];
+        const metodoPago = $('#campoPago').value;
+
+        const faltantes = campos.filter((c) => !c.valor);
+        if (faltantes.length) {
+          alert('Para coordinar la entrega, completa: ' + faltantes.map((f) => f.etiqueta).join(', ') + '.');
+          const ids = ['#campoNombre', '#campoDireccion', '#campoCiudad', '#campoBarrio'];
+          const indice = campos.findIndex((c) => !c.valor);
+          $(ids[indice]).focus();
+          return;
+        }
+
+        const ahora = new Date();
+        const dosCifras = (n) => String(n).padStart(2, '0');
+        const referencia = 'AR-' + ahora.getFullYear() + dosCifras(ahora.getMonth() + 1) + dosCifras(ahora.getDate())
+          + '-' + dosCifras(ahora.getHours()) + dosCifras(ahora.getMinutes());
+
+        let total = 0;
+        let mensaje = '¡Hola! Quiero hacer un pedido en Aromantrika:\n\n';
+        mensaje += '*Pedido de referencia:* ' + referencia + '\n\n';
+        carrito.forEach((item) => {
+          const parcial = item.precio * item.cantidad;
+          total += parcial;
+          mensaje += '• ' + item.cantidad + ' x ' + item.nombre + ' (' + item.presentacion + ') — ' + formatoCOP(parcial) + ' COP\n';
+        });
+        mensaje += '\n*Subtotal productos:* ' + formatoCOP(total) + ' COP';
+        mensaje += '\n\n*Datos de envío:*';
+        mensaje += '\nNombre: ' + campos[0].valor;
+        mensaje += '\nDirección: ' + campos[1].valor;
+        mensaje += '\nCiudad: ' + campos[2].valor;
+        mensaje += '\nBarrio/Sector: ' + campos[3].valor;
+        if (metodoPago) mensaje += '\nMétodo de pago preferido: ' + metodoPago;
+        mensaje += '\n\n¿Me confirman el costo y el tiempo de envío? ¡Gracias!';
+
+        abrirWhatsApp(mensaje);
+      }
+
+      /* ==========================================================
+         VISOR DE IMAGEN
+         ========================================================== */
+      function abrirVisor(src, alt) {
+        $('#imagenAmpliada').src = src;
+        $('#imagenAmpliada').alt = alt || 'Imagen ampliada del producto';
+        abrirCapa($('#visorImagen'));
+        $('#btnCerrarVisor').focus();
+      }
+
+      function cerrarVisor() { cerrarCapa($('#visorImagen')); }
+
+      /* ==========================================================
+         EVENTOS
+         ========================================================== */
+      document.addEventListener('click', (e) => {
+        const verProducto = e.target.closest('[data-abrir-producto]');
+        if (verProducto) { abrirModalProducto(verProducto.dataset.abrirProducto); return; }
+                const agregarRutina = e.target.closest('[data-agregar-rutina]');
+        if (agregarRutina) {
+          agregarAlCarrito(agregarRutina.dataset.agregarRutina);
+          $$('#modalRutina input[type="checkbox"]:checked').forEach((cb) => agregarAlCarrito(cb.dataset.rutinaId));
+          cerrarModalProducto();
+          abrirCarrito();
+          return;
+        }
+
+        const agregar = e.target.closest('[data-agregar]');
+        if (agregar) { agregarAlCarrito(agregar.dataset.agregar); abrirCarrito(); return; }
+
+        const accion = e.target.closest('[data-accion]');
+        if (accion) {
+          const indice = Number(accion.dataset.indice);
+          if (accion.dataset.accion === 'sumar') cambiarCantidad(indice, 1);
+          if (accion.dataset.accion === 'restar') cambiarCantidad(indice, -1);
+        }
+      });
+      document.addEventListener('change', (e) => {
+        if (!e.target.closest('#modalRutina')) return;
+        const p = PRODUCTOS.find((x) => x.id === productoActual);
+        if (p) actualizarTotalRutina(p.precio);
+      });
+      $('#botonCarrito').addEventListener('click', () => {
+        $('#carritoLateral').classList.contains('abierto') ? cerrarCarrito() : abrirCarrito();
+      });
+      $('#btnCerrarCarrito').addEventListener('click', cerrarCarrito);
+      $('#carritoCortina').addEventListener('click', cerrarCarrito);
+      $('#btnEnviarPedido').addEventListener('click', enviarPedidoWhatsApp);
+
+      $('#modalCerrar').addEventListener('click', cerrarModalProducto);
+      $('#modalAgregar').addEventListener('click', () => {
+        if (productoActual) {
+          agregarAlCarrito(productoActual);
+          cerrarModalProducto();
+          abrirCarrito();
+        }
+      });
+      $('#modalFoto').addEventListener('click', () => {
+        const imagen = $('#modalImagen');
+        abrirVisor(imagen.src, imagen.alt);
+      });
+      $('#modalProducto').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) cerrarModalProducto();
+      });
+
+      $('#btnCerrarVisor').addEventListener('click', cerrarVisor);
+      $('#visorImagen').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) cerrarVisor();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        if ($('#visorImagen').classList.contains('abierto')) cerrarVisor();
+        else if ($('#modalProducto').classList.contains('abierto')) cerrarModalProducto();
+        else if ($('#carritoLateral').classList.contains('abierto')) cerrarCarrito();
+      });
+
+      /* ---------- Inicio ---------- */
+      prepararFiltros();
+      renderCatalogo('todos');
+      actualizarCarrito();
+    })();
+  </script>
 </body>
 </html>
