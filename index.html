@@ -1213,14 +1213,13 @@
       .grid-reseñas { grid-template-columns: 1fr; }
       .campo-doble { grid-template-columns: 1fr; }
       .seccion { padding: 44px 16px; }
-            /* ---------- Carrito en móvil: todo el panel fluye con un solo scroll,
-         cabecera arriba fija y subtotal + botón de WhatsApp siempre visibles ---------- */
+
+               /* ============================================================
+       CARRITO EN MÓVIL: un solo scroll, cabecera y pie fijos
+       ============================================================ */
+    @media (max-width: 680px) {
       .carrito-lateral { display: block; overflow-y: auto; }
-      .carrito-cabecera {
-        position: sticky;
-        top: 0;
-        z-index: 2;
-      }
+      .carrito-cabecera { position: sticky; top: 0; z-index: 2; }
       .carrito-datos { padding: 12px 20px 2px; }
       .carrito-datos .campo label { margin-bottom: 3px; }
       .carrito-datos .campo input[type="text"],
