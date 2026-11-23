@@ -1,0 +1,23 @@
+# Configuración de Staticman para Aromantrika
+commit: true
+branch: "main"
+filename: "comment-{timestamp}"
+path: "_data/comments/{options.slug}"
+format: "json"
+fields:
+  name:
+    type: string
+    required: true
+  rating:
+    type: number
+    required: true
+  message:
+    type: string
+    required: true
+  product:
+    type: string
+    required: true
+required: ["name", "rating", "message", "product"]
+transforms:
+  email: "md5"
+moderation: false
