@@ -945,6 +945,33 @@
             .modal-compra { flex-wrap: wrap; }
       .modal-compra__datos { flex: 1 1 100%; margin-bottom: 12px; }
       .modal-compra .btn-primario { width: 100%; }
+
+      /* ---------- Carrito en móvil: todo el panel fluye con un solo scroll,
+         cabecera arriba fija y subtotal + botón de WhatsApp siempre visibles ---------- */
+      .carrito-lateral { display: block; overflow-y: auto; }
+      .carrito-cabecera {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+      .carrito-datos { padding: 12px 20px 2px; }
+      .campo label { margin-bottom: 3px; }
+      .campo input[type="text"],
+      .campo textarea,
+      .campo select {
+        margin-bottom: 9px;
+        padding: 9px 12px;
+        font-size: 14px;
+      }
+      .carrito-nota-envio { margin-bottom: 0; }
+      .carrito-items { overflow: visible; flex-grow: 0; padding: 12px 20px 6px; }
+      .carrito-pie {
+        position: sticky;
+        bottom: 0;
+        z-index: 2;
+        padding: 14px 20px 16px;
+        box-shadow: 0 -6px 14px rgba(0, 0, 0, .07);
+      }
     }
 
     /* Respeto a quienes prefieren menos movimiento */
