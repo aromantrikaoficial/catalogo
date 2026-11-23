@@ -1213,6 +1213,32 @@
       .grid-reseñas { grid-template-columns: 1fr; }
       .campo-doble { grid-template-columns: 1fr; }
       .seccion { padding: 44px 16px; }
+            /* ---------- Carrito en móvil: todo el panel fluye con un solo scroll,
+         cabecera arriba fija y subtotal + botón de WhatsApp siempre visibles ---------- */
+      .carrito-lateral { display: block; overflow-y: auto; }
+      .carrito-cabecera {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+      .carrito-datos { padding: 12px 20px 2px; }
+      .carrito-datos .campo label { margin-bottom: 3px; }
+      .carrito-datos .campo input[type="text"],
+      .carrito-datos .campo textarea,
+      .carrito-datos .campo select {
+        margin-bottom: 9px;
+        padding: 9px 12px;
+        font-size: 14px;
+      }
+      .carrito-nota-envio { margin-bottom: 0; }
+      .carrito-items { overflow: visible; flex-grow: 0; padding: 12px 20px 6px; }
+      .carrito-pie {
+        position: sticky;
+        bottom: 0;
+        z-index: 2;
+        padding: 14px 20px 16px;
+        box-shadow: 0 -6px 14px rgba(0, 0, 0, .07);
+      }
     }
 
     /* Respeto a quienes prefieren menos movimiento */
